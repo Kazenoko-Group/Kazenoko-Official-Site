@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ニュース | カゼノコ | KAZENOKO Official</title>
+    <link rel="icon" href="../images/kazenoko_logo.jpg" type="image/jpeg">
+    <meta name="description" content="カゼノコの最新ニュース、プレスリリース、お知らせ。">
+    
+    <!-- External Dependencies -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 glass-nav transition-all duration-500 ease-in-out" id="navbar">
+        <div class="max-w-[90rem] mx-auto px-8 h-20 flex items-center justify-between">
+            <a href="../index.html" class="font-black text-2xl tracking-tighter flex items-center gap-3 group relative z-10">
+                <div class="relative">
+                    <div class="absolute inset-0 bg-blue-500 blur-lg opacity-0 group-hover:opacity-20 transition-opacity duration-500 rounded-full"></div>
+                    <img src="../images/kazenoko_logo.jpg" alt="KAZENOKO" class="relative h-9 w-auto transition-transform duration-500 group-hover:rotate-12 group-hover:scale-110">
+                </div>
+                <span class="text-gray-900">KAZENOKO</span>
+            </a>
+            
+            <div class="hidden md:flex items-center gap-10">
+                <div class="flex items-center gap-8 text-sm font-bold text-gray-500">
+                    <a href="../index.html#concept" class="relative hover:text-black transition-colors duration-300 py-2 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-black after:transition-all after:duration-300 hover:after:w-full">コンセプト</a>
+                    <a href="../index.html#scale" class="relative hover:text-black transition-colors duration-300 py-2 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-black after:transition-all after:duration-300 hover:after:w-full">規模と構想</a>
+                    <a href="../index.html#vision" class="relative hover:text-black transition-colors duration-300 py-2 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-black after:transition-all after:duration-300 hover:after:w-full">ビジョン</a>
+                    <a href="../products/index.html" class="relative hover:text-black transition-colors duration-300 py-2 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-black after:transition-all after:duration-300 hover:after:w-full">プロダクト</a>
+                    <a href="#" class="relative text-black transition-colors duration-300 py-2 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-black">ニュース</a>
+                </div>
+                <a href="../join.html" class="px-6 py-2.5 bg-black text-white rounded-full text-sm font-bold hover:bg-gray-800 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-black/20 active:scale-95">
+                    参加する
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="pt-40 pb-24 px-6 news-header-bg text-white">
+        <div class="max-w-7xl mx-auto relative z-10">
+            <p class="text-blue-400 font-bold tracking-wider uppercase mb-4 text-sm reveal">Updates</p>
+            <h1 class="text-5xl md:text-7xl font-black tracking-tight mb-6 reveal delay-100">
+                News & Topics
+            </h1>
+            <p class="text-gray-400 text-lg md:text-xl max-w-2xl font-light reveal delay-200">
+                カゼノコからの最新のお知らせ。<br>
+                プロジェクトの進捗、新メンバーの加入、イベント情報などをお届けします。
+            </p>
+        </div>
+    </header>
+
+    <!-- News List -->
+    <section class="py-24 px-6 bg-[#f5f5f7] min-h-[60vh]">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- News Item -->
+                <article class="news-card group reveal delay-300">
+                    <a href="20251225_site_open.html" class="flex flex-col h-full">
+                        <div class="mb-6 flex items-center justify-between">
+                            <span class="news-date text-sm text-gray-500">2025.12.25</span>
+                            <span class="px-3 py-1 bg-blue-50 text-blue-600 text-[10px] font-bold tracking-wide uppercase rounded-full">Press Release</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 leading-snug group-hover:text-blue-600 transition-colors mb-4">
+                            公式サイトをリニューアルオープンしました
+                        </h3>
+                        <p class="text-gray-500 text-sm line-clamp-3 mb-6 flex-grow">
+                            次世代エンターテインメントグループ「カゼノコ」の公式サイトを全面リニューアル。私たちのビジョンと構想をより明確にお伝えします。CEO 42（さとう）からのメッセージも公開。
+                        </p>
+                        <div class="flex items-center text-blue-600 font-medium text-sm group-hover:translate-x-1 transition-transform">
+                            Read More <i data-lucide="arrow-right" class="w-4 h-4 ml-1"></i>
+                        </div>
+                    </a>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-[#f5f5f7] py-12 px-6 border-t border-gray-200">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="text-xs text-gray-500">
+                Copyright © 2025 Kazenoko. All rights reserved.
+            </div>
+            <div class="flex space-x-6">
+                <a href="#" class="text-gray-400 hover:text-gray-900 transition-colors"><i data-lucide="twitter" class="w-5 h-5"></i></a>
+                <a href="#" class="text-gray-400 hover:text-gray-900 transition-colors"><i data-lucide="youtube" class="w-5 h-5"></i></a>
+                <a href="#" class="text-gray-400 hover:text-gray-900 transition-colors"><i data-lucide="instagram" class="w-5 h-5"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Custom Scripts -->
+    <script src="../js/main.js"></script>
+</body>
+</html>

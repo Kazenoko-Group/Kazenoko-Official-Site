@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moor - シンプルさを追求したAIチャットツール | プロダクト | カゼノコ</title>
+    <link rel="icon" href="../images/kazenoko_logo.jpg" type="image/jpeg">
+    <meta name="description" content="Moor 1.0 は、ブラウザ上で動作するチャットUIを中心に、モデル切り替え、履歴管理、Web検索支援等を備えたAIアシスタントです。">
+    
+    <!-- External Dependencies -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 glass-nav transition-all duration-500 ease-in-out" id="navbar">
+        <div class="max-w-[90rem] mx-auto px-8 h-20 flex items-center justify-between">
+            <a href="../index.html" class="font-black text-2xl tracking-tighter flex items-center gap-3 group relative z-10">
+                <div class="relative">
+                    <div class="absolute inset-0 bg-blue-500 blur-lg opacity-0 group-hover:opacity-20 transition-opacity duration-500 rounded-full"></div>
+                    <img src="../images/kazenoko_logo.jpg" alt="KAZENOKO" class="relative h-9 w-auto transition-transform duration-500 group-hover:rotate-12 group-hover:scale-110">
+                </div>
+                <span class="text-gray-900">KAZENOKO</span>
+            </a>
+            
+            <div class="hidden md:flex items-center gap-10">
+                <div class="flex items-center gap-8 text-sm font-bold text-gray-500">
+                    <a href="../index.html#concept" class="relative hover:text-black transition-colors duration-300 py-2 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-black after:transition-all after:duration-300 hover:after:w-full">コンセプト</a>
+                    <a href="../index.html#scale" class="relative hover:text-black transition-colors duration-300 py-2 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-black after:transition-all after:duration-300 hover:after:w-full">規模と構想</a>
+                    <a href="../index.html#vision" class="relative hover:text-black transition-colors duration-300 py-2 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-black after:transition-all after:duration-300 hover:after:w-full">ビジョン</a>
+                    <a href="index.html" class="relative text-black transition-colors duration-300 py-2 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-black">プロダクト</a>
+                    <a href="../news/index.html" class="relative hover:text-black transition-colors duration-300 py-2 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-black after:transition-all after:duration-300 hover:after:w-full">ニュース</a>
+                </div>
+                <a href="../join.html" class="px-6 py-2.5 bg-black text-white rounded-full text-sm font-bold hover:bg-gray-800 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-black/20 active:scale-95">
+                    参加する
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Product Header -->
+    <header class="pt-40 pb-24 px-6 bg-black text-white relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
+        
+        <div class="max-w-4xl mx-auto relative z-10 text-center">
+            <div class="flex items-center justify-center gap-4 text-sm mb-8 reveal">
+                <span class="px-3 py-1 bg-blue-500/20 border border-blue-500/30 text-blue-300 text-[10px] font-bold tracking-wide uppercase rounded-full">AI Chat Tool</span>
+                <span class="text-gray-400 font-mono">v1.0</span>
+            </div>
+            <h1 class="text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter mb-8 reveal delay-100">
+                Moor
+            </h1>
+            <p class="text-xl md:text-2xl text-gray-300 font-light max-w-2xl mx-auto leading-relaxed reveal delay-200 mb-12">
+                シンプルさを追求した、<br>
+                新しいAIチャット体験。
+            </p>
+            <div class="reveal delay-300 relative rounded-xl overflow-hidden shadow-2xl border border-gray-800">
+                <img src="../images/products/Moor/moor_home.png" alt="Moor Screen" class="w-full h-auto">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none"></div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Product Content -->
+    <article class="py-24 px-6 bg-white">
+        <div class="max-w-4xl mx-auto">
+            
+            <!-- Overview -->
+            <div class="prose prose-lg prose-slate mx-auto mb-20 reveal delay-300">
+                <p class="lead text-xl font-medium text-gray-900 leading-relaxed">
+                    Moor 1.0 は、ブラウザ上で動作するチャットUIを中心に、モデル切り替え、履歴管理、Web検索支援、Study Mode（学習支援）等を備えたAIアシスタントです。
+                </p>
+                <p>
+                    軽快で直感的、そして安全なUI/UXを目指し、日常のパートナーとして寄り添うツールとして設計されています。
+                </p>
+            </div>
+
+            <!-- Features Grid -->
+            <div class="grid md:grid-cols-2 gap-12 mb-24">
+                <div class="space-y-8 reveal">
+                    <h2 class="text-2xl font-bold text-gray-900 border-b border-gray-200 pb-4">Standard Features</h2>
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-4">
+                            <div class="w-8 h-8 rounded-full bg-blue-50 flex items-center justify-center flex-shrink-0 mt-1">
+                                <i data-lucide="check" class="w-4 h-4 text-blue-600"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-gray-900">軽快・直感的・安全なUI/UX</h3>
+                                <p class="text-sm text-gray-500 mt-1">ストレスのない操作性と、安心して使える環境を提供します。</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <div class="w-8 h-8 rounded-full bg-blue-50 flex items-center justify-center flex-shrink-0 mt-1">
+                                <i data-lucide="cpu" class="w-4 h-4 text-blue-600"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-gray-900">モデル選択と各種ツール</h3>
+                                <p class="text-sm text-gray-500 mt-1">Web検索、Study Mode、Absolute Thinkingなど、目的に応じてモデルやツールを使い分けられます。</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <div class="w-8 h-8 rounded-full bg-blue-50 flex items-center justify-center flex-shrink-0 mt-1">
+                                <i data-lucide="history" class="w-4 h-4 text-blue-600"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-gray-900">基本機能の充実</h3>
+                                <p class="text-sm text-gray-500 mt-1">履歴管理、設定、画像添付とプレビューなど、必要な機能を標準搭載。</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <div class="w-8 h-8 rounded-full bg-blue-50 flex items-center justify-center flex-shrink-0 mt-1">
+                                <i data-lucide="shield-check" class="w-4 h-4 text-blue-600"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-gray-900">公正使用制限とプラン</h3>
+                                <p class="text-sm text-gray-500 mt-1">Fair Use（公正使用制限）と簡易プラン（Free / Invitation Pro）による持続可能な運用。</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="bg-gray-50 rounded-3xl p-8 flex flex-col justify-center reveal delay-100">
+                    <h3 class="text-xl font-bold text-gray-900 mb-6">Coming Soon</h3>
+                    <div class="space-y-6">
+                        <div class="flex items-center gap-4 opacity-100">
+                            <div class="w-10 h-10 rounded-full bg-black text-white flex items-center justify-center shadow-lg">
+                                <i data-lucide="smartphone" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs font-bold text-blue-600 uppercase tracking-wider">Plan</p>
+                                <p class="font-bold text-gray-900">Android アプリ</p>
+                                <p class="text-xs text-gray-500 mt-1">ネイティブ体験による快適な利用環境を提供予定。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Vision / Goal -->
+            <div class="bg-blue-50 rounded-3xl p-10 md:p-16 text-center reveal">
+                <h2 class="text-3xl font-bold text-gray-900 mb-6">Our Vision</h2>
+                <p class="text-gray-600 text-lg leading-relaxed max-w-2xl mx-auto mb-8">
+                    私たちはMoorを通じて、将来的な「Agent Mode」への拡張を見据えた土台を築きます。<br>
+                    自律的にタスクを遂行するAIパートナーへの進化を目指し、まずはその第一歩として、最高のチャット体験をお届けします。
+                </p>
+            </div>
+
+            <!-- Back Link -->
+            <div class="mt-16 pt-16 border-t border-gray-100 text-center reveal">
+                <a href="index.html" class="inline-flex items-center px-6 py-3 bg-gray-900 text-white rounded-full font-bold hover:bg-blue-600 transition-all hover:scale-105">
+                    <i data-lucide="arrow-left" class="w-4 h-4 mr-2"></i>
+                    プロダクト一覧に戻る
+                </a>
+            </div>
+        </div>
+    </article>
+
+    <!-- Footer -->
+    <footer class="bg-[#f5f5f7] py-12 px-6 border-t border-gray-200">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="text-xs text-gray-500">
+                Copyright © 2025 Kazenoko. All rights reserved.
+            </div>
+            <div class="flex space-x-6">
+                <a href="#" class="text-gray-400 hover:text-gray-900 transition-colors"><i data-lucide="twitter" class="w-5 h-5"></i></a>
+                <a href="#" class="text-gray-400 hover:text-gray-900 transition-colors"><i data-lucide="youtube" class="w-5 h-5"></i></a>
+                <a href="#" class="text-gray-400 hover:text-gray-900 transition-colors"><i data-lucide="instagram" class="w-5 h-5"></i></a>
+            </div>
+        </div>人とAIの新しい関係性
+    </footer>シンプルで強力なとてあなた知的生産活動をサポート
+
+    <!-- Custom Scripts -->
+    <script src="../js/main.js"></script>
+</body>
+</html>

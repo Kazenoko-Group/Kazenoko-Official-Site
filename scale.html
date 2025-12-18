@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>規模と構想 - Scale & Plan | カゼノコ</title>
+    <link rel="icon" href="images/kazenoko_logo.jpg" type="image/jpeg">
+    <meta name="description" content="圧倒的な規模感。常に何かが回っている状態へ。目標メンバー数200人超、12の専門チャンネル。">
+    
+    <!-- External Dependencies -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .huge-number {
+            font-size: 8rem;
+            line-height: 1;
+            letter-spacing: -0.05em;
+            font-weight: 900;
+        }
+        @media (max-width: 768px) {
+            .huge-number { font-size: 5rem; }
+        }
+    </style>
+</head>
+<body class="bg-white">
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 glass-nav transition-all duration-500 ease-in-out" id="navbar">
+        <div class="max-w-[90rem] mx-auto px-8 h-20 flex items-center justify-between">
+            <a href="index.html" class="font-black text-2xl tracking-tighter flex items-center gap-3 group relative z-10">
+                <div class="relative">
+                    <div class="absolute inset-0 bg-blue-500 blur-lg opacity-0 group-hover:opacity-20 transition-opacity duration-500 rounded-full"></div>
+                    <img src="images/kazenoko_logo.jpg" alt="KAZENOKO" class="relative h-9 w-auto transition-transform duration-500 group-hover:rotate-12 group-hover:scale-110">
+                </div>
+                <span class="text-gray-900">KAZENOKO</span>
+            </a>
+            
+            <div class="hidden md:flex items-center gap-10">
+                <div class="flex items-center gap-8 text-sm font-bold text-gray-500">
+                    <a href="index.html#concept" class="relative hover:text-black transition-colors duration-300 py-2 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-black after:transition-all after:duration-300 hover:after:w-full">コンセプト</a>
+                    <a href="index.html#scale" class="relative text-black transition-colors duration-300 py-2 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-black">規模と構想</a>
+                    <a href="index.html#vision" class="relative hover:text-black transition-colors duration-300 py-2 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-black after:transition-all after:duration-300 hover:after:w-full">ビジョン</a>
+                    <a href="products/index.html" class="relative hover:text-black transition-colors duration-300 py-2 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-black after:transition-all after:duration-300 hover:after:w-full">プロダクト</a>
+                    <a href="news/index.html" class="relative hover:text-black transition-colors duration-300 py-2 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-black after:transition-all after:duration-300 hover:after:w-full">ニュース</a>
+                </div>
+                <a href="join.html" class="px-6 py-2.5 bg-black text-white rounded-full text-sm font-bold hover:bg-gray-800 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-black/20 active:scale-95">
+                    参加する
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="pt-40 pb-20 px-6">
+        <div class="max-w-5xl mx-auto space-y-8">
+            <p class="reveal text-blue-600 font-bold tracking-[0.2em] uppercase text-sm">SCALE & PLAN</p>
+            <h1 class="char-reveal text-6xl md:text-8xl font-black text-gray-900 leading-[0.9] tracking-tighter">
+                圧倒的な<br>規模感。
+            </h1>
+            <p class="reveal delay-100 text-xl md:text-2xl text-gray-500 font-medium max-w-2xl pt-4">
+                小規模なグループでは終わらない。<br>
+                エンタメのエコシステムを構築する。
+            </p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="py-20 px-6 bg-[#f5f5f7]">
+        <div class="max-w-6xl mx-auto space-y-6">
+            
+            <!-- Bento Grid Row 1 -->
+            <div class="grid md:grid-cols-2 gap-6">
+                <!-- Scale Section -->
+                <section class="reveal bg-white rounded-[2.5rem] p-12 shadow-sm hover:shadow-2xl transition-all duration-500 relative overflow-hidden group">
+                    <div class="relative z-10">
+                        <div class="flex items-center gap-4 mb-8">
+                            <span class="p-3 bg-blue-100 rounded-2xl">
+                                <i data-lucide="users-round" class="w-8 h-8 text-blue-600"></i>
+                            </span>
+                            <span class="text-sm font-bold text-gray-500 uppercase tracking-wider">Target Members</span>
+                        </div>
+                        <div class="huge-number text-gray-900 mb-6 group-hover:scale-105 transition-transform duration-500 origin-left">200<span class="text-4xl text-gray-400 font-bold ml-2">+</span></div>
+                        <h2 class="text-2xl font-bold text-gray-900 mb-4">眠らないコミュニティ</h2>
+                        <p class="text-gray-600 leading-relaxed font-medium">
+                            5人や10人の仲良しグループではありません。目指すのは、200人規模の巨大なクリエイター集団。
+                            深夜でも早朝でも、誰かが活動し、常にコンテンツが生まれる場所へ。
+                        </p>
+                    </div>
+                    <div class="absolute -right-20 -bottom-20 w-80 h-80 bg-blue-50 rounded-full blur-3xl opacity-50 group-hover:opacity-100 transition-opacity duration-500"></div>
+                </section>
+
+                <!-- Channels Section -->
+                <section class="reveal delay-100 bg-[#111] text-white rounded-[2.5rem] p-12 shadow-sm hover:shadow-2xl transition-all duration-500 relative overflow-hidden group">
+                    <div class="relative z-10">
+                         <div class="flex items-center gap-4 mb-8">
+                            <span class="p-3 bg-gray-800 rounded-2xl">
+                                <i data-lucide="grid-2x2" class="w-8 h-8 text-purple-400"></i>
+                            </span>
+                            <span class="text-sm font-bold text-gray-400 uppercase tracking-wider">Specialized Areas</span>
+                        </div>
+                        <div class="huge-number text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-500 mb-6 group-hover:scale-105 transition-transform duration-500 origin-left">12</div>
+                        <h2 class="text-2xl font-bold mb-4">飽きさせない専門領域</h2>
+                        <p class="text-gray-400 leading-relaxed">
+                            ゲーム実況、雑談、歌、ラジオ、TRPG、制作...。<br>
+                            12の異なるチャンネルで、メンバーは輝き、視聴者は常に新しい楽しみを発見できる。
+                        </p>
+                    </div>
+                    <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] opacity-20"></div>
+                </section>
+            </div>
+
+            <!-- Bento Grid Row 2 -->
+            <div class="grid md:grid-cols-3 gap-6">
+                <!-- Format Section -->
+                <section class="reveal delay-200 md:col-span-2 bg-white rounded-[2.5rem] p-12 shadow-sm hover:shadow-2xl transition-all duration-500 flex flex-col justify-center">
+                    <div class="flex flex-col md:flex-row items-center gap-12">
+                        <div class="space-y-6 flex-1">
+                            <h2 class="text-3xl font-bold text-gray-900">黄金比のフォーマット</h2>
+                            <p class="text-gray-600 leading-relaxed font-medium">
+                                多くの配信で検証された、最も盛り上がる黄金比。<br>
+                                <span class="text-blue-600 font-bold text-lg">主催2名 × ゲスト4名</span>。<br>
+                                司会進行が安定しつつ、ゲストの個性が爆発する。カオスでありながら、番組として成立する絶妙なバランス。
+                            </p>
+                        </div>
+                        <div class="flex-1 w-full">
+                            <div class="bg-gray-50 rounded-3xl p-8 flex justify-center items-center gap-6">
+                                <div class="flex flex-col items-center gap-3">
+                                    <div class="w-20 h-20 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold text-3xl shadow-lg shadow-blue-200">主</div>
+                                    <span class="text-xs font-bold text-gray-500 uppercase tracking-wider">2 Hosts</span>
+                                </div>
+                                <i data-lucide="x" class="w-8 h-8 text-gray-300"></i>
+                                <div class="flex flex-col items-center gap-3">
+                                    <div class="w-20 h-20 rounded-full bg-gray-900 text-white flex items-center justify-center font-bold text-3xl shadow-lg shadow-gray-300">客</div>
+                                    <span class="text-xs font-bold text-gray-500 uppercase tracking-wider">4 Guests</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Quality Section -->
+                <section class="reveal delay-300 bg-gradient-to-br from-blue-600 to-blue-800 text-white rounded-[2.5rem] p-10 shadow-lg hover:shadow-2xl transition-all duration-500 flex flex-col justify-between">
+                    <div>
+                        <i data-lucide="monitor-play" class="w-10 h-10 text-white/80 mb-6"></i>
+                        <h2 class="text-2xl font-bold mb-4">クオリティへの執着</h2>
+                        <p class="text-blue-100 text-sm leading-relaxed mb-6">
+                            4Kモニター、高音質マイク、洗練された編集。<br>
+                            「遊び」にもプロの品質を。
+                        </p>
+                    </div>
+                    <div class="flex gap-2">
+                        <span class="px-3 py-1 bg-white/20 backdrop-blur-sm rounded-lg text-xs font-bold border border-white/30">4K Ready</span>
+                        <span class="px-3 py-1 bg-white/20 backdrop-blur-sm rounded-lg text-xs font-bold border border-white/30">Hi-Res</span>
+                    </div>
+                </section>
+            </div>
+
+            <div class="pt-20 text-center reveal delay-500">
+                <a href="index.html#join" class="inline-flex items-center gap-3 bg-black text-white px-10 py-5 rounded-full font-bold text-lg hover:bg-gray-800 transition-all hover:scale-105 shadow-xl shadow-gray-200">
+                    プロジェクトに参加する
+                    <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                </a>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white py-12 px-6 border-t border-gray-100 mt-12">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="text-xs text-gray-400 font-medium">
+                Copyright © 2025 Kazenoko. All rights reserved.
+            </div>
+            <div class="flex space-x-6">
+                <a href="#" class="text-gray-400 hover:text-black transition-colors transform hover:scale-110"><i data-lucide="twitter" class="w-5 h-5"></i></a>
+                <a href="#" class="text-gray-400 hover:text-black transition-colors transform hover:scale-110"><i data-lucide="youtube" class="w-5 h-5"></i></a>
+                <a href="#" class="text-gray-400 hover:text-black transition-colors transform hover:scale-110"><i data-lucide="instagram" class="w-5 h-5"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>

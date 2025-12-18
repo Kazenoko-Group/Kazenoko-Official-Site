@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ビジョン - Vision | カゼノコ</title>
+    <link rel="icon" href="images/kazenoko_logo.jpg" type="image/jpeg">
+    <meta name="description" content="From Community to Brand. 面白いコミュニティを作り、その先に待つ未来。">
+    
+    <!-- External Dependencies -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .glow-text {
+            text-shadow: 0 0 40px rgba(59, 130, 246, 0.5);
+        }
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(100px);
+            opacity: 0.3;
+            z-index: 0;
+            animation: pulse 8s infinite alternate;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 0.3; }
+            100% { transform: scale(1.2); opacity: 0.5; }
+        }
+    </style>
+</head>
+<body class="bg-[#050507] text-white overflow-x-hidden selection:bg-blue-500 selection:text-white">
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 glass-nav-dark transition-all duration-500 ease-in-out" id="navbar">
+        <div class="max-w-[90rem] mx-auto px-8 h-20 flex items-center justify-between">
+            <a href="index.html" class="font-black text-2xl tracking-tighter flex items-center gap-3 group relative z-10">
+                <div class="relative">
+                    <div class="absolute inset-0 bg-blue-500 blur-lg opacity-0 group-hover:opacity-20 transition-opacity duration-500 rounded-full"></div>
+                    <img src="images/kazenoko_logo.jpg" alt="KAZENOKO" class="relative h-9 w-auto rounded-sm transition-transform duration-500 group-hover:rotate-12 group-hover:scale-110">
+                </div>
+                <span class="text-white">KAZENOKO</span>
+            </a>
+            
+            <div class="hidden md:flex items-center gap-10">
+                <div class="flex items-center gap-8 text-sm font-bold text-gray-300">
+                    <a href="index.html#concept" class="relative hover:text-white transition-colors duration-300 py-2 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-white after:transition-all after:duration-300 hover:after:w-full">コンセプト</a>
+                    <a href="index.html#scale" class="relative hover:text-white transition-colors duration-300 py-2 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-white after:transition-all after:duration-300 hover:after:w-full">規模と構想</a>
+                    <a href="index.html#vision" class="relative text-white transition-colors duration-300 py-2 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-white">ビジョン</a>
+                    <a href="products/index.html" class="relative hover:text-white transition-colors duration-300 py-2 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-white after:transition-all after:duration-300 hover:after:w-full">プロダクト</a>
+                    <a href="news/index.html" class="relative hover:text-white transition-colors duration-300 py-2 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-white after:transition-all after:duration-300 hover:after:w-full">ニュース</a>
+                </div>
+                <a href="join.html" class="px-6 py-2.5 bg-black text-white rounded-full text-sm font-bold hover:bg-gray-800 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-black/20 active:scale-95">
+                    参加する
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="relative pt-48 pb-40 px-6 overflow-hidden">
+        <div class="orb w-[500px] h-[500px] bg-blue-900 top-[-100px] left-[-100px]"></div>
+        <div class="orb w-[600px] h-[600px] bg-purple-900 bottom-[-200px] right-[-100px] delay-1000"></div>
+        
+        <div class="max-w-6xl mx-auto text-center relative z-10 space-y-12">
+            <p class="reveal text-blue-500 font-bold tracking-[0.3em] uppercase text-xs">OUR VISION</p>
+            <h1 class="text-5xl md:text-8xl lg:text-9xl font-black tracking-tighter leading-none glow-text">
+                From Community<br>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500">to Brand.</span>
+            </h1>
+            <p class="reveal delay-200 text-xl md:text-2xl text-gray-400 font-light max-w-3xl mx-auto pt-4 leading-relaxed">
+                ただの仲良しごっこで終わらせない。<br>
+                「カゼノコ」という名前を、世界に通用するブランドへ。
+            </p>
+        </div>
+        
+        <div class="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-[#050507] to-transparent z-10"></div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="relative z-10">
+        <div class="max-w-5xl mx-auto px-6 space-y-40 py-20">
+            
+            <!-- Vision 1: Economy -->
+            <section class="reveal group relative">
+                <div class="absolute -inset-4 bg-gradient-to-r from-blue-900/20 to-purple-900/20 rounded-[2rem] blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+                <div class="relative grid md:grid-cols-2 gap-16 items-center border border-white/5 rounded-[2rem] p-8 md:p-12 bg-white/5 backdrop-blur-sm">
+                    <div class="space-y-6">
+                        <div class="w-16 h-16 rounded-full bg-blue-500/10 flex items-center justify-center border border-blue-500/20 mb-6">
+                            <i data-lucide="coins" class="w-8 h-8 text-blue-400"></i>
+                        </div>
+                        <h2 class="text-3xl md:text-4xl font-bold">持続可能な経済圏</h2>
+                        <p class="text-gray-400 leading-relaxed text-lg">
+                            クリエイターが活動を続けるためには、情熱だけでなく「還元」が必要です。
+                            私たちは、YouTubeの収益だけに依存しません。
+                            独自のグッズ展開、デジタルコンテンツの販売、メンバーシップ制度。
+                            コミュニティ内で経済が回る仕組みを構築し、貢献したメンバーが正当に評価され、報酬を得られるシステムを作ります。
+                        </p>
+                    </div>
+                    <div class="relative h-64 md:h-full min-h-[300px] rounded-2xl overflow-hidden shadow-2xl shadow-blue-900/20">
+                         <div class="absolute inset-0 bg-gradient-to-br from-gray-800 to-black"></div>
+                         <!-- Mock Visual for Economy -->
+                         <div class="absolute inset-0 flex items-center justify-center">
+                             <div class="w-3/4 h-3/4 border border-white/10 rounded-xl relative overflow-hidden">
+                                 <div class="absolute inset-0 bg-blue-500/10"></div>
+                                 <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center space-y-2">
+                                     <div class="text-4xl font-bold">$KAZENOKO</div>
+                                     <div class="text-xs text-blue-300 uppercase tracking-widest">Economy System</div>
+                                 </div>
+                             </div>
+                         </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Vision 2: Real & Digital -->
+            <section class="reveal delay-200 group relative">
+                 <div class="absolute -inset-4 bg-gradient-to-r from-pink-900/20 to-purple-900/20 rounded-[2rem] blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+                <div class="relative grid md:grid-cols-2 gap-16 items-center md:flex-row-reverse border border-white/5 rounded-[2rem] p-8 md:p-12 bg-white/5 backdrop-blur-sm">
+                    <div class="space-y-6 md:order-2">
+                         <div class="w-16 h-16 rounded-full bg-pink-500/10 flex items-center justify-center border border-pink-500/20 mb-6">
+                            <i data-lucide="map-pin" class="w-8 h-8 text-pink-400"></i>
+                        </div>
+                        <h2 class="text-3xl md:text-4xl font-bold">リアルとデジタルの融合</h2>
+                        <p class="text-gray-400 leading-relaxed text-lg">
+                            画面の中だけが私たちのステージではありません。
+                            将来的には、ポップアップストアの出店、リアルイベントの開催、コラボカフェなど、
+                            ファンが実際に「カゼノコ」の世界観に触れられる場所を作ります。
+                            デジタルの熱狂を、リアルの体験へ。
+                        </p>
+                    </div>
+                    <div class="relative h-64 md:h-full min-h-[300px] rounded-2xl overflow-hidden shadow-2xl shadow-pink-900/20 md:order-1">
+                        <div class="absolute inset-0 bg-gradient-to-br from-gray-900 to-black"></div>
+                        <!-- Mock Visual for Real Event -->
+                        <div class="absolute inset-0 opacity-50 bg-[url('https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=2940&auto=format&fit=crop')] bg-cover bg-center"></div>
+                        <div class="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-black to-transparent"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Vision 3: Next Star -->
+            <section class="reveal delay-300 text-center space-y-10 max-w-3xl mx-auto py-20 relative">
+                <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-white/5 rounded-full blur-3xl -z-10"></div>
+                <h2 class="text-4xl md:text-6xl font-bold leading-tight">
+                    次世代のスターを<br>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-b from-white to-gray-600">ここから輩出する。</span>
+                </h2>
+                <p class="text-gray-400 leading-relaxed text-lg md:text-xl font-light">
+                    カゼノコは、個人の踏み台でも構いません。<br>
+                    ここでの活動を通じてファンを獲得し、ソロとしても大きく羽ばたいていく。<br>
+                    そして、いつか「カゼノコ出身」であることが、<br>
+                    エンターテイナーとしてのステータスになる未来を描いています。
+                </p>
+                <div class="pt-8">
+                    <a href="index.html#join" class="inline-flex items-center gap-3 bg-white text-black px-12 py-5 rounded-full font-bold text-lg hover:bg-gray-200 transition-all hover:scale-105 shadow-xl shadow-white/10 group">
+                        共に未来を創る
+                        <i data-lucide="arrow-right" class="w-5 h-5 group-hover:translate-x-1 transition-transform"></i>
+                    </a>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-black py-12 px-6 border-t border-gray-900 mt-20">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="text-xs text-gray-600">
+                Copyright © 2025 Kazenoko. All rights reserved.
+            </div>
+            <div class="flex space-x-6">
+                <a href="#" class="text-gray-500 hover:text-white transition-colors transform hover:scale-110"><i data-lucide="twitter" class="w-5 h-5"></i></a>
+                <a href="#" class="text-gray-500 hover:text-white transition-colors transform hover:scale-110"><i data-lucide="youtube" class="w-5 h-5"></i></a>
+                <a href="#" class="text-gray-500 hover:text-white transition-colors transform hover:scale-110"><i data-lucide="instagram" class="w-5 h-5"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+    <style>
+        .glass-nav-dark {
+            background: rgba(5, 5, 7, 0.7);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+    </style>
+</body>
+</html>
