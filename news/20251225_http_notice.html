@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>通信プロトコル（HTTP）に関するお知らせ | ニュース | カゼノコ</title>
+    <link rel="icon" href="../images/kazenoko_logo.jpg" type="image/jpeg">
+    <meta name="description" content="カゼノコ公式サイトの通信プロトコル（HTTP）に関するお知らせ。">
+    
+    <!-- External Dependencies -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 glass-nav transition-all duration-500 ease-in-out" id="navbar">
+        <div class="max-w-[90rem] mx-auto px-8 h-20 flex items-center justify-between">
+            <a href="../index.html" class="font-black text-2xl tracking-tighter flex items-center gap-3 group relative z-10">
+                <div class="relative">
+                    <div class="absolute inset-0 bg-blue-500 blur-lg opacity-0 group-hover:opacity-20 transition-opacity duration-500 rounded-full"></div>
+                    <img src="../images/kazenoko_logo.jpg" alt="KAZENOKO" class="relative h-9 w-auto transition-transform duration-500 group-hover:rotate-12 group-hover:scale-110">
+                </div>
+                <span class="text-gray-900">KAZENOKO</span>
+            </a>
+            
+            <div class="hidden md:flex items-center gap-10">
+                <div class="flex items-center gap-8 text-sm font-bold text-gray-500">
+                    <a href="../index.html#concept" class="relative hover:text-black transition-colors duration-300 py-2 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-black after:transition-all after:duration-300 hover:after:w-full">コンセプト</a>
+                    <a href="../index.html#scale" class="relative hover:text-black transition-colors duration-300 py-2 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-black after:transition-all after:duration-300 hover:after:w-full">規模と構想</a>
+                    <a href="../index.html#vision" class="relative hover:text-black transition-colors duration-300 py-2 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-black after:transition-all after:duration-300 hover:after:w-full">ビジョン</a>
+                    <a href="../products/index.html" class="relative hover:text-black transition-colors duration-300 py-2 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-black after:transition-all after:duration-300 hover:after:w-full">プロダクト</a>
+                    <a href="index.html" class="relative text-black transition-colors duration-300 py-2 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-black">ニュース</a>
+                </div>
+                <a href="../join.html" class="px-6 py-2.5 bg-black text-white rounded-full text-sm font-bold hover:bg-gray-800 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-black/20 active:scale-95">
+                    参加する
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Article Header -->
+    <header class="pt-40 pb-24 px-6 news-header-bg text-white relative">
+        <div class="max-w-4xl mx-auto relative z-10 text-center">
+            <div class="flex items-center justify-center gap-4 text-sm mb-6 reveal">
+                <time datetime="2025-12-25" class="news-date opacity-80">2025.12.25</time>
+                <span class="px-3 py-1 bg-blue-500/20 border border-blue-500/30 text-blue-300 text-[10px] font-bold tracking-wide uppercase rounded-full">Important</span>
+            </div>
+            <h1 class="text-3xl md:text-5xl lg:text-6xl font-black tracking-tight leading-tight mb-8 reveal delay-100">
+                通信プロトコル（HTTP）に関する<br class="md:hidden">お知らせ
+            </h1>
+        </div>
+    </header>
+
+    <!-- Article Content -->
+    <article class="py-24 px-6 bg-white">
+        <div class="max-w-3xl mx-auto">
+            <div class="prose prose-lg prose-slate mx-auto mb-16">
+                <p class="lead text-xl md:text-2xl font-medium text-gray-900 leading-relaxed mb-12 reveal delay-200">
+                    現在、カゼノコ公式サイト（<a href="http://kazenoko-official.com/" class="text-blue-600 hover:underline">http://kazenoko-official.com/</a>）は、HTTP通信にて公開しております。
+                </p>
+                <div class="reveal delay-300 space-y-6 text-gray-700 leading-relaxed">
+                    <p>
+                        これは、古いブラウザや特定のネットワーク環境を含む、より幅広いデバイスから本サイトへアクセスできるようにするための暫定的な措置です。
+                    </p>
+                    <p>
+                        今後、セキュリティの向上および最新のWeb標準への適応のため、将来的にHTTPS通信（常時SSL化）への移行を予定しております。
+                    </p>
+                    <p>
+                        移行の時期や詳細につきましては、準備が整い次第、改めて公式サイトにてお知らせいたします。
+                    </p>
+                </div>
+            </div>
+
+            <div class="mt-16 pt-16 border-t border-gray-100 text-center reveal">
+                <p class="text-gray-600 mb-8">引き続き、カゼノコをよろしくお願いいたします。</p>
+                <a href="index.html" class="inline-flex items-center px-6 py-3 bg-gray-900 text-white rounded-full font-bold hover:bg-blue-600 transition-all hover:scale-105">
+                    <i data-lucide="arrow-left" class="w-4 h-4 mr-2"></i>
+                    ニュース一覧に戻る
+                </a>
+            </div>
+        </div>
+    </article>
+
+    <!-- Footer -->
+    <footer class="bg-[#f5f5f7] py-12 px-6 border-t border-gray-200">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="text-xs text-gray-500">
+                Copyright © 2025 カゼノコ幹事会. All rights reserved.
+            </div>
+            <div class="flex space-x-6">
+                <a href="#" class="text-gray-400 hover:text-gray-900 transition-colors"><i data-lucide="twitter" class="w-5 h-5"></i></a>
+                <a href="#" class="text-gray-400 hover:text-gray-900 transition-colors"><i data-lucide="youtube" class="w-5 h-5"></i></a>
+                <a href="#" class="text-gray-400 hover:text-gray-900 transition-colors"><i data-lucide="instagram" class="w-5 h-5"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Custom Scripts -->
+    <script src="../js/main.js"></script>
+</body>
+</html>

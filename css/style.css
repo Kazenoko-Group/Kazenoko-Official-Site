@@ -9,17 +9,31 @@ body {
 
 /* Custom Utilities */
 .glass-nav {
-    background: rgba(255, 255, 255, 0.72);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.03);
 }
 
 .text-gradient {
-    background: linear-gradient(135deg, #0071e3 0%, #42a5f5 100%);
+    background: linear-gradient(135deg, #0071e3 0%, #42a5f5 50%, #00c6fb 100%);
+    background-size: 200% 200%;
+    animation: gradient-x 8s ease infinite;
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+}
+
+@keyframes gradient-x {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.animate-gradient-x {
+    background-size: 200% 200%;
+    animation: gradient-x 4s ease infinite;
 }
 
 /* Animation Classes for Flowing UI */
