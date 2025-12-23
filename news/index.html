@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ニュース | カゼノコ | KAZENOKO Official</title>
+    <title>ニュース | カゼノコ幹事会</title>
     <link rel="icon" href="../images/kazenoko_logo.jpg" type="image/jpeg">
-    <meta name="description" content="カゼノコの最新ニュース、プレスリリース、お知らせ。">
+    <meta name="description" content="カゼノコ幹事会の最新ニュース、プレスリリース、お知らせ。">
     
     <!-- External Dependencies -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -15,97 +15,272 @@
     <!-- Custom Styles -->
     <link rel="stylesheet" href="../css/style.css">
 </head>
-<body>
+<body class="bg-[#fafafa]">
 
     <!-- Navigation -->
     <nav class="fixed top-0 w-full z-50 glass-nav transition-all duration-500 ease-in-out" id="navbar">
-        <div class="max-w-[90rem] mx-auto px-8 h-20 flex items-center justify-between">
-            <a href="../index.html" class="font-black text-2xl tracking-tighter flex items-center gap-3 group relative z-10">
+        <div class="max-w-[90rem] mx-auto px-6 md:px-8 h-16 md:h-20 flex items-center justify-between">
+            <a href="../index.html" class="font-black text-xl md:text-2xl tracking-tighter flex items-center gap-2 md:gap-3 group relative z-10">
                 <div class="relative">
-                    <div class="absolute inset-0 bg-blue-500 blur-lg opacity-0 group-hover:opacity-20 transition-opacity duration-500 rounded-full"></div>
-                    <img src="../images/kazenoko_logo.jpg" alt="KAZENOKO" class="relative h-9 w-auto transition-transform duration-500 group-hover:rotate-12 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-r from-blue-400 to-purple-500 blur-xl opacity-0 group-hover:opacity-25 transition-all duration-500 rounded-full"></div>
+                    <img src="../images/kazenoko_logo.jpg" alt="KAZENOKO" class="relative h-7 md:h-9 w-auto rounded-sm transition-transform duration-500 group-hover:rotate-6 group-hover:scale-110">
                 </div>
-                <span class="text-gray-900">KAZENOKO</span>
+                <span class="text-gray-900 group-hover:text-blue-900 transition-colors duration-300">KAZENOKO</span>
             </a>
             
-            <div class="hidden md:flex items-center gap-10">
-                <div class="flex items-center gap-8 text-sm font-bold text-gray-500">
-                    <a href="../index.html#concept" class="relative hover:text-black transition-colors duration-300 py-2 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-black after:transition-all after:duration-300 hover:after:w-full">コンセプト</a>
-                    <a href="../index.html#scale" class="relative hover:text-black transition-colors duration-300 py-2 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-black after:transition-all after:duration-300 hover:after:w-full">規模と構想</a>
-                    <a href="../index.html#vision" class="relative hover:text-black transition-colors duration-300 py-2 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-black after:transition-all after:duration-300 hover:after:w-full">ビジョン</a>
-                    <a href="../products/index.html" class="relative hover:text-black transition-colors duration-300 py-2 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-black after:transition-all after:duration-300 hover:after:w-full">プロダクト</a>
-                    <a href="#" class="relative text-black transition-colors duration-300 py-2 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-black">ニュース</a>
+            <div class="flex items-center gap-2 md:gap-4">
+                <div class="hidden md:flex items-center gap-2 lg:gap-8 nav-desktop-links">
+                    <nav class="flex items-center gap-6 lg:gap-8 text-sm font-bold text-gray-400">
+                        <a href="../index.html#concept" class="relative py-3 px-1 text-gray-500 hover:text-gray-900 transition-all duration-300 group/link">
+                            <span class="relative z-10 group-hover/link:text-gray-900">コンセプト</span>
+                            <span class="absolute bottom-2 left-1/2 -translate-x-1/2 w-0 h-[2px] bg-gradient-to-r from-blue-500 to-purple-500 transition-all duration-300 group-hover/link:w-full rounded-full"></span>
+                        </a>
+                        <a href="../index.html#scale" class="relative py-3 px-1 text-gray-500 hover:text-gray-900 transition-all duration-300 group/link">
+                            <span class="relative z-10 group-hover/link:text-gray-900">規模と構想</span>
+                            <span class="absolute bottom-2 left-1/2 -translate-x-1/2 w-0 h-[2px] bg-gradient-to-r from-blue-500 to-purple-500 transition-all duration-300 group-hover/link:w-full rounded-full"></span>
+                        </a>
+                        <a href="../index.html#vision" class="relative py-3 px-1 text-gray-500 hover:text-gray-900 transition-all duration-300 group/link">
+                            <span class="relative z-10 group-hover/link:text-gray-900">ビジョン</span>
+                            <span class="absolute bottom-2 left-1/2 -translate-x-1/2 w-0 h-[2px] bg-gradient-to-r from-blue-500 to-purple-500 transition-all duration-300 group-hover/link:w-full rounded-full"></span>
+                        </a>
+                        <a href="../products/index.html" class="relative py-3 px-1 text-gray-500 hover:text-gray-900 transition-all duration-300 group/link">
+                            <span class="relative z-10 group-hover/link:text-gray-900">プロダクト</span>
+                            <span class="absolute bottom-2 left-1/2 -translate-x-1/2 w-0 h-[2px] bg-gradient-to-r from-blue-500 to-purple-500 transition-all duration-300 group-hover/link:w-full rounded-full"></span>
+                        </a>
+                        <a href="#" class="relative py-3 px-1 text-gray-500 hover:text-gray-900 transition-all duration-300 group/link">
+                            <span class="relative z-10 group-hover/link:text-gray-900">ニュース</span>
+                            <span class="absolute bottom-2 left-1/2 -translate-x-1/2 w-full h-[2px] bg-gradient-to-r from-blue-500 to-purple-500 transition-all duration-300 rounded-full"></span>
+                        </a>
+                    </nav>
+                    <div class="w-px h-6 bg-gray-200 mx-2"></div>
+                    <a href="../join.html" class="nav-cta px-5 py-2.5 md:px-6 md:py-2.5 bg-gray-900 text-white rounded-full text-sm font-bold hover:bg-gray-800 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-gray-900/20 active:scale-95 relative overflow-hidden">
+                        <span class="relative z-10">参加する</span>
+                        <div class="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 opacity-0 hover:opacity-100 transition-opacity duration-300 rounded-full"></div>
+                    </a>
                 </div>
-                <a href="../join.html" class="px-6 py-2.5 bg-black text-white rounded-full text-sm font-bold hover:bg-gray-800 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-black/20 active:scale-95">
-                    参加する
-                </a>
+                
+                <!-- Mobile Menu Button -->
+                <button class="mobile-menu-btn" aria-label="メニューを開く">
+                    <span></span>
+                </button>
             </div>
         </div>
     </nav>
 
     <!-- Header -->
-    <header class="pt-40 pb-24 px-6 news-header-bg text-white">
+    <header class="pt-40 pb-20 px-6 news-header-bg relative overflow-hidden">
+        <div class="absolute inset-0 overflow-hidden pointer-events-none">
+            <div class="ambient-blob blob-1"></div>
+            <div class="ambient-blob blob-2"></div>
+            <div class="ambient-blob blob-3"></div>
+        </div>
         <div class="max-w-7xl mx-auto relative z-10">
-            <p class="text-blue-400 font-bold tracking-wider uppercase mb-4 text-sm reveal">Updates</p>
-            <h1 class="text-5xl md:text-7xl font-black tracking-tight mb-6 reveal delay-100">
+            <div class="flex items-center gap-3 mb-6 reveal">
+                <div class="w-12 h-12 rounded-2xl bg-white/10 backdrop-blur-md flex items-center justify-center">
+                    <i data-lucide="newspaper" class="w-6 h-6 text-blue-400"></i>
+                </div>
+                <span class="text-blue-400 font-bold tracking-wider uppercase text-sm">Updates</span>
+            </div>
+            <h1 class="text-5xl md:text-7xl font-black tracking-tight mb-6 reveal delay-100 text-white">
                 News & Topics
             </h1>
             <p class="text-gray-400 text-lg md:text-xl max-w-2xl font-light reveal delay-200">
-                カゼノコからの最新のお知らせ。<br>
+                カゼノコ幹事会からの最新のお知らせ。<br>
                 プロジェクトの進捗、新メンバーの加入、イベント情報などをお届けします。
             </p>
         </div>
     </header>
 
-    <!-- News List -->
-    <section class="py-24 px-6 bg-[#f5f5f7] min-h-[60vh]">
+    <!-- Filter Tabs -->
+    <section class="px-6 border-b border-gray-200 bg-white/80 backdrop-blur-md sticky top-20 z-40">
         <div class="max-w-7xl mx-auto">
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                
-                <!-- News Item -->
-                <article class="news-card group reveal delay-300">
-                    <a href="20251225_http_notice.html" class="flex flex-col h-full">
-                        <div class="mb-6 flex items-center justify-between">
-                            <span class="news-date text-sm text-gray-500">2025.12.25</span>
-                            <span class="px-3 py-1 bg-blue-50 text-blue-600 text-[10px] font-bold tracking-wide uppercase rounded-full">Important</span>
-                        </div>
-                        <h3 class="text-xl font-bold text-gray-900 leading-snug group-hover:text-blue-600 transition-colors mb-4">
-                            通信プロトコル（HTTP）に関するお知らせ
-                        </h3>
-                        <p class="text-gray-500 text-sm line-clamp-3 mb-6 flex-grow">
-                            現在、公式サイトはHTTP通信にて公開しております。これは幅広いデバイスからのアクセスを可能にするための措置であり、将来的にはHTTPS通信への移行を予定しています。
-                        </p>
-                        <div class="flex items-center text-blue-600 font-medium text-sm group-hover:translate-x-1 transition-transform">
-                            Read More <i data-lucide="arrow-right" class="w-4 h-4 ml-1"></i>
-                        </div>
-                    </a>
-                </article>
-
-                <!-- News Item -->
-                <article class="news-card group reveal delay-300">
-                    <a href="20251225_site_open.html" class="flex flex-col h-full">
-                        <div class="mb-6 flex items-center justify-between">
-                            <span class="news-date text-sm text-gray-500">2025.12.25</span>
-                            <span class="px-3 py-1 bg-blue-50 text-blue-600 text-[10px] font-bold tracking-wide uppercase rounded-full">Press Release</span>
-                        </div>
-                        <h3 class="text-xl font-bold text-gray-900 leading-snug group-hover:text-blue-600 transition-colors mb-4">
-                            公式サイトをオープンしました
-                        </h3>
-                        <p class="text-gray-500 text-sm line-clamp-3 mb-6 flex-grow">
-                            次世代エンターテインメントグループ「カゼノコ」の公式サイトを新規オープン。私たちのビジョンと構想をより明確にお伝えします。CEO 42（さとう）からのメッセージも公開。
-                        </p>
-                        <div class="flex items-center text-blue-600 font-medium text-sm group-hover:translate-x-1 transition-transform">
-                            Read More <i data-lucide="arrow-right" class="w-4 h-4 ml-1"></i>
-                        </div>
-                    </a>
-                </article>
-
+            <div class="flex items-center gap-4 py-4 overflow-x-auto scrollbar-hide">
+                <button class="filter-btn active" data-filter="all">
+                    <span class="flex items-center gap-2">
+                        <i data-lucide="layers" class="w-4 h-4"></i>
+                        すべて
+                    </span>
+                </button>
+                <button class="filter-btn" data-filter="important">
+                    <span class="flex items-center gap-2">
+                        <i data-lucide="alert-circle" class="w-4 h-4"></i>
+                        お知らせ
+                    </span>
+                </button>
+                <button class="filter-btn" data-filter="press">
+                    <span class="flex items-center gap-2">
+                        <i data-lucide="mic-2" class="w-4 h-4"></i>
+                        プレスリリース
+                    </span>
+                </button>
+                <button class="filter-btn" data-filter="event">
+                    <span class="flex items-center gap-2">
+                        <i data-lucide="calendar" class="w-4 h-4"></i>
+                        イベント
+                    </span>
+                </button>
+                <button class="filter-btn" data-filter="member">
+                    <span class="flex items-center gap-2">
+                        <i data-lucide="users" class="w-4 h-4"></i>
+                        メンバー
+                    </span>
+                </button>
             </div>
         </div>
     </section>
 
+    <!-- Main Content -->
+    <main class="py-16 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col lg:flex-row gap-12">
+                
+                <!-- News List -->
+                <div class="flex-1">
+                    
+                    <!-- Featured News -->
+                    <section class="mb-16">
+                        <div class="flex items-center gap-2 mb-6">
+                            <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-amber-400 to-orange-500 flex items-center justify-center">
+                                <i data-lucide="star" class="w-4 h-4 text-white"></i>
+                            </div>
+                            <h2 class="text-2xl font-bold text-gray-900">注目のニュース</h2>
+                        </div>
+                        
+                        <article class="featured-card group relative overflow-hidden rounded-3xl">
+                            <a href="20251225_site_open.html" class="block">
+                                <div class="aspect-[21/9] bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 relative overflow-hidden">
+                                    <div class="absolute inset-0 bg-[url('../images/news/20251225_site_open.png')] bg-cover bg-center opacity-40 group-hover:scale-105 transition-transform duration-700"></div>
+                                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+                                    
+                                    <div class="absolute top-6 left-6">
+                                        <span class="px-4 py-2 bg-amber-400 text-black text-xs font-bold tracking-wide uppercase rounded-full">
+                                            Press Release
+                                        </span>
+                                    </div>
+                                    
+                                    <div class="absolute bottom-0 left-0 right-0 p-8">
+                                        <p class="text-blue-400 font-mono text-sm mb-3 flex items-center gap-2">
+                                            <i data-lucide="calendar" class="w-4 h-4"></i>
+                                            2025.12.25
+                                        </p>
+                                        <h3 class="text-3xl md:text-4xl font-bold text-white mb-4 leading-tight group-hover:text-blue-400 transition-colors">
+                                            公式サイトをオープンしました
+                                        </h3>
+                                        <p class="text-gray-400 text-lg max-w-2xl">
+                                            次世代エンターテインメントグループ「カゼノコ幹事会」の公式サイトを新規オープン。私たちのビジョンと構想をより明確にお伝えします。
+                                        </p>
+                                    </div>
+                                </div>
+                            </a>
+                        </article>
+                    </section>
+
+                    <!-- Recent News Grid -->
+                    <section>
+                        <div class="flex items-center gap-2 mb-6">
+                            <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-500 to-cyan-400 flex items-center justify-center">
+                                <i data-lucide="clock" class="w-4 h-4 text-white"></i>
+                            </div>
+                            <h2 class="text-2xl font-bold text-gray-900">最新ニュース</h2>
+                        </div>
+                        
+                        <div class="grid md:grid-cols-2 gap-6">
+                            
+                            <!-- News Card 1 -->
+                            <article class="news-card-enhanced group reveal delay-300" data-category="important">
+                                <a href="20251225_http_notice.html" class="flex flex-col h-full">
+                                    <div class="aspect-[16/9] rounded-2xl mb-5 overflow-hidden relative bg-gray-100">
+                                        <div class="absolute inset-0 bg-[url('../images/news/20251225_http_notice.png')] bg-cover bg-center group-hover:scale-105 transition-transform duration-500"></div>
+                                        <div class="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-indigo-500/10"></div>
+                                        <div class="absolute top-3 right-3">
+                                            <span class="flex items-center gap-1.5 px-2.5 py-1 bg-white/90 backdrop-blur-sm text-blue-600 text-[10px] font-bold tracking-wide uppercase rounded-full shadow-sm">
+                                                <i data-lucide="alert-circle" class="w-3 h-3"></i>
+                                                Important
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-center gap-2 mb-3">
+                                        <span class="news-date text-sm text-gray-400 font-mono">2025.12.25</span>
+                                        <span class="w-1 h-1 rounded-full bg-gray-300"></span>
+                                        <span class="text-xs text-gray-400">HTTP</span>
+                                    </div>
+                                    <h3 class="text-lg font-bold text-gray-900 leading-snug group-hover:text-blue-600 transition-colors mb-3">
+                                        通信プロトコル（HTTP）に関するお知らせ
+                                    </h3>
+                                    <p class="text-gray-500 text-sm line-clamp-2 mb-4 flex-grow">
+                                        現在、公式サイトはHTTP通信にて公開しております。これは幅広いデバイスからのアクセスを可能にするための措置であり、将来的にはHTTPS通信への移行を予定しています。
+                                    </p>
+                                    <div class="flex items-center text-blue-600 font-medium text-sm group-hover:translate-x-1 transition-transform mt-auto">
+                                        <span>Read More</span>
+                                        <i data-lucide="arrow-right" class="w-4 h-4 ml-1"></i>
+                                    </div>
+                                </a>
+                            </article>
+
+                            <!-- News Card 2 -->
+                            <article class="news-card-enhanced group reveal delay-300" data-category="press">
+                                <a href="20251225_site_open.html" class="flex flex-col h-full">
+                                    <div class="aspect-[16/9] rounded-2xl mb-5 overflow-hidden relative bg-gray-100">
+                                        <div class="absolute inset-0 bg-[url('../images/news/20251225_site_open.png')] bg-cover bg-center group-hover:scale-105 transition-transform duration-500"></div>
+                                        <div class="absolute inset-0 bg-gradient-to-br from-violet-500/10 to-purple-500/10"></div>
+                                        <div class="absolute top-3 right-3">
+                                            <span class="flex items-center gap-1.5 px-2.5 py-1 bg-white/90 backdrop-blur-sm text-purple-600 text-[10px] font-bold tracking-wide uppercase rounded-full shadow-sm">
+                                                <i data-lucide="mic-2" class="w-3 h-3"></i>
+                                                Press
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-center gap-2 mb-3">
+                                        <span class="news-date text-sm text-gray-400 font-mono">2025.12.25</span>
+                                        <span class="w-1 h-1 rounded-full bg-gray-300"></span>
+                                        <span class="text-xs text-gray-400">プレスリリース</span>
+                                    </div>
+                                    <h3 class="text-lg font-bold text-gray-900 leading-snug group-hover:text-purple-600 transition-colors mb-3">
+                                        公式サイトをオープンしました
+                                    </h3>
+                                    <p class="text-gray-500 text-sm line-clamp-2 mb-4 flex-grow">
+                                        次世代エンターテインメントグループ「カゼノコ幹事会」の公式サイトを新規オープン。CEO 42（さとう）からのメッセージも公開。
+                                    </p>
+                                    <div class="flex items-center text-purple-600 font-medium text-sm group-hover:translate-x-1 transition-transform mt-auto">
+                                        <span>Read More</span>
+                                        <i data-lucide="arrow-right" class="w-4 h-4 ml-1"></i>
+                                    </div>
+                                </a>
+                            </article>
+
+                        </div>
+                    </section>
+                </div>
+
+                <!-- Sidebar -->
+                <aside class="lg:w-80 flex-shrink-0">
+                    <div class="sticky top-36 space-y-8">
+                        
+                        <!-- Archive -->
+                        <div class="bg-white rounded-3xl p-6 shadow-sm border border-gray-100">
+                            <h3 class="font-bold text-gray-900 mb-4 flex items-center gap-2">
+                                <i data-lucide="archive" class="w-5 h-5 text-gray-400"></i>
+                                アーカイブ
+                            </h3>
+                            <ul class="space-y-2">
+                                <li>
+                                    <a href="#" class="flex items-center justify-between py-2 px-3 rounded-xl hover:bg-gray-50 transition-colors group">
+                                        <span class="text-gray-600 group-hover:text-gray-900">2025年12月</span>
+                                        <span class="text-xs text-gray-400 bg-gray-100 px-2 py-1 rounded-full">2</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </aside>
+
+            </div>
+        </div>
+    </main>
+
     <!-- Footer -->
-    <footer class="bg-[#f5f5f7] py-12 px-6 border-t border-gray-200">
+    <footer class="bg-white border-t border-gray-200 py-12 px-6">
         <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
             <div class="text-xs text-gray-500">
                 Copyright © 2025 カゼノコ幹事会. All rights reserved.
@@ -120,5 +295,34 @@
 
     <!-- Custom Scripts -->
     <script src="../js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            lucide.createIcons();
+            
+            // Filter functionality
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            const newsCards = document.querySelectorAll('.news-card-enhanced');
+            
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const filter = this.dataset.filter;
+                    
+                    // Update active state
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Filter cards
+                    newsCards.forEach(card => {
+                        if (filter === 'all' || card.dataset.category === filter) {
+                            card.style.display = 'flex';
+                            card.style.animation = 'fadeInUp 0.5s ease forwards';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                });
+            });
+        });
+    </script>
 </body>
 </html>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ビジョン - Vision | カゼノコ</title>
+    <title>ビジョン - Vision | カゼノコ幹事会</title>
     <link rel="icon" href="images/kazenoko_logo.jpg" type="image/jpeg">
     <meta name="description" content="From Community to Brand. 面白いコミュニティを作り、その先に待つ未来。">
     
@@ -36,27 +36,82 @@
 
     <!-- Navigation -->
     <nav class="fixed top-0 w-full z-50 glass-nav-dark transition-all duration-500 ease-in-out" id="navbar">
-        <div class="max-w-[90rem] mx-auto px-8 h-20 flex items-center justify-between">
-            <a href="index.html" class="font-black text-2xl tracking-tighter flex items-center gap-3 group relative z-10">
+        <div class="max-w-[90rem] mx-auto px-6 md:px-8 h-16 md:h-20 flex items-center justify-between">
+            <a href="index.html" class="font-black text-xl md:text-2xl tracking-tighter flex items-center gap-2 md:gap-3 group relative z-10">
                 <div class="relative">
-                    <div class="absolute inset-0 bg-blue-500 blur-lg opacity-0 group-hover:opacity-20 transition-opacity duration-500 rounded-full"></div>
-                    <img src="images/kazenoko_logo.jpg" alt="KAZENOKO" class="relative h-9 w-auto rounded-sm transition-transform duration-500 group-hover:rotate-12 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-r from-blue-400 to-purple-500 blur-xl opacity-0 group-hover:opacity-25 transition-all duration-500 rounded-full"></div>
+                    <img src="images/kazenoko_logo.jpg" alt="KAZENOKO" class="relative h-7 md:h-9 w-auto rounded-sm transition-transform duration-500 group-hover:rotate-6 group-hover:scale-110">
                 </div>
-                <span class="text-white">KAZENOKO</span>
+                <span class="text-white group-hover:text-blue-200 transition-colors duration-300">KAZENOKO</span>
             </a>
             
-            <div class="hidden md:flex items-center gap-10">
-                <div class="flex items-center gap-8 text-sm font-bold text-gray-300">
-                    <a href="index.html#concept" class="relative hover:text-white transition-colors duration-300 py-2 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-white after:transition-all after:duration-300 hover:after:w-full">コンセプト</a>
-                    <a href="index.html#scale" class="relative hover:text-white transition-colors duration-300 py-2 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-white after:transition-all after:duration-300 hover:after:w-full">規模と構想</a>
-                    <a href="index.html#vision" class="relative text-white transition-colors duration-300 py-2 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-white">ビジョン</a>
-                    <a href="products/index.html" class="relative hover:text-white transition-colors duration-300 py-2 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-white after:transition-all after:duration-300 hover:after:w-full">プロダクト</a>
-                    <a href="news/index.html" class="relative hover:text-white transition-colors duration-300 py-2 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-white after:transition-all after:duration-300 hover:after:w-full">ニュース</a>
+            <div class="flex items-center gap-2 md:gap-4">
+                <div class="hidden md:flex items-center gap-2 lg:gap-8 nav-desktop-links">
+                    <nav class="flex items-center gap-6 lg:gap-8 text-sm font-bold text-gray-400">
+                        <a href="index.html#concept" class="relative py-3 px-1 text-gray-300 hover:text-white transition-all duration-300 group/link">
+                            <span class="relative z-10 group-hover/link:text-white">コンセプト</span>
+                            <span class="absolute bottom-2 left-1/2 -translate-x-1/2 w-0 h-[2px] bg-gradient-to-r from-blue-400 to-purple-500 transition-all duration-300 group-hover/link:w-full rounded-full"></span>
+                        </a>
+                        <a href="index.html#scale" class="relative py-3 px-1 text-gray-300 hover:text-white transition-all duration-300 group/link">
+                            <span class="relative z-10 group-hover/link:text-white">規模と構想</span>
+                            <span class="absolute bottom-2 left-1/2 -translate-x-1/2 w-0 h-[2px] bg-gradient-to-r from-blue-400 to-purple-500 transition-all duration-300 group-hover/link:w-full rounded-full"></span>
+                        </a>
+                        <a href="index.html#vision" class="relative py-3 px-1 text-white transition-all duration-300 group/link">
+                            <span class="relative z-10 text-white">ビジョン</span>
+                            <span class="absolute bottom-2 left-1/2 -translate-x-1/2 w-full h-[2px] bg-gradient-to-r from-blue-400 to-purple-500 rounded-full"></span>
+                        </a>
+                        <a href="products/index.html" class="relative py-3 px-1 text-gray-300 hover:text-white transition-all duration-300 group/link">
+                            <span class="relative z-10 group-hover/link:text-white">プロダクト</span>
+                            <span class="absolute bottom-2 left-1/2 -translate-x-1/2 w-0 h-[2px] bg-gradient-to-r from-blue-400 to-purple-500 transition-all duration-300 group-hover/link:w-full rounded-full"></span>
+                        </a>
+                        <a href="news/index.html" class="relative py-3 px-1 text-gray-300 hover:text-white transition-all duration-300 group/link">
+                            <span class="relative z-10 group-hover/link:text-white">ニュース</span>
+                            <span class="absolute bottom-2 left-1/2 -translate-x-1/2 w-0 h-[2px] bg-gradient-to-r from-blue-400 to-purple-500 transition-all duration-300 group-hover/link:w-full rounded-full"></span>
+                        </a>
+                    </nav>
+                    <div class="w-px h-6 bg-gray-700 mx-2"></div>
+                    <a href="join.html" class="nav-cta px-5 py-2.5 md:px-6 md:py-2.5 bg-white text-gray-900 rounded-full text-sm font-bold hover:bg-gray-200 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-white/20 active:scale-95 relative overflow-hidden">
+                        <span class="relative z-10">参加する</span>
+                        <div class="absolute inset-0 bg-gradient-to-r from-blue-400 to-purple-600 opacity-0 hover:opacity-100 transition-opacity duration-300 rounded-full"></div>
+                    </a>
                 </div>
-                <a href="join.html" class="px-6 py-2.5 bg-black text-white rounded-full text-sm font-bold hover:bg-gray-800 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-black/20 active:scale-95">
-                    参加する
-                </a>
+                <button class="mobile-menu-btn" aria-label="メニューを開く">
+                    <span></span>
+                </button>
             </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Navigation -->
+    <nav class="mobile-nav">
+        <div class="mobile-nav-links">
+            <a href="index.html#concept" class="mobile-nav-link">
+                <span>コンセプト</span>
+                <i data-lucide="chevron-right" class="w-5 h-5 text-gray-400"></i>
+            </a>
+            <a href="index.html#scale" class="mobile-nav-link">
+                <span>規模と構想</span>
+                <i data-lucide="chevron-right" class="w-5 h-5 text-gray-400"></i>
+            </a>
+            <a href="index.html#vision" class="mobile-nav-link">
+                <span>ビジョン</span>
+                <i data-lucide="chevron-right" class="w-5 h-5 text-gray-400"></i>
+            </a>
+            <a href="products/index.html" class="mobile-nav-link">
+                <span>プロダクト</span>
+                <i data-lucide="chevron-right" class="w-5 h-5 text-gray-400"></i>
+            </a>
+            <a href="news/index.html" class="mobile-nav-link">
+                <span>ニュース</span>
+                <i data-lucide="chevron-right" class="w-5 h-5 text-gray-400"></i>
+            </a>
+            <a href="join.html" class="mobile-nav-link primary">
+                <span>参加する</span>
+                <i data-lucide="arrow-right" class="w-5 h-5"></i>
+            </a>
+        </div>
+        <div class="mobile-nav-bottom">
+            <p>次世代エンターテインメントグループ<br>カゼノコ幹事会</p>
         </div>
     </nav>
 
@@ -73,7 +128,7 @@
             </h1>
             <p class="reveal delay-200 text-xl md:text-2xl text-gray-400 font-light max-w-3xl mx-auto pt-4 leading-relaxed">
                 ただの仲良しごっこで終わらせない。<br>
-                「カゼノコ」という名前を、世界に通用するブランドへ。
+                「カゼノコ幹事会」という名前を、世界に通用するブランドへ。
             </p>
         </div>
         
@@ -128,7 +183,7 @@
                         <p class="text-gray-400 leading-relaxed text-lg">
                             画面の中だけが私たちのステージではありません。
                             将来的には、ポップアップストアの出店、リアルイベントの開催、コラボカフェなど、
-                            ファンが実際に「カゼノコ」の世界観に触れられる場所を作ります。
+                            ファンが実際に「カゼノコ幹事会」の世界観に触れられる場所を作ります。
                             デジタルの熱狂を、リアルの体験へ。
                         </p>
                     </div>
@@ -149,9 +204,9 @@
                     <span class="text-transparent bg-clip-text bg-gradient-to-b from-white to-gray-600">ここから輩出する。</span>
                 </h2>
                 <p class="text-gray-400 leading-relaxed text-lg md:text-xl font-light">
-                    カゼノコは、個人の踏み台でも構いません。<br>
+                    カゼノコ幹事会は、個人の踏み台でも構いません。<br>
                     ここでの活動を通じてファンを獲得し、ソロとしても大きく羽ばたいていく。<br>
-                    そして、いつか「カゼノコ出身」であることが、<br>
+                    そして、いつか「カゼノコ幹事会出身」であることが、<br>
                     エンターテイナーとしてのステータスになる未来を描いています。
                 </p>
                 <div class="pt-8">

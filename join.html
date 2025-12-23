@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>募集要項 | カゼノコ | KAZENOKO Official</title>
+    <title>募集要項 | カゼノコ幹事会</title>
     <link rel="icon" href="images/kazenoko_logo.jpg" type="image/jpeg">
-    <meta name="description" content="カゼノコでは、エンジニア、動画編集者、デザイナー、ゲストなど、共に活動するメンバーを募集しています。">
+    <meta name="description" content="カゼノコ幹事会では、エンジニア、映像編集者、グラフィックデザイナー、タレント/メンバーなど、共に活動するメンバーを募集しています。">
     
     <!-- External Dependencies -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -33,27 +33,82 @@
 
     <!-- Navigation -->
     <nav class="fixed top-0 w-full z-50 glass-nav transition-all duration-500 ease-in-out" id="navbar">
-        <div class="max-w-[90rem] mx-auto px-8 h-20 flex items-center justify-between">
-            <a href="index.html" class="font-black text-2xl tracking-tighter flex items-center gap-3 group relative z-10">
+        <div class="max-w-[90rem] mx-auto px-6 md:px-8 h-16 md:h-20 flex items-center justify-between">
+            <a href="index.html" class="font-black text-xl md:text-2xl tracking-tighter flex items-center gap-2 md:gap-3 group relative z-10">
                 <div class="relative">
-                    <div class="absolute inset-0 bg-blue-500 blur-lg opacity-0 group-hover:opacity-20 transition-opacity duration-500 rounded-full"></div>
-                    <img src="images/kazenoko_logo.jpg" alt="KAZENOKO" class="relative h-9 w-auto transition-transform duration-500 group-hover:rotate-12 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-r from-blue-400 to-purple-500 blur-xl opacity-0 group-hover:opacity-25 transition-all duration-500 rounded-full"></div>
+                    <img src="images/kazenoko_logo.jpg" alt="KAZENOKO" class="relative h-7 md:h-9 w-auto transition-transform duration-500 group-hover:rotate-6 group-hover:scale-110">
                 </div>
-                <span class="text-gray-900">KAZENOKO</span>
+                <span class="text-gray-900 group-hover:text-blue-900 transition-colors duration-300">KAZENOKO</span>
             </a>
             
-            <div class="hidden md:flex items-center gap-10">
-                <div class="flex items-center gap-8 text-sm font-bold text-gray-500">
-                    <a href="index.html#concept" class="relative hover:text-black transition-colors duration-300 py-2 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-black after:transition-all after:duration-300 hover:after:w-full">コンセプト</a>
-                    <a href="index.html#scale" class="relative hover:text-black transition-colors duration-300 py-2 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-black after:transition-all after:duration-300 hover:after:w-full">規模と構想</a>
-                    <a href="index.html#vision" class="relative hover:text-black transition-colors duration-300 py-2 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-black after:transition-all after:duration-300 hover:after:w-full">ビジョン</a>
-                    <a href="products/index.html" class="relative hover:text-black transition-colors duration-300 py-2 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-black after:transition-all after:duration-300 hover:after:w-full">プロダクト</a>
-                    <a href="news/index.html" class="relative hover:text-black transition-colors duration-300 py-2 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-black after:transition-all after:duration-300 hover:after:w-full">ニュース</a>
+            <div class="flex items-center gap-2 md:gap-4">
+                <div class="hidden md:flex items-center gap-2 lg:gap-8 nav-desktop-links">
+                    <nav class="flex items-center gap-6 lg:gap-8 text-sm font-bold text-gray-400">
+                        <a href="index.html#concept" class="relative py-3 px-1 text-gray-500 hover:text-gray-900 transition-all duration-300 group/link">
+                            <span class="relative z-10 group-hover/link:text-gray-900">コンセプト</span>
+                            <span class="absolute bottom-2 left-1/2 -translate-x-1/2 w-0 h-[2px] bg-gradient-to-r from-blue-500 to-purple-500 transition-all duration-300 group-hover/link:w-full rounded-full"></span>
+                        </a>
+                        <a href="index.html#scale" class="relative py-3 px-1 text-gray-500 hover:text-gray-900 transition-all duration-300 group/link">
+                            <span class="relative z-10 group-hover/link:text-gray-900">規模と構想</span>
+                            <span class="absolute bottom-2 left-1/2 -translate-x-1/2 w-0 h-[2px] bg-gradient-to-r from-blue-500 to-purple-500 transition-all duration-300 group-hover/link:w-full rounded-full"></span>
+                        </a>
+                        <a href="index.html#vision" class="relative py-3 px-1 text-gray-500 hover:text-gray-900 transition-all duration-300 group/link">
+                            <span class="relative z-10 group-hover/link:text-gray-900">ビジョン</span>
+                            <span class="absolute bottom-2 left-1/2 -translate-x-1/2 w-0 h-[2px] bg-gradient-to-r from-blue-500 to-purple-500 transition-all duration-300 group-hover/link:w-full rounded-full"></span>
+                        </a>
+                        <a href="products/index.html" class="relative py-3 px-1 text-gray-500 hover:text-gray-900 transition-all duration-300 group/link">
+                            <span class="relative z-10 group-hover/link:text-gray-900">プロダクト</span>
+                            <span class="absolute bottom-2 left-1/2 -translate-x-1/2 w-0 h-[2px] bg-gradient-to-r from-blue-500 to-purple-500 transition-all duration-300 group-hover/link:w-full rounded-full"></span>
+                        </a>
+                        <a href="news/index.html" class="relative py-3 px-1 text-gray-500 hover:text-gray-900 transition-all duration-300 group/link">
+                            <span class="relative z-10 group-hover/link:text-gray-900">ニュース</span>
+                            <span class="absolute bottom-2 left-1/2 -translate-x-1/2 w-0 h-[2px] bg-gradient-to-r from-blue-500 to-purple-500 transition-all duration-300 group-hover/link:w-full rounded-full"></span>
+                        </a>
+                    </nav>
+                    <div class="w-px h-6 bg-gray-200 mx-2"></div>
+                    <a href="join.html" class="nav-cta px-5 py-2.5 md:px-6 md:py-2.5 bg-gray-900 text-white rounded-full text-sm font-bold hover:bg-gray-800 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-gray-900/20 active:scale-95 relative overflow-hidden">
+                        <span class="relative z-10">参加する</span>
+                        <div class="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 opacity-0 hover:opacity-100 transition-opacity duration-300 rounded-full"></div>
+                    </a>
                 </div>
-                <a href="join.html" class="px-6 py-2.5 bg-black text-white rounded-full text-sm font-bold hover:bg-gray-800 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-black/20 active:scale-95">
-                    参加する
-                </a>
+                <button class="mobile-menu-btn" aria-label="メニューを開く">
+                    <span></span>
+                </button>
             </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Navigation -->
+    <nav class="mobile-nav">
+        <div class="mobile-nav-links">
+            <a href="index.html#concept" class="mobile-nav-link">
+                <span>コンセプト</span>
+                <i data-lucide="chevron-right" class="w-5 h-5 text-gray-400"></i>
+            </a>
+            <a href="index.html#scale" class="mobile-nav-link">
+                <span>規模と構想</span>
+                <i data-lucide="chevron-right" class="w-5 h-5 text-gray-400"></i>
+            </a>
+            <a href="index.html#vision" class="mobile-nav-link">
+                <span>ビジョン</span>
+                <i data-lucide="chevron-right" class="w-5 h-5 text-gray-400"></i>
+            </a>
+            <a href="products/index.html" class="mobile-nav-link">
+                <span>プロダクト</span>
+                <i data-lucide="chevron-right" class="w-5 h-5 text-gray-400"></i>
+            </a>
+            <a href="news/index.html" class="mobile-nav-link">
+                <span>ニュース</span>
+                <i data-lucide="chevron-right" class="w-5 h-5 text-gray-400"></i>
+            </a>
+            <a href="join.html" class="mobile-nav-link primary">
+                <span>参加する</span>
+                <i data-lucide="arrow-right" class="w-5 h-5"></i>
+            </a>
+        </div>
+        <div class="mobile-nav-bottom">
+            <p>次世代エンターテインメントグループ<br>カゼノコ幹事会</p>
         </div>
     </nav>
 
@@ -70,7 +125,7 @@
                 新世界のエンタメ
             </h1>
             <p class="reveal delay-200 text-lg md:text-xl text-gray-500 font-medium max-w-2xl mx-auto leading-relaxed">
-                カゼノコは、ただのエンターテインメントグループではありません。<br>
+                カゼノコ幹事会は、ただのエンターテインメントグループではありません。<br>
                 あなたの存在と情熱が、新しい文化を生み出すエネルギーになります。
             </p>
         </div>
@@ -81,7 +136,58 @@
         <div class="max-w-7xl mx-auto">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 
-                <!-- Card 1: Engineer HTML/CSS/JS -->
+                <!-- Card 1: Video Editor -->
+                <div class="reveal delay-100 group glass-card rounded-[2.5rem] p-8 border border-white/50 hover:border-orange-400/50 transition-all duration-500 hover:shadow-2xl hover:shadow-orange-500/10 hover:-translate-y-2 relative overflow-hidden h-full flex flex-col">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-orange-50/50 rounded-bl-[4rem] -mr-8 -mt-8 transition-transform group-hover:scale-110"></div>
+                    <div class="relative z-10 flex-grow">
+                        <div class="w-14 h-14 rounded-2xl bg-orange-50 flex items-center justify-center mb-6 group-hover:rotate-12 transition-transform duration-500 shadow-sm group-hover:shadow-orange-200">
+                            <i data-lucide="film" class="w-7 h-7 text-orange-600"></i>
+                        </div>
+                        <span class="inline-block px-3 py-1 rounded-full bg-orange-100/80 text-orange-700 text-[10px] font-bold tracking-widest uppercase mb-4 backdrop-blur-sm">Video Editor</span>
+                        <h3 class="text-2xl font-black text-gray-900 mb-3 group-hover:text-orange-600 transition-colors">映像編集者<br><span class="text-lg font-bold text-gray-500">YMM4 / Premiere</span></h3>
+                        <p class="text-gray-500 text-sm font-medium leading-relaxed">
+                            YouTube動画の編集・制作。テンポの良いカット、目を引くテロップなど、視聴者を離さない編集センスを発揮してください。
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Card 2: Graphic Designer -->
+                <div class="reveal delay-200 group glass-card rounded-[2.5rem] p-8 border border-white/50 hover:border-pink-400/50 transition-all duration-500 hover:shadow-2xl hover:shadow-pink-500/10 hover:-translate-y-2 relative overflow-hidden h-full flex flex-col">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-pink-50/50 rounded-bl-[4rem] -mr-8 -mt-8 transition-transform group-hover:scale-110"></div>
+                    <div class="relative z-10 flex-grow">
+                        <div class="w-14 h-14 rounded-2xl bg-pink-50 flex items-center justify-center mb-6 group-hover:rotate-12 transition-transform duration-500 shadow-sm group-hover:shadow-pink-200">
+                            <i data-lucide="palette" class="w-7 h-7 text-pink-600"></i>
+                        </div>
+                        <span class="inline-block px-3 py-1 rounded-full bg-pink-100/80 text-pink-700 text-[10px] font-bold tracking-widest uppercase mb-4 backdrop-blur-sm">Designer</span>
+                        <h3 class="text-2xl font-black text-gray-900 mb-3 group-hover:text-pink-600 transition-colors">グラフィックデザイナー<br><span class="text-lg font-bold text-gray-500">Web / Logo / UI</span></h3>
+                        <p class="text-gray-500 text-sm font-medium leading-relaxed">
+                            Webデザイン、ロゴ制作、サムネイル、配信オーバーレイなど。カゼノコ幹事会の世界観を視覚的に表現するクリエイターです。
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Card 3: Talent/Member (PICK UP) -->
+                <div class="reveal delay-300 group glass-card shimmer-card rounded-[2.5rem] p-8 border-2 border-blue-400/30 hover:border-blue-400/50 transition-all duration-500 hover:shadow-2xl hover:shadow-blue-500/20 hover:-translate-y-2 relative overflow-hidden h-full flex flex-col bg-gradient-to-br from-white/80 to-blue-50/30">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-blue-100/50 rounded-bl-[4rem] -mr-8 -mt-8 transition-transform group-hover:scale-110"></div>
+                    <div class="absolute top-4 right-4 z-20">
+                        <span class="flex items-center gap-1 px-3 py-1 rounded-full bg-blue-600 text-white text-[10px] font-bold tracking-widest uppercase shadow-lg shadow-blue-600/20 animate-pulse">
+                            <i data-lucide="sparkles" class="w-3 h-3"></i>
+                            PICK UP
+                        </span>
+                    </div>
+                    <div class="relative z-10 flex-grow">
+                        <div class="w-14 h-14 rounded-2xl bg-blue-50 flex items-center justify-center mb-6 group-hover:rotate-12 transition-transform duration-500 shadow-sm group-hover:shadow-blue-200">
+                            <i data-lucide="users" class="w-7 h-7 text-blue-600"></i>
+                        </div>
+                        <span class="inline-block px-3 py-1 rounded-full bg-blue-100/80 text-blue-700 text-[10px] font-bold tracking-widest uppercase mb-4 backdrop-blur-sm">Talent / Member</span>
+                        <h3 class="text-2xl font-black text-gray-900 mb-3 group-hover:text-blue-600 transition-colors">タレント/メンバー<br><span class="text-lg font-bold text-gray-500">配信者 / キャスト</span></h3>
+                        <p class="text-gray-500 text-sm font-medium leading-relaxed">
+                            企画のメインキャストや、配信者としての活動。あなたの個性と声で、カゼノコの新しい物語を一緒に作り上げましょう。
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Card 4: Engineer HTML/CSS/JS -->
                 <div class="reveal delay-100 group glass-card rounded-[2.5rem] p-8 border border-white/50 hover:border-blue-400/50 transition-all duration-500 hover:shadow-2xl hover:shadow-blue-500/10 hover:-translate-y-2 relative overflow-hidden h-full flex flex-col">
                     <div class="absolute top-0 right-0 w-32 h-32 bg-blue-50/50 rounded-bl-[4rem] -mr-8 -mt-8 transition-transform group-hover:scale-110"></div>
                     <div class="relative z-10 flex-grow">
@@ -96,7 +202,7 @@
                     </div>
                 </div>
 
-                <!-- Card 2: Engineer Java -->
+                <!-- Card 5: Engineer Java -->
                 <div class="reveal delay-200 group glass-card rounded-[2.5rem] p-8 border border-white/50 hover:border-red-400/50 transition-all duration-500 hover:shadow-2xl hover:shadow-red-500/10 hover:-translate-y-2 relative overflow-hidden h-full flex flex-col">
                     <div class="absolute top-0 right-0 w-32 h-32 bg-red-50/50 rounded-bl-[4rem] -mr-8 -mt-8 transition-transform group-hover:scale-110"></div>
                     <div class="relative z-10 flex-grow">
@@ -106,12 +212,12 @@
                         <span class="inline-block px-3 py-1 rounded-full bg-red-100/80 text-red-700 text-[10px] font-bold tracking-widest uppercase mb-4 backdrop-blur-sm">Backend / Plugin</span>
                         <h3 class="text-2xl font-black text-gray-900 mb-3 group-hover:text-red-600 transition-colors">エンジニア<br><span class="text-lg font-bold text-gray-500">Java</span></h3>
                         <p class="text-gray-500 text-sm font-medium leading-relaxed">
-                            Minecraftサーバーのプラグイン開発や、バックエンドシステムの構築。カゼノコの遊びの根幹を作る技術者です。
+                            サーバーのプラグイン開発や、バックエンドシステムの構築。カゼノコ幹事会の遊びの根幹を作る技術者です。
                         </p>
                     </div>
                 </div>
 
-                <!-- Card 3: Engineer C Language -->
+                <!-- Card 6: Engineer C Language -->
                 <div class="reveal delay-300 group glass-card rounded-[2.5rem] p-8 border border-white/50 hover:border-purple-400/50 transition-all duration-500 hover:shadow-2xl hover:shadow-purple-500/10 hover:-translate-y-2 relative overflow-hidden h-full flex flex-col">
                     <div class="absolute top-0 right-0 w-32 h-32 bg-purple-50/50 rounded-bl-[4rem] -mr-8 -mt-8 transition-transform group-hover:scale-110"></div>
                     <div class="relative z-10 flex-grow">
@@ -126,7 +232,7 @@
                     </div>
                 </div>
 
-                <!-- Card: Engineer Python -->
+                <!-- Card 7: Engineer Python -->
                 <div class="reveal delay-200 group glass-card rounded-[2.5rem] p-8 border border-white/50 hover:border-yellow-400/50 transition-all duration-500 hover:shadow-2xl hover:shadow-yellow-500/10 hover:-translate-y-2 relative overflow-hidden h-full flex flex-col">
                     <div class="absolute top-0 right-0 w-32 h-32 bg-yellow-50/50 rounded-bl-[4rem] -mr-8 -mt-8 transition-transform group-hover:scale-110"></div>
                     <div class="relative z-10 flex-grow">
@@ -137,51 +243,6 @@
                         <h3 class="text-2xl font-black text-gray-900 mb-3 group-hover:text-yellow-600 transition-colors">エンジニア<br><span class="text-lg font-bold text-gray-500">Python (音声AI・LLM)</span></h3>
                         <p class="text-gray-500 text-sm font-medium leading-relaxed">
                             RVCなどの音声技術や、Gemini API等のLLM活用・各種API連携を担当。AI技術でキャラクターに「命」と「知性」を吹き込むポジションです。
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Card 4: Video Editor -->
-                <div class="reveal delay-100 group glass-card rounded-[2.5rem] p-8 border border-white/50 hover:border-orange-400/50 transition-all duration-500 hover:shadow-2xl hover:shadow-orange-500/10 hover:-translate-y-2 relative overflow-hidden h-full flex flex-col">
-                    <div class="absolute top-0 right-0 w-32 h-32 bg-orange-50/50 rounded-bl-[4rem] -mr-8 -mt-8 transition-transform group-hover:scale-110"></div>
-                    <div class="relative z-10 flex-grow">
-                        <div class="w-14 h-14 rounded-2xl bg-orange-50 flex items-center justify-center mb-6 group-hover:rotate-12 transition-transform duration-500 shadow-sm group-hover:shadow-orange-200">
-                            <i data-lucide="film" class="w-7 h-7 text-orange-600"></i>
-                        </div>
-                        <span class="inline-block px-3 py-1 rounded-full bg-orange-100/80 text-orange-700 text-[10px] font-bold tracking-widest uppercase mb-4 backdrop-blur-sm">Video Editor</span>
-                        <h3 class="text-2xl font-black text-gray-900 mb-3 group-hover:text-orange-600 transition-colors">動画編集<br><span class="text-lg font-bold text-gray-500">YMM4 / Premiere</span></h3>
-                        <p class="text-gray-500 text-sm font-medium leading-relaxed">
-                            YouTube動画の編集・制作。テンポの良いカット、目を引くテロップなど、視聴者を離さない編集センスを発揮してください。
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Card 5: Designer -->
-                <div class="reveal delay-200 group glass-card rounded-[2.5rem] p-8 border border-white/50 hover:border-pink-400/50 transition-all duration-500 hover:shadow-2xl hover:shadow-pink-500/10 hover:-translate-y-2 relative overflow-hidden h-full flex flex-col">
-                    <div class="absolute top-0 right-0 w-32 h-32 bg-pink-50/50 rounded-bl-[4rem] -mr-8 -mt-8 transition-transform group-hover:scale-110"></div>
-                    <div class="relative z-10 flex-grow">
-                        <div class="w-14 h-14 rounded-2xl bg-pink-50 flex items-center justify-center mb-6 group-hover:rotate-12 transition-transform duration-500 shadow-sm group-hover:shadow-pink-200">
-                            <i data-lucide="palette" class="w-7 h-7 text-pink-600"></i>
-                        </div>
-                        <span class="inline-block px-3 py-1 rounded-full bg-pink-100/80 text-pink-700 text-[10px] font-bold tracking-widest uppercase mb-4 backdrop-blur-sm">Designer</span>
-                        <h3 class="text-2xl font-black text-gray-900 mb-3 group-hover:text-pink-600 transition-colors">デザイナー<br><span class="text-lg font-bold text-gray-500">Web / Logo / UI</span></h3>
-                        <p class="text-gray-500 text-sm font-medium leading-relaxed">
-                            Webデザイン、ロゴ制作、サムネイル、配信オーバーレイなど。カゼノコの世界観を視覚的に表現するクリエイターです。
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Card 6: Guest -->
-                <div class="reveal delay-300 group glass-card shimmer-card rounded-[2.5rem] p-8 border border-white/50 hover:border-green-400/50 transition-all duration-500 hover:shadow-2xl hover:shadow-green-500/10 hover:-translate-y-2 relative overflow-hidden h-full flex flex-col">
-                    <div class="absolute top-0 right-0 w-32 h-32 bg-green-50/50 rounded-bl-[4rem] -mr-8 -mt-8 transition-transform group-hover:scale-110"></div>
-                    <div class="relative z-10 flex-grow">
-                        <div class="w-14 h-14 rounded-2xl bg-green-50 flex items-center justify-center mb-6 group-hover:rotate-12 transition-transform duration-500 shadow-sm group-hover:shadow-green-200">
-                            <i data-lucide="users" class="w-7 h-7 text-green-600"></i>
-                        </div>
-                        <span class="inline-block px-3 py-1 rounded-full bg-green-100/80 text-green-700 text-[10px] font-bold tracking-widest uppercase mb-4 backdrop-blur-sm">Cast / Staff</span>
-                        <h3 class="text-2xl font-black text-gray-900 mb-3 group-hover:text-green-600 transition-colors">ゲスト<br><span class="text-lg font-bold text-gray-500">お手伝い / プレイヤー</span></h3>
-                        <p class="text-gray-500 text-sm font-medium leading-relaxed">
-                            企画のプレイヤーとしての参加や、撮影・運営の裏方サポート。スポットでの参加も歓迎。まずはここから始めましょう。
                         </p>
                     </div>
                 </div>
@@ -223,7 +284,7 @@
                         </div>
                         <div class="space-y-1">
                             <span class="block text-xs font-bold text-orange-600 tracking-wider uppercase">Editor</span>
-                            <span class="block text-lg font-black text-gray-900 group-hover:text-orange-600 transition-colors">動画・画像編集者応募</span>
+                            <span class="block text-lg font-black text-gray-900 group-hover:text-orange-600 transition-colors">映像編集者応募</span>
                         </div>
                         <div class="mt-2 w-10 h-10 rounded-full bg-gray-900 text-white flex items-center justify-center group-hover:bg-orange-600 transition-colors shadow-lg shadow-gray-900/20 group-hover:shadow-orange-600/30">
                             <i data-lucide="arrow-right" class="w-5 h-5 group-hover:translate-x-0.5 transition-transform"></i>
@@ -237,23 +298,29 @@
                         </div>
                         <div class="space-y-1">
                             <span class="block text-xs font-bold text-pink-600 tracking-wider uppercase">Designer</span>
-                            <span class="block text-lg font-black text-gray-900 group-hover:text-pink-600 transition-colors">デザイナー応募</span>
+                            <span class="block text-lg font-black text-gray-900 group-hover:text-pink-600 transition-colors">グラフィックデザイナー応募</span>
                         </div>
                         <div class="mt-2 w-10 h-10 rounded-full bg-gray-900 text-white flex items-center justify-center group-hover:bg-pink-600 transition-colors shadow-lg shadow-gray-900/20 group-hover:shadow-pink-600/30">
                             <i data-lucide="arrow-right" class="w-5 h-5 group-hover:translate-x-0.5 transition-transform"></i>
                         </div>
                     </a>
 
-                    <!-- Guest Application -->
-                    <a href="https://forms.gle/BjEPRxrG93LKGQ9u9" target="_blank" rel="noopener noreferrer" class="group glass-card p-8 rounded-3xl border border-white/50 hover:border-green-400/50 transition-all duration-300 hover:shadow-xl hover:shadow-green-500/10 hover:-translate-y-1 flex flex-col items-center justify-center gap-4 text-center bg-white/40 backdrop-blur-md">
-                        <div class="w-16 h-16 rounded-2xl bg-green-50 flex items-center justify-center group-hover:scale-110 transition-transform shadow-sm group-hover:shadow-green-200 duration-300">
-                            <i data-lucide="users" class="w-8 h-8 text-green-600"></i>
+                    <!-- Talent/Member Application -->
+                    <a href="https://forms.gle/BjEPRxrG93LKGQ9u9" target="_blank" rel="noopener noreferrer" class="group glass-card p-8 rounded-3xl border-2 border-blue-400/30 hover:border-blue-400/50 transition-all duration-300 hover:shadow-xl hover:shadow-blue-500/20 hover:-translate-y-1 flex flex-col items-center justify-center gap-4 text-center bg-gradient-to-br from-white/80 to-blue-50/30 backdrop-blur-md relative overflow-hidden">
+                         <div class="absolute top-0 right-0 w-24 h-24 bg-blue-100/50 rounded-bl-[3rem] -mr-6 -mt-6 transition-transform group-hover:scale-110"></div>
+                        <div class="absolute top-3 right-3 z-20">
+                            <span class="flex items-center gap-1 px-2 py-0.5 rounded-full bg-blue-600 text-white text-[9px] font-bold tracking-widest uppercase shadow-md shadow-blue-600/20 animate-pulse">
+                                PICK UP
+                            </span>
                         </div>
-                        <div class="space-y-1">
-                            <span class="block text-xs font-bold text-green-600 tracking-wider uppercase">Guest</span>
-                            <span class="block text-lg font-black text-gray-900 group-hover:text-green-600 transition-colors">ゲスト応募</span>
+                        <div class="w-16 h-16 rounded-2xl bg-blue-50 flex items-center justify-center group-hover:scale-110 transition-transform shadow-sm group-hover:shadow-blue-200 duration-300 relative z-10">
+                            <i data-lucide="users" class="w-8 h-8 text-blue-600"></i>
                         </div>
-                        <div class="mt-2 w-10 h-10 rounded-full bg-gray-900 text-white flex items-center justify-center group-hover:bg-green-600 transition-colors shadow-lg shadow-gray-900/20 group-hover:shadow-green-600/30">
+                        <div class="space-y-1 relative z-10">
+                            <span class="block text-xs font-bold text-blue-600 tracking-wider uppercase">Talent / Member</span>
+                            <span class="block text-lg font-black text-gray-900 group-hover:text-blue-600 transition-colors">タレント/メンバー応募</span>
+                        </div>
+                        <div class="mt-2 w-10 h-10 rounded-full bg-gray-900 text-white flex items-center justify-center group-hover:bg-blue-600 transition-colors shadow-lg shadow-gray-900/20 group-hover:shadow-blue-600/30 relative z-10">
                             <i data-lucide="arrow-right" class="w-5 h-5 group-hover:translate-x-0.5 transition-transform"></i>
                         </div>
                     </a>
