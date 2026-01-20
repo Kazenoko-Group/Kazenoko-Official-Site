@@ -1,0 +1,171 @@
+@import url('https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=M+PLUS+1:wght@300;400;500;700&family=Zen+Kaku+Gothic+New:wght@400;700;900&display=swap');
+
+/* Global Utilities */
+html {
+    scroll-behavior: smooth;
+    cursor: none; /* Hide default cursor */
+}
+
+body {
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+}
+
+a, button, .cursor-pointer {
+    cursor: none; /* Ensure links don't show pointer */
+}
+
+/* Custom Cursor */
+#cursor-dot,
+#cursor-outline {
+    position: fixed;
+    top: 0;
+    left: 0;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    z-index: 9999;
+    pointer-events: none;
+}
+
+#cursor-dot {
+    width: 8px;
+    height: 8px;
+    background-color: var(--cursor-color, #1a1a1a);
+}
+
+#cursor-outline {
+    width: 40px;
+    height: 40px;
+    border: 1px solid var(--cursor-color, #1a1a1a);
+    transition: width 0.2s, height 0.2s, background-color 0.2s;
+}
+
+/* Cursor Hover State */
+body.hovering #cursor-outline {
+    width: 60px;
+    height: 60px;
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(2px);
+    border-color: transparent;
+}
+
+/* Dark Mode Cursor (for Hinoko) */
+body.bg-hinoko-black {
+    --cursor-color: white;
+}
+body.bg-hinoko-black #cursor-dot {
+    background-color: var(--cursor-color);
+}
+body.bg-hinoko-black #cursor-outline {
+    border-color: var(--cursor-color);
+}
+
+/* Kazenoko Specific Styles */
+.k-shadow {
+    box-shadow: 8px 8px 0px var(--color-kazenoko-dark, #1a1a1a);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+.k-shadow:hover {
+    transform: translate(-4px, -4px);
+    box-shadow: 12px 12px 0px var(--color-kazenoko-dark, #1a1a1a);
+}
+
+.k-shadow-sm {
+    box-shadow: 4px 4px 0px var(--color-kazenoko-dark, #1a1a1a);
+}
+.k-text-stroke {
+    -webkit-text-stroke: 1px var(--color-kazenoko-dark, #1a1a1a);
+    color: transparent;
+}
+.k-text-stroke-white {
+    -webkit-text-stroke: 1px white;
+    color: transparent;
+}
+
+/* Hinoko Specific Styles */
+.h-glass {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.h-glow {
+    box-shadow: 0 0 20px rgba(255, 107, 0, 0.3);
+}
+.h-gradient-text {
+    background: linear-gradient(to right, #ff6b00, #ff9e42);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent; /* Fallback */
+}
+
+/* Animation Classes */
+.fade-in-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.visible .fade-in-up, .fade-in-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Stagger delays handled in JS or inline styles */
+
+.marquee-container {
+    overflow: hidden;
+    white-space: nowrap;
+}
+.marquee-content {
+    display: inline-block;
+    animation: marquee 20s linear infinite;
+}
+@keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+/* Transition Overlay */
+#transition-overlay {
+    pointer-events: none;
+    z-index: 99999;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    transform: translateY(0); /* Default to covering */
+    transition: transform 0.8s cubic-bezier(0.87, 0, 0.13, 1);
+}
+
+.overlay-hidden {
+    transform: translateY(-100%) !important;
+}
+
+.overlay-visible {
+    transform: translateY(0) !important;
+}
+
+/* Magnetic Button Base */
+.magnetic-btn {
+    display: inline-block;
+    transition: transform 0.1s linear;
+}
+
+/* Text Reveal Animation */
+.reveal-text {
+    overflow: hidden;
+    display: block;
+}
+.reveal-text span {
+    display: block;
+    transform: translateY(100%);
+    transition: transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.visible .reveal-text span {
+    transform: translateY(0);
+}

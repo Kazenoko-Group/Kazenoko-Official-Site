@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News | Kazenoko Official</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=M+PLUS+1:wght@300;400;500;700&family=Zen+Kaku+Gothic+New:wght@400;700;900&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="../style/style.css">
+    
+    <!-- Tailwind Config -->
+    <style type="text/tailwindcss">
+        @theme {
+            --color-kazenoko-cyan: #00e5ff;
+            --color-kazenoko-dark: #1a1a1a;
+            --color-hinoko-orange: #ff6b00;
+            --color-hinoko-black: #050505;
+            
+            --font-gothic: "Dela Gothic One", sans-serif;
+            --font-zen: "Zen Kaku Gothic New", sans-serif;
+            --font-mplus: "M PLUS 1", sans-serif;
+        }
+    </style>
+</head>
+<body class="antialiased w-full h-full relative bg-white text-kazenoko-dark font-zen">
+
+    <!-- Transition Layer -->
+    <div id="transition-overlay"></div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-6 py-4 mix-blend-difference text-white">
+        <div class="font-gothic text-xl tracking-tighter">KAZENOKO</div>
+        <div class="flex gap-4 items-center">
+            <a href="../index.html" class="magnetic-btn font-zen font-bold hover:opacity-70 transition-opacity uppercase text-sm tracking-widest cursor-pointer">Kazenoko</a>
+            <span class="opacity-50">/</span>
+            <a href="../hinoko.html" class="magnetic-btn font-mplus font-medium hover:opacity-70 transition-opacity uppercase text-sm tracking-widest cursor-pointer">Hinoko</a>
+            <span class="opacity-50">/</span>
+            <a href="../join.html" class="magnetic-btn font-zen font-bold hover:opacity-70 transition-opacity uppercase text-sm tracking-widest cursor-pointer">Join</a>
+            <span class="opacity-50">/</span>
+            <a href="index.html" class="magnetic-btn font-zen font-bold text-kazenoko-cyan hover:opacity-70 transition-opacity uppercase text-sm tracking-widest cursor-pointer">News</a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="pt-32 pb-20 px-6 max-w-4xl mx-auto min-h-screen">
+        <h1 class="font-gothic text-5xl md:text-7xl mb-12 border-b-4 border-kazenoko-dark inline-block pb-4 fade-in-up">NEWS</h1>
+        
+        <div class="space-y-8">
+            
+            <!-- News Item -->
+            <a href="2026/0119_site_open.html" class="block border-b border-gray-200 py-6 hover:bg-gray-50 transition-colors group fade-in-up">
+                <div class="flex flex-col md:flex-row md:items-center gap-4">
+                    <div class="flex items-center gap-4 min-w-[200px]">
+                        <span class="font-mono text-gray-500">2026.01.19</span>
+                        <span class="bg-kazenoko-cyan text-white text-xs font-bold px-2 py-1">RELEASE</span>
+                    </div>
+                    <h2 class="text-xl font-bold group-hover:text-kazenoko-cyan transition-colors">公式サイトをオープンしました</h2>
+                </div>
+            </a>
+
+            <!-- Placeholder for future news -->
+            <!-- 
+            <a href="#" class="block border-b border-gray-200 py-6 hover:bg-gray-50 transition-colors group fade-in-up">
+                <div class="flex flex-col md:flex-row md:items-center gap-4">
+                    <div class="flex items-center gap-4 min-w-[200px]">
+                        <span class="font-mono text-gray-500">2026.XX.XX</span>
+                        <span class="bg-gray-800 text-white text-xs font-bold px-2 py-1">INFO</span>
+                    </div>
+                    <h2 class="text-xl font-bold group-hover:text-kazenoko-cyan transition-colors">ニュースタイトルがここに入ります</h2>
+                </div>
+            </a>
+             -->
+             
+        </div>
+        
+        <div class="mt-24 text-center">
+             <a href="../index.html" class="inline-block border-2 border-kazenoko-dark px-8 py-3 font-bold hover:bg-kazenoko-dark hover:text-white transition-colors">
+                ← BACK TO TOP
+            </a>
+        </div>
+
+    </main>
+
+    <footer class="py-8 text-center text-xs text-gray-500 border-t-2 border-kazenoko-dark bg-white">
+        © Kazenoko Official.
+    </footer>
+
+    <!-- Global Scripts -->
+    <script src="../js/main.js"></script>
+</body>
+</html>
