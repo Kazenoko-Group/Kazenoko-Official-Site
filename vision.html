@@ -3,248 +3,104 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ビジョン - Vision | カゼノコ幹事会</title>
-    <link rel="icon" href="images/kazenoko_logo.jpg" type="image/jpeg">
-    <meta name="description" content="From Community to Brand. 面白いコミュニティを作り、その先に待つ未来。">
+    <title>Vision | Kazenoko Official</title>
     
-    <!-- External Dependencies -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=M+PLUS+1:wght@300;400;500;700&family=Zen+Kaku+Gothic+New:wght@400;700;900&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     
     <!-- Custom Styles -->
-    <link rel="stylesheet" href="css/style.css">
-    <style>
-        .glow-text {
-            text-shadow: 0 0 40px rgba(59, 130, 246, 0.5);
-        }
-        .orb {
-            position: absolute;
-            border-radius: 50%;
-            filter: blur(100px);
-            opacity: 0.3;
-            z-index: 0;
-            animation: pulse 8s infinite alternate;
-        }
-        @keyframes pulse {
-            0% { transform: scale(1); opacity: 0.3; }
-            100% { transform: scale(1.2); opacity: 0.5; }
+    <link rel="stylesheet" href="style/style.css">
+    
+    <!-- Tailwind Config -->
+    <style type="text/tailwindcss">
+        @theme {
+            --color-kazenoko-cyan: #00e5ff;
+            --color-kazenoko-dark: #1a1a1a;
+            --font-gothic: "Dela Gothic One", sans-serif;
+            --font-zen: "Zen Kaku Gothic New", sans-serif;
         }
     </style>
 </head>
-<body class="bg-[#050507] text-white overflow-x-hidden selection:bg-blue-500 selection:text-white">
+<body class="antialiased w-full h-full relative bg-white text-kazenoko-dark font-zen">
+
+    <!-- Transition Layer -->
+    <div id="transition-overlay"></div>
 
     <!-- Navigation -->
-    <nav class="fixed top-0 w-full z-50 glass-nav-dark transition-all duration-500 ease-in-out" id="navbar">
-        <div class="max-w-[90rem] mx-auto px-6 md:px-8 h-16 md:h-20 flex items-center justify-between">
-            <a href="index.html" class="font-black text-xl md:text-2xl tracking-tighter flex items-center gap-2 md:gap-3 group relative z-10">
-                <div class="relative">
-                    <div class="absolute inset-0 bg-gradient-to-r from-blue-400 to-purple-500 blur-xl opacity-0 group-hover:opacity-25 transition-all duration-500 rounded-full"></div>
-                    <img src="images/kazenoko_logo.jpg" alt="KAZENOKO" class="relative h-7 md:h-9 w-auto rounded-sm transition-transform duration-500 group-hover:rotate-6 group-hover:scale-110">
-                </div>
-                <span class="text-white group-hover:text-blue-200 transition-colors duration-300">KAZENOKO</span>
-            </a>
-            
-            <div class="flex items-center gap-2 md:gap-4">
-                <div class="hidden md:flex items-center gap-2 lg:gap-8 nav-desktop-links">
-                    <nav class="flex items-center gap-6 lg:gap-8 text-sm font-bold text-gray-400">
-                        <a href="index.html#concept" class="relative py-3 px-1 text-gray-300 hover:text-white transition-all duration-300 group/link">
-                            <span class="relative z-10 group-hover/link:text-white">コンセプト</span>
-                            <span class="absolute bottom-2 left-1/2 -translate-x-1/2 w-0 h-[2px] bg-gradient-to-r from-blue-400 to-purple-500 transition-all duration-300 group-hover/link:w-full rounded-full"></span>
-                        </a>
-                        <a href="index.html#scale" class="relative py-3 px-1 text-gray-300 hover:text-white transition-all duration-300 group/link">
-                            <span class="relative z-10 group-hover/link:text-white">規模と構想</span>
-                            <span class="absolute bottom-2 left-1/2 -translate-x-1/2 w-0 h-[2px] bg-gradient-to-r from-blue-400 to-purple-500 transition-all duration-300 group-hover/link:w-full rounded-full"></span>
-                        </a>
-                        <a href="index.html#vision" class="relative py-3 px-1 text-white transition-all duration-300 group/link">
-                            <span class="relative z-10 text-white">ビジョン</span>
-                            <span class="absolute bottom-2 left-1/2 -translate-x-1/2 w-full h-[2px] bg-gradient-to-r from-blue-400 to-purple-500 rounded-full"></span>
-                        </a>
-                        <a href="products/index.html" class="relative py-3 px-1 text-gray-300 hover:text-white transition-all duration-300 group/link">
-                            <span class="relative z-10 group-hover/link:text-white">プロダクト</span>
-                            <span class="absolute bottom-2 left-1/2 -translate-x-1/2 w-0 h-[2px] bg-gradient-to-r from-blue-400 to-purple-500 transition-all duration-300 group-hover/link:w-full rounded-full"></span>
-                        </a>
-                        <a href="news/index.html" class="relative py-3 px-1 text-gray-300 hover:text-white transition-all duration-300 group/link">
-                            <span class="relative z-10 group-hover/link:text-white">ニュース</span>
-                            <span class="absolute bottom-2 left-1/2 -translate-x-1/2 w-0 h-[2px] bg-gradient-to-r from-blue-400 to-purple-500 transition-all duration-300 group-hover/link:w-full rounded-full"></span>
-                        </a>
-                    </nav>
-                    <div class="w-px h-6 bg-gray-700 mx-2"></div>
-                    <a href="join.html" class="nav-cta px-5 py-2.5 md:px-6 md:py-2.5 bg-white text-gray-900 rounded-full text-sm font-bold hover:bg-gray-200 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-white/20 active:scale-95 relative overflow-hidden">
-                        <span class="relative z-10">参加する</span>
-                        <div class="absolute inset-0 bg-gradient-to-r from-blue-400 to-purple-600 opacity-0 hover:opacity-100 transition-opacity duration-300 rounded-full"></div>
-                    </a>
-                </div>
-                <button class="mobile-menu-btn" aria-label="メニューを開く">
-                    <span></span>
-                </button>
-            </div>
+    <nav class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-6 py-4 mix-blend-difference text-white">
+        <div class="font-gothic text-xl tracking-tighter">KAZENOKO</div>
+        <div class="flex gap-4 items-center">
+            <a href="index.html" class="magnetic-btn font-zen font-bold hover:opacity-70 transition-opacity uppercase text-sm tracking-widest cursor-pointer">Kazenoko</a>
+            <span class="opacity-50">/</span>
+            <a href="hinoko.html" class="magnetic-btn font-mplus font-medium hover:opacity-70 transition-opacity uppercase text-sm tracking-widest cursor-pointer">Hinoko</a>
+            <span class="opacity-50">/</span>
+            <a href="join.html" class="magnetic-btn font-zen font-bold hover:opacity-70 transition-opacity uppercase text-sm tracking-widest cursor-pointer">Join</a>
+            <span class="opacity-50">/</span>
+            <a href="news/index.html" class="magnetic-btn font-zen font-bold hover:opacity-70 transition-opacity uppercase text-sm tracking-widest cursor-pointer">News</a>
         </div>
     </nav>
-
-    <!-- Mobile Navigation -->
-    <nav class="mobile-nav">
-        <div class="mobile-nav-links">
-            <a href="index.html#concept" class="mobile-nav-link">
-                <span>コンセプト</span>
-                <i data-lucide="chevron-right" class="w-5 h-5 text-gray-400"></i>
-            </a>
-            <a href="index.html#scale" class="mobile-nav-link">
-                <span>規模と構想</span>
-                <i data-lucide="chevron-right" class="w-5 h-5 text-gray-400"></i>
-            </a>
-            <a href="index.html#vision" class="mobile-nav-link">
-                <span>ビジョン</span>
-                <i data-lucide="chevron-right" class="w-5 h-5 text-gray-400"></i>
-            </a>
-            <a href="products/index.html" class="mobile-nav-link">
-                <span>プロダクト</span>
-                <i data-lucide="chevron-right" class="w-5 h-5 text-gray-400"></i>
-            </a>
-            <a href="news/index.html" class="mobile-nav-link">
-                <span>ニュース</span>
-                <i data-lucide="chevron-right" class="w-5 h-5 text-gray-400"></i>
-            </a>
-            <a href="join.html" class="mobile-nav-link primary">
-                <span>参加する</span>
-                <i data-lucide="arrow-right" class="w-5 h-5"></i>
-            </a>
-        </div>
-        <div class="mobile-nav-bottom">
-            <p>次世代エンターテインメントグループ<br>カゼノコ幹事会</p>
-        </div>
-    </nav>
-
-    <!-- Header -->
-    <header class="relative pt-48 pb-40 px-6 overflow-hidden">
-        <div class="orb w-[500px] h-[500px] bg-blue-900 top-[-100px] left-[-100px]"></div>
-        <div class="orb w-[600px] h-[600px] bg-purple-900 bottom-[-200px] right-[-100px] delay-1000"></div>
-        
-        <div class="max-w-6xl mx-auto text-center relative z-10 space-y-12">
-            <p class="reveal text-blue-500 font-bold tracking-[0.3em] uppercase text-xs">OUR VISION</p>
-            <h1 class="text-5xl md:text-8xl lg:text-9xl font-black tracking-tighter leading-none glow-text">
-                From Community<br>
-                <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500">to Brand.</span>
-            </h1>
-            <p class="reveal delay-200 text-xl md:text-2xl text-gray-400 font-light max-w-3xl mx-auto pt-4 leading-relaxed">
-                ただの仲良しごっこで終わらせない。<br>
-                「カゼノコ幹事会」という名前を、世界に通用するブランドへ。
-            </p>
-        </div>
-        
-        <div class="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-[#050507] to-transparent z-10"></div>
-    </header>
 
     <!-- Main Content -->
-    <main class="relative z-10">
-        <div class="max-w-5xl mx-auto px-6 space-y-40 py-20">
+    <main class="pt-32 pb-20 px-6 max-w-4xl mx-auto">
+        <h1 class="font-gothic text-5xl md:text-7xl mb-12 border-b-4 border-kazenoko-dark inline-block pb-4 fade-in-up">VISION</h1>
+        
+        <div class="space-y-24">
             
-            <!-- Vision 1: Economy -->
-            <section class="reveal group relative">
-                <div class="absolute -inset-4 bg-gradient-to-r from-blue-900/20 to-purple-900/20 rounded-[2rem] blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
-                <div class="relative grid md:grid-cols-2 gap-16 items-center border border-white/5 rounded-[2rem] p-8 md:p-12 bg-white/5 backdrop-blur-sm">
-                    <div class="space-y-6">
-                        <div class="w-16 h-16 rounded-full bg-blue-500/10 flex items-center justify-center border border-blue-500/20 mb-6">
-                            <i data-lucide="coins" class="w-8 h-8 text-blue-400"></i>
-                        </div>
-                        <h2 class="text-3xl md:text-4xl font-bold">持続可能な経済圏</h2>
-                        <p class="text-gray-400 leading-relaxed text-lg">
-                            クリエイターが活動を続けるためには、情熱だけでなく「還元」が必要です。
-                            私たちは、YouTubeの収益だけに依存しません。
-                            独自のグッズ展開、デジタルコンテンツの販売、メンバーシップ制度。
-                            コミュニティ内で経済が回る仕組みを構築し、貢献したメンバーが正当に評価され、報酬を得られるシステムを作ります。
-                        </p>
-                    </div>
-                    <div class="relative h-64 md:h-full min-h-[300px] rounded-2xl overflow-hidden shadow-2xl shadow-blue-900/20">
-                         <div class="absolute inset-0 bg-gradient-to-br from-gray-800 to-black"></div>
-                         <!-- Mock Visual for Economy -->
-                         <div class="absolute inset-0 flex items-center justify-center">
-                             <div class="w-3/4 h-3/4 border border-white/10 rounded-xl relative overflow-hidden">
-                                 <div class="absolute inset-0 bg-blue-500/10"></div>
-                                 <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center space-y-2">
-                                     <div class="text-4xl font-bold">$KAZENOKO</div>
-                                     <div class="text-xs text-blue-300 uppercase tracking-widest">Economy System</div>
-                                 </div>
-                             </div>
-                         </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Vision 2: Real & Digital -->
-            <section class="reveal delay-200 group relative">
-                 <div class="absolute -inset-4 bg-gradient-to-r from-pink-900/20 to-purple-900/20 rounded-[2rem] blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
-                <div class="relative grid md:grid-cols-2 gap-16 items-center md:flex-row-reverse border border-white/5 rounded-[2rem] p-8 md:p-12 bg-white/5 backdrop-blur-sm">
-                    <div class="space-y-6 md:order-2">
-                         <div class="w-16 h-16 rounded-full bg-pink-500/10 flex items-center justify-center border border-pink-500/20 mb-6">
-                            <i data-lucide="map-pin" class="w-8 h-8 text-pink-400"></i>
-                        </div>
-                        <h2 class="text-3xl md:text-4xl font-bold">リアルとデジタルの融合</h2>
-                        <p class="text-gray-400 leading-relaxed text-lg">
-                            画面の中だけが私たちのステージではありません。
-                            将来的には、ポップアップストアの出店、リアルイベントの開催、コラボカフェなど、
-                            ファンが実際に「カゼノコ幹事会」の世界観に触れられる場所を作ります。
-                            デジタルの熱狂を、リアルの体験へ。
-                        </p>
-                    </div>
-                    <div class="relative h-64 md:h-full min-h-[300px] rounded-2xl overflow-hidden shadow-2xl shadow-pink-900/20 md:order-1">
-                        <div class="absolute inset-0 bg-gradient-to-br from-gray-900 to-black"></div>
-                        <!-- Mock Visual for Real Event -->
-                        <div class="absolute inset-0 opacity-50 bg-[url('https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=2940&auto=format&fit=crop')] bg-cover bg-center"></div>
-                        <div class="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-black to-transparent"></div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Vision 3: Next Star -->
-            <section class="reveal delay-300 text-center space-y-10 max-w-3xl mx-auto py-20 relative">
-                <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-white/5 rounded-full blur-3xl -z-10"></div>
-                <h2 class="text-4xl md:text-6xl font-bold leading-tight">
-                    次世代のスターを<br>
-                    <span class="text-transparent bg-clip-text bg-gradient-to-b from-white to-gray-600">ここから輩出する。</span>
+            <!-- Vision Statement -->
+            <section class="fade-in-up">
+                <h2 class="text-4xl md:text-6xl font-black mb-8 leading-none">
+                    From Community<br>
+                    to <span class="text-kazenoko-cyan k-text-stroke">Brand.</span>
                 </h2>
-                <p class="text-gray-400 leading-relaxed text-lg md:text-xl font-light">
-                    カゼノコ幹事会は、個人の踏み台でも構いません。<br>
-                    ここでの活動を通じてファンを獲得し、ソロとしても大きく羽ばたいていく。<br>
-                    そして、いつか「カゼノコ幹事会出身」であることが、<br>
-                    エンターテイナーとしてのステータスになる未来を描いています。
+                <p class="text-lg leading-loose font-medium">
+                    私たちは、ただのコミュニティではありません。<br>
+                    「カゼノコ幹事会」という名前を、世界に通用するブランドへと昇華させます。<br>
+                    遊び心と真剣さを共存させ、次世代のスタンダードを築き上げます。
                 </p>
-                <div class="pt-8">
-                    <a href="index.html#join" class="inline-flex items-center gap-3 bg-white text-black px-12 py-5 rounded-full font-bold text-lg hover:bg-gray-200 transition-all hover:scale-105 shadow-xl shadow-white/10 group">
-                        共に未来を創る
-                        <i data-lucide="arrow-right" class="w-5 h-5 group-hover:translate-x-1 transition-transform"></i>
-                    </a>
+            </section>
+
+            <!-- Scale -->
+            <section class="fade-in-up">
+                <div class="border-l-8 border-kazenoko-cyan pl-8">
+                    <h2 class="font-gothic text-3xl md:text-5xl mb-6">圧倒的な規模感。</h2>
+                    <p class="text-xl font-bold mb-4">スケールとプラン</p>
+                    <p class="text-lg leading-loose text-gray-700">
+                        小規模なグループでは終わらない。<br>
+                        エンタメのエコシステムを構築する。<br>
+                        <br>
+                        200人越えの大きなコミュニティ。<br>
+                        12の飽きさせない専門領域。<br>
+                        <span class="text-sm text-gray-500 block mt-2">ゲーム実況、雑談、歌、ラジオ、TRPG、制作...</span>
+                    </p>
                 </div>
+            </section>
+
+            <!-- Future -->
+            <section class="bg-gray-100 p-8 md:p-12 border-2 border-kazenoko-dark k-shadow fade-in-up">
+                <h3 class="font-gothic text-2xl mb-4">次世代のスターをここから排出する</h3>
+                <p class="text-lg leading-relaxed">
+                    12の異なるチャンネルで、メンバーは輝き、視聴者は常に新しい楽しみを発見できる。<br>
+                    才能を発掘し、育て、世界へ送り出す。<br>
+                    それが私たちの使命です。
+                </p>
             </section>
 
         </div>
+        
+        <div class="mt-24 text-center">
+             <a href="index.html" class="inline-block border-2 border-kazenoko-dark px-8 py-3 font-bold hover:bg-kazenoko-dark hover:text-white transition-colors">
+                ← BACK TO TOP
+            </a>
+        </div>
+
     </main>
 
-    <!-- Footer -->
-    <footer class="bg-black py-12 px-6 border-t border-gray-900 mt-20">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
-            <div class="text-xs text-gray-600">
-                Copyright © 2025 カゼノコ幹事会. All rights reserved.
-            </div>
-            <div class="flex space-x-6">
-                <a href="#" class="text-gray-500 hover:text-white transition-colors transform hover:scale-110"><i data-lucide="twitter" class="w-5 h-5"></i></a>
-                <a href="#" class="text-gray-500 hover:text-white transition-colors transform hover:scale-110"><i data-lucide="youtube" class="w-5 h-5"></i></a>
-                <a href="#" class="text-gray-500 hover:text-white transition-colors transform hover:scale-110"><i data-lucide="instagram" class="w-5 h-5"></i></a>
-            </div>
-        </div>
-    </footer>
-
+    <!-- Global Scripts -->
     <script src="js/main.js"></script>
-    <script>
-        lucide.createIcons();
-    </script>
-    <style>
-        .glass-nav-dark {
-            background: rgba(5, 5, 7, 0.7);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-        }
-    </style>
 </body>
 </html>

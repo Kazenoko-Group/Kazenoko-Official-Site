@@ -1,160 +1,138 @@
-// Initialize Lucide Icons
-lucide.createIcons();
-
 document.addEventListener('DOMContentLoaded', () => {
-    // Mobile Menu Toggle
-    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-    const mobileNav = document.querySelector('.mobile-nav');
-    const body = document.body;
+    
+    // --- 0. IxD Init: Custom Cursor ---
+    const cursorDot = document.createElement('div');
+    cursorDot.id = 'cursor-dot';
+    const cursorOutline = document.createElement('div');
+    cursorOutline.id = 'cursor-outline';
+    document.body.appendChild(cursorDot);
+    document.body.appendChild(cursorOutline);
 
-    if (mobileMenuBtn && mobileNav) {
-        mobileMenuBtn.addEventListener('click', () => {
-            mobileMenuBtn.classList.toggle('active');
-            mobileNav.classList.toggle('active');
-            body.classList.toggle('menu-open');
-        });
+    let mouseX = 0;
+    let mouseY = 0;
+    let cursorX = 0;
+    let cursorY = 0;
 
-        // Close menu when clicking on a link
-        const mobileLinks = mobileNav.querySelectorAll('a');
-        mobileLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenuBtn.classList.remove('active');
-                mobileNav.classList.remove('active');
-                body.classList.remove('menu-open');
-            });
-        });
+    // Track mouse position
+    document.addEventListener('mousemove', (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+        
+        // Instant update for dot
+        cursorDot.style.left = `${mouseX}px`;
+        cursorDot.style.top = `${mouseY}px`;
+    });
 
-        // Close menu when clicking backdrop
-        document.addEventListener('click', (e) => {
-            if (!mobileNav.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
-                mobileMenuBtn.classList.remove('active');
-                mobileNav.classList.remove('active');
-                body.classList.remove('menu-open');
-            }
-        });
+    // Smooth follow for outline
+    const animateCursor = () => {
+        const dx = mouseX - cursorX;
+        const dy = mouseY - cursorY;
+        
+        cursorX += dx * 0.15; // Lag factor
+        cursorY += dy * 0.15;
+        
+        cursorOutline.style.left = `${cursorX}px`;
+        cursorOutline.style.top = `${cursorY}px`;
+        
+        requestAnimationFrame(animateCursor);
+    };
+    animateCursor();
 
-        // Close menu on escape key
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') {
-                mobileMenuBtn.classList.remove('active');
-                mobileNav.classList.remove('active');
-                body.classList.remove('menu-open');
-            }
-        });
+    // Hover interactions
+    const interactiveElements = document.querySelectorAll('a, button, .cursor-pointer, input, textarea');
+    interactiveElements.forEach(el => {
+        el.addEventListener('mouseenter', () => document.body.classList.add('hovering'));
+        el.addEventListener('mouseleave', () => document.body.classList.remove('hovering'));
+    });
+
+
+    // --- 1. Initialize Overlay ---
+    const overlay = document.getElementById('transition-overlay');
+    
+    // Determine entrance animation (slide out)
+    if (overlay) {
+        // Wait a tiny bit to ensure the browser has painted the initial state (covering)
+        setTimeout(() => {
+            overlay.classList.add('overlay-hidden');
+        }, 100);
     }
 
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const observerOptions = {
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.1
-    };
+    // --- 2. Setup Navigation Links ---
+    const links = document.querySelectorAll('a[href]');
+    links.forEach(link => {
+        const href = link.getAttribute('href');
+        
+        // Skip external links or anchors
+        if (!href || href.startsWith('#') || href.startsWith('http') || link.target === '_blank') return;
 
-    const observer = new IntersectionObserver((entries, observer) => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const targetUrl = href;
+            const transitionColor = link.getAttribute('data-transition-color') || '#000';
+
+            // Start Exit Animation
+            if (overlay) {
+                // Set overlay color for the exit
+                overlay.style.backgroundColor = transitionColor;
+                
+                // Remove hidden class to slide it back in (cover screen)
+                overlay.classList.remove('overlay-hidden');
+                
+                // Wait for animation then navigate
+                setTimeout(() => {
+                    window.location.href = targetUrl;
+                }, 700); // Match CSS duration
+            } else {
+                window.location.href = targetUrl;
+            }
+        });
+    });
+
+    // --- 3. Intersection Observer for Animations ---
+    const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.classList.add('active');
-                if (prefersReducedMotion) observer.unobserve(entry.target);
+                entry.target.classList.add('visible');
             }
         });
-    }, observerOptions);
+    }, { threshold: 0.1 });
 
-    const revealElements = document.querySelectorAll('.reveal');
-    revealElements.forEach(el => {
-        if (prefersReducedMotion) {
-            el.classList.add('active');
-            return;
-        }
-        observer.observe(el);
-    });
+    const animatedElements = document.querySelectorAll('.fade-in-up, .reveal-text');
+    animatedElements.forEach(el => observer.observe(el));
 
-    const charRevealElements = document.querySelectorAll('.char-reveal');
-    charRevealElements.forEach(el => {
-        const parts = el.innerHTML.split(/(<br\s*\/?>)/gi);
-        let charIndex = 0;
-        
-        el.innerHTML = parts.map(part => {
-            if (part.match(/<br\s*\/?>/i)) return part;
-            
-            return part.split('').map(char => {
-                if (char.trim() === '') return char;
-                
-                const span = `<span style="transition-delay: ${charIndex * 0.05}s">${char}</span>`;
-                charIndex++;
-                return span;
-            }).join('');
-        }).join('');
-        
-        if (prefersReducedMotion) {
-            el.classList.add('active');
-            return;
-        }
-        observer.observe(el);
-    });
 
-    const easeOutCubic = t => 1 - Math.pow(1 - t, 3);
-    const formatNumber = value => value.toLocaleString('ja-JP');
-
-    const startCountUp = el => {
-        const from = Number(el.dataset.countFrom ?? '0');
-        const to = Number(el.dataset.countTo ?? '0');
-        const duration = Number(el.dataset.countDuration ?? '1200');
-        const prefix = el.dataset.countPrefix ?? '';
-        const suffix = el.dataset.countSuffix ?? '';
-
-        let startTime = null;
-        el.textContent = `${prefix}${formatNumber(from)}${suffix}`;
-
-        const tick = now => {
-            if (startTime === null) startTime = now;
-            const elapsed = now - startTime;
-            const progress = Math.min(elapsed / duration, 1);
-            const eased = easeOutCubic(progress);
-            const current = Math.round(from + (to - from) * eased);
-            el.textContent = `${prefix}${formatNumber(current)}${suffix}`;
-            if (progress < 1) requestAnimationFrame(tick);
-        };
-
-        requestAnimationFrame(tick);
-    };
-
-    const countupElements = document.querySelectorAll('[data-count-to]');
-    if (countupElements.length) {
-        if (prefersReducedMotion) {
-            countupElements.forEach(el => {
-                const to = Number(el.dataset.countTo ?? '0');
-                const prefix = el.dataset.countPrefix ?? '';
-                const suffix = el.dataset.countSuffix ?? '';
-                el.textContent = `${prefix}${formatNumber(to)}${suffix}`;
-            });
-        } else {
-            const countObserver = new IntersectionObserver(entries => {
-                entries.forEach(entry => {
-                    if (!entry.isIntersecting) return;
-                    startCountUp(entry.target);
-                    countObserver.unobserve(entry.target);
-                });
-            }, { threshold: 0.6 });
-
-            countupElements.forEach(el => countObserver.observe(el));
-        }
-    }
-});
-
-window.addEventListener('scroll', () => {
-    const scrollY = window.scrollY;
+    // --- 4. Magnetic Buttons (IxD) ---
+    const magneticBtns = document.querySelectorAll('.magnetic-btn'); // Add this class to desired elements
     
-    const navbar = document.getElementById('navbar');
-    if (navbar) {
-        if (scrollY > 50) {
-            navbar.classList.add('shadow-sm');
-        } else {
-            navbar.classList.remove('shadow-sm');
-        }
+    magneticBtns.forEach(btn => {
+        btn.addEventListener('mousemove', (e) => {
+            const rect = btn.getBoundingClientRect();
+            const x = e.clientX - rect.left - rect.width / 2;
+            const y = e.clientY - rect.top - rect.height / 2;
+            
+            // Move element slightly towards mouse
+            btn.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px)`;
+        });
+        
+        btn.addEventListener('mouseleave', () => {
+            btn.style.transform = 'translate(0px, 0px)';
+        });
+    });
+
+    // --- 5. Parallax Background (IxD) ---
+    const parallaxLayers = document.querySelectorAll('.parallax-layer');
+    if (parallaxLayers.length > 0) {
+        document.addEventListener('mousemove', (e) => {
+            const x = (window.innerWidth - e.pageX * 2) / 100;
+            const y = (window.innerHeight - e.pageY * 2) / 100;
+
+            parallaxLayers.forEach(layer => {
+                const speed = layer.getAttribute('data-speed') || 1;
+                const xPos = x * speed;
+                const yPos = y * speed;
+                layer.style.transform = `translate(${xPos}px, ${yPos}px)`;
+            });
+        });
     }
 
-    const heroBg = document.querySelector('.hero-bg-animate');
-    if (heroBg) {
-        heroBg.style.transform = `scale(${1 + scrollY * 0.0005}) translateY(${scrollY * 0.5}px)`;
-    }
 });

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hino | Personal AI Chat</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=M+PLUS+1:wght@300;400;500;700&family=Zen+Kaku+Gothic+New:wght@400;700;900&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="../../../style/style.css">
+    
+    <!-- Tailwind Config -->
+    <style type="text/tailwindcss">
+        @theme {
+            --color-kazenoko-cyan: #00e5ff;
+            --color-kazenoko-dark: #1a1a1a;
+            --color-hinoko-orange: #ff6b00;
+            --color-hinoko-black: #050505;
+            
+            --font-gothic: "Dela Gothic One", sans-serif;
+            --font-zen: "Zen Kaku Gothic New", sans-serif;
+            --font-mplus: "M PLUS 1", sans-serif;
+        }
+    </style>
+</head>
+<body class="antialiased w-full h-full relative bg-hinoko-black text-white font-mplus">
+
+    <!-- Transition Layer -->
+    <div id="transition-overlay"></div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-6 py-4 mix-blend-difference text-white">
+        <div class="font-gothic text-xl tracking-tighter">HINOKO</div>
+        <div class="flex gap-4 items-center">
+            <a href="../../../hinoko.html" class="magnetic-btn font-mplus font-medium hover:opacity-70 transition-opacity uppercase text-sm tracking-widest cursor-pointer text-hinoko-orange">BACK</a>
+        </div>
+    </nav>
+
+    <main class="min-h-screen flex flex-col justify-center items-center px-6 text-center relative overflow-hidden">
+        
+        <!-- Background -->
+        <div class="absolute inset-0 pointer-events-none z-0">
+             <div class="parallax-layer absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[60vw] h-[60vw] bg-hinoko-orange rounded-full blur-[150px] opacity-20 animate-pulse" data-speed="2"></div>
+        </div>
+
+        <div class="relative z-10 max-w-4xl">
+            <p class="text-hinoko-orange tracking-[0.3em] mb-4 fade-in-up">PERSONAL AI CHAT</p>
+            <h1 class="text-7xl md:text-9xl font-bold mb-8 fade-in-up" style="animation-delay: 0.1s;">Hino</h1>
+            <p class="text-2xl md:text-4xl font-light text-gray-300 mb-12 fade-in-up" style="animation-delay: 0.2s;">
+                あなたの日常に寄り添い、<br>体験をパーソナライズする。
+            </p>
+            
+            <div class="p-8 border border-white/10 bg-white/5 rounded-xl backdrop-blur-md fade-in-up" style="animation-delay: 0.3s;">
+                <p class="text-lg leading-relaxed text-gray-400">
+                    Hinoは、ユーザー第一主義を掲げるAIパートナーです。<br>
+                    会話を通じてあなたを理解し、最適な情報とサポートを提供します。
+                </p>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Global Scripts -->
+    <script src="../../../js/main.js"></script>
+</body>
+</html>
