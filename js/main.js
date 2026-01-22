@@ -111,7 +111,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const y = e.clientY - rect.top - rect.height / 2;
             
             // Move element slightly towards mouse
-            btn.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px)`;
+            btn.style.transform = `translate(${x * 0.1}px, ${y * 0.1}px)`;
         });
         
         btn.addEventListener('mouseleave', () => {
