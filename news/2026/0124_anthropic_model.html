@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hino / HinoCo におけるAIモデル実装計画のアップデート | News | Kazenoko Official</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=M+PLUS+1:wght@300;400;500;700&family=Zen+Kaku+Gothic+New:wght@400;700;900&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="../../style/style.css">
+    
+    <!-- Tailwind Config -->
+    <style type="text/tailwindcss">
+        @theme {
+            --color-kazenoko-cyan: #00e5ff;
+            --color-kazenoko-dark: #1a1a1a;
+            --color-hinoko-orange: #ff6b00;
+            --color-hinoko-black: #050505;
+            
+            --font-gothic: "Dela Gothic One", sans-serif;
+            --font-zen: "Zen Kaku Gothic New", sans-serif;
+            --font-mplus: "M PLUS 1", sans-serif;
+        }
+    </style>
+</head>
+<body class="antialiased w-full h-full relative bg-white text-kazenoko-dark font-zen">
+
+    <!-- Transition Layer -->
+    <div id="transition-overlay"></div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-6 py-4 mix-blend-difference text-white">
+        <div class="font-gothic text-xl tracking-tighter">KAZENOKO</div>
+        <div class="flex gap-4 items-center">
+            <a href="../../index.html" class="font-zen font-bold hover:opacity-70 transition-opacity uppercase text-sm tracking-widest cursor-pointer">Kazenoko</a>
+            <span class="opacity-50">/</span>
+            <a href="../../hinoko.html" class="font-mplus font-medium hover:opacity-70 transition-opacity uppercase text-sm tracking-widest cursor-pointer">Hinoko</a>
+            <span class="opacity-50">/</span>
+            <a href="../../join.html" class="font-zen font-bold hover:opacity-70 transition-opacity uppercase text-sm tracking-widest cursor-pointer">Join</a>
+            <span class="opacity-50">/</span>
+            <a href="../index.html" class="font-zen font-bold text-kazenoko-cyan hover:opacity-70 transition-opacity uppercase text-sm tracking-widest cursor-pointer">News</a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="pt-32 pb-20 px-6 max-w-4xl mx-auto min-h-screen">
+        
+        <article class="fade-in-up">
+            <div class="mb-8 border-b border-gray-200 pb-8">
+                <div class="flex items-center gap-4 mb-4">
+                    <span class="font-mono text-gray-500">2026.01.24</span>
+                    <span class="bg-kazenoko-dark text-white text-[10px] tracking-widest font-black px-3 py-1 uppercase">Info</span>
+                </div>
+                <h1 class="text-3xl md:text-5xl font-black leading-tight mb-4">Hino / HinoCo におけるAIモデル実装計画のアップデート</h1>
+                <p class="text-gray-400 font-medium">Decision regarding Anthropic model implementation in Hino and HinoCo.</p>
+            </div>
+            
+            <div class="prose prose-lg max-w-none text-gray-800 leading-relaxed space-y-12">
+                <section>
+                    <p>
+                        現在開発中のAIアシスタント「Hino」および「HinoCo」におけるモデル採用計画についてお知らせいたします。
+                    </p>
+                    <p>
+                        検討を重ねた結果、<strong>Anthropic社の提供するモデル（Claudeシリーズ等）については、現時点での実装を見送ることを決定いたしました。</strong>
+                    </p>
+                </section>
+
+                <section class="bg-red-50 p-8 border-l-4 border-red-500">
+                    <h2 class="text-2xl font-black mb-6 flex items-center gap-3">
+                        見送りの主な理由
+                    </h2>
+                    <ul class="list-disc list-inside space-y-4 font-bold">
+                        <li>コストパフォーマンスが著しく悪い</li>
+                        <li>フロントエンド（レスポンス性能・操作感）がGemini等の他社モデルに劣る</li>
+                        <li>API利用料金が極めて高価である</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2 class="text-2xl font-black mb-8 flex items-center gap-3">
+                        <span class="text-kazenoko-cyan text-sm font-mono">NEXT</span>
+                        AIモデル実装計画
+                    </h2>
+                    
+                    <div class="bg-gray-50 p-4 mb-8 text-sm border-l-2 border-gray-300">
+                        <p class="font-bold mb-2">【補足】モデル展開の方針について</p>
+                        <p>私たちは現在、日本国内サーバーで稼働する「国産モデル」の拡充に力を入れておりますが、これにより海外製最新モデルの導入が遅れることはありません。国内外を問わず、常に最新かつ最適なテクノロジーを並行して取り入れてまいります。</p>
+                    </div>
+
+                    <div class="space-y-12">
+                        <!-- Hino -->
+                        <div>
+                            <h3 class="text-xl font-bold mb-4 border-b-2 border-hinoko-orange inline-block pb-1">Hino (Personal AI Chat)</h3>
+                            <div class="overflow-x-auto">
+                                <table class="w-full border-collapse border border-gray-200 text-sm">
+                                    <thead>
+                                        <tr class="bg-gray-100">
+                                            <th class="border border-gray-200 px-4 py-3 text-left">プロバイダー</th>
+                                            <th class="border border-gray-200 px-4 py-3 text-left">モデル名</th>
+                                            <th class="border border-gray-200 px-4 py-3 text-left">備考</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="border border-gray-200 px-4 py-3 font-bold">Hino</td>
+                                            <td class="border border-gray-200 px-4 py-3">自動</td>
+                                            <td class="border border-gray-200 px-4 py-3 text-gray-500">最適なモデルを自動選択</td>
+                                        </tr>
+                                        <tr class="bg-blue-50/30">
+                                            <td class="border border-gray-200 px-4 py-3 font-bold" rowspan="4">Google</td>
+                                            <td class="border border-gray-200 px-4 py-3 font-bold text-kazenoko-cyan">Gemini 3 Flash</td>
+                                            <td class="border border-gray-200 px-4 py-3 text-gray-500">推奨モデル</td>
+                                        </tr>
+                                        <tr class="bg-blue-50/30">
+                                            <td class="border border-gray-200 px-4 py-3">Gemini 3 Pro</td>
+                                            <td class="border border-gray-200 px-4 py-3"></td>
+                                        </tr>
+                                        <tr class="bg-blue-50/30">
+                                            <td class="border border-gray-200 px-4 py-3">Gemini 2.5 Flash Lite</td>
+                                            <td class="border border-gray-200 px-4 py-3"></td>
+                                        </tr>
+                                        <tr class="bg-blue-50/30">
+                                            <td class="border border-gray-200 px-4 py-3">Gemma 3n 4B</td>
+                                            <td class="border border-gray-200 px-4 py-3"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="border border-gray-200 px-4 py-3 font-bold" rowspan="6">OpenAI</td>
+                                            <td class="border border-gray-200 px-4 py-3">GPT-5.2</td>
+                                            <td class="border border-gray-200 px-4 py-3 text-gray-500"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="border border-gray-200 px-4 py-3">GPT-4o (11-20)</td>
+                                            <td class="border border-gray-200 px-4 py-3"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="border border-gray-200 px-4 py-3">GPT-5 Mini</td>
+                                            <td class="border border-gray-200 px-4 py-3"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="border border-gray-200 px-4 py-3">GPT-5 Nano</td>
+                                            <td class="border border-gray-200 px-4 py-3"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="border border-gray-200 px-4 py-3">GPT-OSS 120B</td>
+                                            <td class="border border-gray-200 px-4 py-3"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="border border-gray-200 px-4 py-3">GPT-OSS 20B</td>
+                                            <td class="border border-gray-200 px-4 py-3"></td>
+                                        </tr>
+                                        <tr class="bg-green-50/30">
+                                            <td class="border border-gray-200 px-4 py-3 font-bold">NVIDIA</td>
+                                            <td class="border border-gray-200 px-4 py-3 font-bold text-kazenoko-cyan">Nemotron 3 Nano</td>
+                                            <td class="border border-gray-200 px-4 py-3 text-gray-500">推奨モデル</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="border border-gray-200 px-4 py-3 font-bold" rowspan="2">Xiaomi</td>
+                                            <td class="border border-gray-200 px-4 py-3 font-bold text-kazenoko-cyan">Mimo v2 Flash</td>
+                                            <td class="border border-gray-200 px-4 py-3 text-gray-500">OpenRouter経由 / 推奨モデル</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="border border-gray-200 px-4 py-3">Mimo v2 Flash</td>
+                                            <td class="border border-gray-200 px-4 py-3 text-gray-500">Xiaomi公式API</td>
+                                        </tr>
+                                        <tr class="bg-gray-50/50">
+                                            <td class="border border-gray-200 px-4 py-3 font-bold" rowspan="2">Bytedance</td>
+                                            <td class="border border-gray-200 px-4 py-3">Seed 1.6</td>
+                                            <td class="border border-gray-200 px-4 py-3"></td>
+                                        </tr>
+                                        <tr class="bg-gray-50/50">
+                                            <td class="border border-gray-200 px-4 py-3">Seed 1.6 Flash</td>
+                                            <td class="border border-gray-200 px-4 py-3"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="border border-gray-200 px-4 py-3 font-bold" rowspan="2">Z.ai</td>
+                                            <td class="border border-gray-200 px-4 py-3">GLM-4.7</td>
+                                            <td class="border border-gray-200 px-4 py-3"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="border border-gray-200 px-4 py-3">GLM-4.7 Flash</td>
+                                            <td class="border border-gray-200 px-4 py-3"></td>
+                                        </tr>
+                                        <tr class="bg-orange-50/30">
+                                            <td class="border border-gray-200 px-4 py-3 font-bold">PLaMo</td>
+                                            <td class="border border-gray-200 px-4 py-3 font-bold text-kazenoko-cyan">PLaMo 2.1 Prime</td>
+                                            <td class="border border-gray-200 px-4 py-3 text-gray-500">日本国内サーバー・国産モデル / 推奨</td>
+                                        </tr>
+                                        <tr class="bg-pink-50/30">
+                                            <td class="border border-gray-200 px-4 py-3 font-bold" rowspan="6">Sakura AI Engine</td>
+                                            <td class="border border-gray-200 px-4 py-3 font-bold text-kazenoko-cyan">LLM-JP 3.1</td>
+                                            <td class="border border-gray-200 px-4 py-3 text-gray-500">日本国内サーバー・国産モデル / 推奨</td>
+                                        </tr>
+                                        <tr class="bg-pink-50/30">
+                                            <td class="border border-gray-200 px-4 py-3">GPT-OSS 120B JP</td>
+                                            <td class="border border-gray-200 px-4 py-3 text-gray-500">日本国内サーバー</td>
+                                        </tr>
+                                        <tr class="bg-pink-50/30">
+                                            <td class="border border-gray-200 px-4 py-3">Qwen 3 JP</td>
+                                            <td class="border border-gray-200 px-4 py-3 text-gray-500">日本国内サーバー</td>
+                                        </tr>
+                                        <tr class="bg-pink-50/30">
+                                            <td class="border border-gray-200 px-4 py-3">Qwen 3 VL JP</td>
+                                            <td class="border border-gray-200 px-4 py-3 text-gray-500">日本国内サーバー</td>
+                                        </tr>
+                                        <tr class="bg-pink-50/30">
+                                            <td class="border border-gray-200 px-4 py-3">Phi-4 Mini JP</td>
+                                            <td class="border border-gray-200 px-4 py-3 text-gray-500">日本国内サーバー</td>
+                                        </tr>
+                                        <tr class="bg-pink-50/30">
+                                            <td class="border border-gray-200 px-4 py-3">Phi-4 Multimodal JP</td>
+                                            <td class="border border-gray-200 px-4 py-3 text-gray-500">日本国内サーバー</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <!-- HinoCo -->
+                        <div>
+                            <h3 class="text-xl font-bold mb-4 border-b-2 border-blue-500 inline-block pb-1">HinoCo (Coding Agent)</h3>
+                            <div class="overflow-x-auto">
+                                <table class="w-full border-collapse border border-gray-200 text-sm">
+                                    <thead>
+                                        <tr class="bg-gray-100">
+                                            <th class="border border-gray-200 px-4 py-3 text-left">プロバイダー</th>
+                                            <th class="border border-gray-200 px-4 py-3 text-left">モデル名</th>
+                                            <th class="border border-gray-200 px-4 py-3 text-left">備考</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr class="bg-blue-50/30">
+                                            <td class="border border-gray-200 px-4 py-3 font-bold" rowspan="2">Google</td>
+                                            <td class="border border-gray-200 px-4 py-3 font-bold text-kazenoko-cyan">Gemini 3 Flash</td>
+                                            <td class="border border-gray-200 px-4 py-3 text-gray-500">推奨モデル</td>
+                                        </tr>
+                                        <tr class="bg-blue-50/30">
+                                            <td class="border border-gray-200 px-4 py-3">Gemini 3 Pro</td>
+                                            <td class="border border-gray-200 px-4 py-3"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="border border-gray-200 px-4 py-3 font-bold" rowspan="2">OpenAI</td>
+                                            <td class="border border-gray-200 px-4 py-3">GPT-5.2</td>
+                                            <td class="border border-gray-200 px-4 py-3"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="border border-gray-200 px-4 py-3">GPT-5.2 Codex</td>
+                                            <td class="border border-gray-200 px-4 py-3"></td>
+                                        </tr>
+                                        <tr class="bg-green-50/30">
+                                            <td class="border border-gray-200 px-4 py-3 font-bold">Xiaomi</td>
+                                            <td class="border border-gray-200 px-4 py-3">Mimo v2 Flash</td>
+                                            <td class="border border-gray-200 px-4 py-3"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="border border-gray-200 px-4 py-3 font-bold" rowspan="2">Z.ai</td>
+                                            <td class="border border-gray-200 px-4 py-3">GLM-4.7</td>
+                                            <td class="border border-gray-200 px-4 py-3"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="border border-gray-200 px-4 py-3">GLM-4.7 Flash</td>
+                                            <td class="border border-gray-200 px-4 py-3"></td>
+                                        </tr>
+                                        <tr class="bg-orange-50/30">
+                                            <td class="border border-gray-200 px-4 py-3 font-bold">PLaMo</td>
+                                            <td class="border border-gray-200 px-4 py-3">PLaMo 2.1 Prime</td>
+                                            <td class="border border-gray-200 px-4 py-3 text-gray-500">日本国内サーバー・国産モデル</td>
+                                        </tr>
+                                        <tr class="bg-pink-50/30">
+                                            <td class="border border-gray-200 px-4 py-3 font-bold">Sakura AI Engine</td>
+                                            <td class="border border-gray-200 px-4 py-3">LLM JP 3.1</td>
+                                            <td class="border border-gray-200 px-4 py-3 text-gray-500">日本国内サーバー・国産モデル</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <p>
+                        私たちは常に「最高のユーザー体験」と「持続可能なサービス提供」のバランスを追求しております。今回の決定は、ユーザーの皆様により高品質で快適なAI環境を提供するための戦略的な選択です。
+                    </p>
+                    <p>
+                        今後も新たな技術やモデルの動向を注視し、最適な選択を続けてまいります。
+                    </p>
+                </section>
+            </div>
+        </article>
+        
+        <div class="mt-24 border-t border-gray-200 pt-12 flex justify-between items-center">
+             <a href="../index.html" class="magnetic-btn font-bold hover:text-kazenoko-cyan transition-colors px-4 py-2">
+                ← BACK TO NEWS
+            </a>
+        </div>
+
+    </main>
+
+    <footer class="bg-white border-t-4 border-kazenoko-dark pt-16 pb-8 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+                <!-- Brand -->
+                <div class="md:col-span-2">
+                    <div class="font-gothic text-3xl tracking-tighter mb-6">KAZENOKO</div>
+                    <p class="text-gray-600 font-bold leading-relaxed max-w-sm">
+                        夢を作る × 未来を創る。<br>
+                        私たちは、圧倒的な規模感でエンターテインメントの新しい形を追求するクリエイティブ集団です。
+                    </p>
+                </div>
+
+                <!-- Links -->
+                <div>
+                    <h4 class="font-gothic text-lg mb-6 border-b-2 border-kazenoko-cyan inline-block">LINKS</h4>
+                    <ul class="space-y-4 font-bold">
+                        <li><a href="../../index.html" class="hover:text-kazenoko-cyan transition-colors">Kazenoko Top</a></li>
+                        <li><a href="../../hinoko.html" class="hover:text-hinoko-orange transition-colors">Hinoko Engineering</a></li>
+                        <li><a href="../../join.html" class="hover:text-kazenoko-cyan transition-colors">Join Us</a></li>
+                        <li><a href="../index.html" class="hover:text-kazenoko-cyan transition-colors">News</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact/Social -->
+                <div>
+                    <h4 class="font-gothic text-lg mb-6 border-b-2 border-kazenoko-cyan inline-block">SOCIAL</h4>
+                    <ul class="space-y-4 font-bold">
+                        <li><a href="#" class="hover:text-kazenoko-cyan transition-colors">X (Twitter)</a></li>
+                        <li><a href="#" class="hover:text-kazenoko-cyan transition-colors">YouTube</a></li>
+                        <li><a href="#" class="hover:text-kazenoko-cyan transition-colors">Discord</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="pt-8 border-t border-gray-100 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-gray-400 font-bold uppercase tracking-widest">
+                <div>© Kazenoko Official. All Rights Reserved.</div>
+                <div class="flex gap-6">
+                    <a href="../../privacy.html" class="hover:text-kazenoko-dark transition-colors">Privacy Policy</a>
+                    <a href="../../terms.html" class="hover:text-kazenoko-dark transition-colors">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Global Scripts -->
+    <script src="../../js/main.js"></script>
+</body>
+</html>
