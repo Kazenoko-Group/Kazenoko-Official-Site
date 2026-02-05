@@ -29,7 +29,31 @@
         }
     </style>
 </head>
-<body class="antialiased w-full h-full relative bg-white text-kazenoko-dark font-zen">
+<body class="antialiased w-full h-full relative bg-white text-kazenoko-dark font-zen overflow-hidden">
+
+    <!-- Opening Overlay -->
+    <div id="opening-overlay">
+        <div class="opening-text-container">
+            <span class="opening-text">KAZENOKO</span>
+        </div>
+        <div class="opening-line"></div>
+    </div>
+
+    <!-- Kinetic Background -->
+    <div class="kinetic-bg">
+        <div class="kinetic-shape bg-kazenoko-cyan w-[600px] h-[600px] -top-40 -left-40" style="animation-delay: 0s;"></div>
+        <div class="kinetic-shape bg-[#ff00c1] w-[500px] h-[500px] -bottom-40 -right-40" style="animation-delay: -5s;"></div>
+        <div class="kinetic-shape bg-yellow-300 w-[400px] h-[400px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" style="animation-delay: -10s;"></div>
+    </div>
+
+    <!-- Noise Background -->
+    <div class="noise-bg"></div>
+
+    <!-- Floating Decor Everywhere -->
+    <div class="fixed top-20 left-1/4 text-4xl opacity-10 floating parallax-layer select-none pointer-events-none z-0" data-speed="2" style="animation-delay: 0.5s;">✦</div>
+    <div class="fixed bottom-40 right-1/4 text-6xl opacity-10 floating parallax-layer select-none pointer-events-none z-0" data-speed="-3" style="animation-delay: 1.2s;">★</div>
+    <div class="fixed top-1/2 left-10 text-2xl opacity-5 spin-slow parallax-layer select-none pointer-events-none z-0" data-speed="1.5">✺</div>
+    <div class="fixed top-1/3 right-10 text-3xl opacity-5 floating parallax-layer select-none pointer-events-none z-0" data-speed="-2">✸</div>
 
     <!-- Transition Layer -->
     <div id="transition-overlay"></div>
@@ -38,13 +62,13 @@
     <nav class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-6 py-4 mix-blend-difference text-white">
         <div class="font-gothic text-xl tracking-tighter">KAZENOKO</div>
         <div class="flex gap-4 items-center">
-            <a href="index.html" class="magnetic-btn font-zen font-bold hover:opacity-70 transition-opacity uppercase text-sm tracking-widest cursor-pointer">Kazenoko</a>
+            <a href="index.html" class="magnetic-btn cursor-snap font-zen font-bold hover:opacity-70 transition-opacity uppercase text-sm tracking-widest cursor-pointer px-2 py-1">Kazenoko</a>
             <span class="opacity-50">/</span>
-            <a href="hinoko.html" data-transition-color="#050505" class="magnetic-btn font-mplus font-medium hover:opacity-70 transition-opacity uppercase text-sm tracking-widest cursor-pointer">Hinoko</a>
+            <a href="hinoko.html" data-transition-color="#050505" class="magnetic-btn cursor-snap font-mplus font-medium hover:opacity-70 transition-opacity uppercase text-sm tracking-widest cursor-pointer px-2 py-1">Hinoko</a>
             <span class="opacity-50">/</span>
-            <a href="join.html" class="magnetic-btn font-zen font-bold hover:opacity-70 transition-opacity uppercase text-sm tracking-widest cursor-pointer">Join</a>
+            <a href="join.html" class="magnetic-btn cursor-snap font-zen font-bold hover:opacity-70 transition-opacity uppercase text-sm tracking-widest cursor-pointer px-2 py-1">Join</a>
             <span class="opacity-50">/</span>
-            <a href="news/index.html" class="magnetic-btn font-zen font-bold hover:opacity-70 transition-opacity uppercase text-sm tracking-widest cursor-pointer">News</a>
+            <a href="news/index.html" class="magnetic-btn cursor-snap font-zen font-bold hover:opacity-70 transition-opacity uppercase text-sm tracking-widest cursor-pointer px-2 py-1">News</a>
         </div>
     </nav>
 
@@ -55,11 +79,20 @@
         <header class="relative w-full h-screen flex flex-col justify-center items-center overflow-hidden border-b-4 border-kazenoko-dark">
             <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMSIgY3k9IjEiIHI9IjEiIGZpbGw9IiMwMDBlIiBmaWxsLW9wYWNpdHk9IjAuMSIvPjwvc3ZnPg==')] opacity-30"></div>
             
+            <!-- Hero Kinetic Elements -->
+            <div class="hero-kinetic-text hero-kinetic-text-1 parallax-layer" data-speed="2">ENTERTAINMENT</div>
+            <div class="hero-kinetic-text hero-kinetic-text-2 parallax-layer" data-speed="-2">CREATIVE GROUP</div>
+
+            <!-- Dynamic Background Shapes -->
+            <div class="absolute top-1/4 left-10 w-24 h-24 border-4 border-kazenoko-cyan rotate-12 floating parallax-layer opacity-20 pointer-events-none" data-speed="4"></div>
+            <div class="absolute bottom-1/4 right-10 w-32 h-32 border-4 border-kazenoko-dark -rotate-12 floating parallax-layer opacity-10 pointer-events-none" data-speed="-5" style="animation-delay: 1s;"></div>
+            <div class="absolute top-1/3 right-1/4 text-8xl font-gothic text-gray-100 spin-slow parallax-layer select-none pointer-events-none" data-speed="2">★</div>
+            
             <div class="relative z-10 text-center flex flex-col items-center">
                 <p class="font-gothic text-kazenoko-cyan text-xl md:text-3xl mb-4 tracking-widest rotate-[-2deg] bg-kazenoko-dark px-4 py-1 inline-block text-white k-shadow-sm fade-in-up">夢を作る × 未来を創る</p>
                 <h1 class="font-gothic text-6xl md:text-9xl leading-none uppercase tracking-tighter mb-2 relative fade-in-up" style="animation-delay: 0.1s;">
                     KAZE<span class="text-kazenoko-cyan">NO</span>KO
-                    <span class="absolute -top-4 -right-8 text-2xl md:text-4xl text-kazenoko-dark rotate-12 border-2 border-kazenoko-dark rounded-full px-3 py-1 bg-white">OFFICIAL</span>
+                    <span class="absolute -top-4 -right-8 text-2xl md:text-4xl text-kazenoko-dark rotate-12 border-2 border-kazenoko-dark rounded-full px-3 py-1 bg-white floating">OFFICIAL</span>
                 </h1>
                 <p class="font-gothic text-2xl md:text-5xl mt-2 fade-in-up" style="animation-delay: 0.2s;">幹事会</p>
                 
@@ -67,7 +100,7 @@
                     <p class="text-xl md:text-3xl font-bold leading-relaxed">
                         「夢を作る仕事さ。」
                     </p>
-                    <p class="mt-4 text-sm md:text-base font-bold bg-kazenoko-cyan text-white inline-block px-2">
+                    <p class="mt-4 text-sm md:text-base font-bold bg-kazenoko-cyan text-white inline-block px-2 pulse-cyan">
                         CEO
                     </p>
                 </div>
@@ -85,8 +118,8 @@
         <section class="py-20 px-6 max-w-7xl mx-auto">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
                 <!-- Concept Box -->
-                <div class="border-4 border-kazenoko-dark p-8 k-shadow bg-white hover-trigger transition-transform fade-in-up">
-                    <h2 class="font-gothic text-4xl md:text-6xl mb-6 hover-target transition-transform">CONCEPT</h2>
+                <div class="border-4 border-kazenoko-dark p-8 k-shadow bg-white hover-trigger transition-all hover:rotate-[-1deg] fade-in-left group">
+                    <h2 class="font-gothic text-4xl md:text-6xl mb-6 hover-target transition-transform group-hover:scale-110 group-hover:text-kazenoko-cyan origin-left">CONCEPT</h2>
                     <p class="text-2xl md:text-4xl font-black leading-tight mb-8">
                         つくろう<br>
                         まだ誰も知らない<br>
@@ -106,26 +139,26 @@
                     <p class="text-sm text-gray-500 font-bold mt-4">#From Community to Brand</p>
                     
                     <div class="mt-6 text-right">
-                        <a href="concept.html" class="inline-block border-2 border-kazenoko-dark px-4 py-2 font-bold text-sm hover:bg-kazenoko-dark hover:text-white transition-colors">READ MORE →</a>
+                        <a href="concept.html" class="cursor-snap inline-block border-2 border-kazenoko-dark px-4 py-2 font-bold text-sm hover:bg-kazenoko-dark hover:text-white transition-colors">READ MORE →</a>
                     </div>
                 </div>
 
                 <!-- Scale Box -->
-                <div class="flex flex-col gap-6 fade-in-up" style="animation-delay: 0.2s;">
-                    <div class="relative h-full min-h-[300px] flex items-center justify-center bg-gray-100 border-2 border-dashed border-kazenoko-dark overflow-hidden group">
+                <div class="flex flex-col gap-6 fade-in-right">
+                    <div class="relative h-full min-h-[300px] flex items-center justify-center bg-gray-100 border-4 border-kazenoko-dark overflow-hidden group hover-trigger k-shadow-sm">
                         <div class="text-center">
-                            <h3 class="font-gothic text-8xl text-gray-200 absolute top-0 left-0 leading-none select-none z-0 group-hover:scale-110 transition-transform duration-500">SCALE</h3>
-                            <div class="relative z-10 p-6">
-                                <p class="text-6xl font-gothic mb-2">200<span class="text-3xl">人越え</span></p>
+                            <h3 class="font-gothic text-8xl text-gray-200 absolute top-0 left-0 leading-none select-none z-0 group-hover:scale-150 group-hover:opacity-10 transition-transform duration-700">SCALE</h3>
+                            <div class="relative z-10 p-6 group-hover:scale-110 transition-transform">
+                                <p class="text-6xl font-gothic mb-2 group-hover:text-kazenoko-cyan transition-colors">200<span class="text-3xl">人越え</span></p>
                                 <p class="text-xl font-bold">大きなコミュニティ</p>
                             </div>
-                            <div class="relative z-10 p-6 mt-4 bg-kazenoko-dark text-white k-shadow-sm transform rotate-2">
+                            <div class="relative z-10 p-6 mt-4 bg-kazenoko-dark text-white k-shadow-sm transform rotate-2 group-hover:-rotate-2 transition-transform">
                                 <p class="text-4xl font-gothic mb-1">12<span class="text-xl">の専門領域</span></p>
                                 <p class="text-xs">ゲーム実況 / 雑談 / 歌 / ラジオ / TRPG / 制作...</p>
                             </div>
                         </div>
                     </div>
-                    <div class="bg-kazenoko-cyan text-white p-6 k-shadow-sm border-2 border-kazenoko-dark">
+                    <div class="bg-kazenoko-cyan text-white p-6 k-shadow-sm border-2 border-kazenoko-dark scale-in" style="animation-delay: 0.2s;">
                         <p class="font-bold text-lg leading-relaxed">
                             12の異なるチャンネルで、メンバーは輝き、視聴者は常に新しい楽しみを発見できる。飽きさせないエンタメのエコシステム。
                         </p>
@@ -135,20 +168,27 @@
         </section>
 
         <!-- Golden Ratio Section -->
-        <section class="py-20 bg-kazenoko-dark text-white relative overflow-hidden">
+        <section class="py-20 bg-kazenoko-dark text-white relative overflow-hidden border-y-4 border-kazenoko-dark">
             <div class="absolute top-0 right-0 text-[20rem] font-gothic opacity-5 leading-none select-none pointer-events-none">GOLD</div>
+            
+            <div class="absolute top-0 left-0 w-full marquee-container border-b-2 border-white/10 py-1">
+                <div class="marquee-content k-marquee-reverse font-gothic text-sm opacity-30">
+                    GOLDEN RATIO ★ 2:4 ★ THE BEST BALANCE ★ GOLDEN RATIO ★ 2:4 ★ THE BEST BALANCE ★ GOLDEN RATIO ★ 2:4 ★ THE BEST BALANCE ★
+                </div>
+            </div>
+
             <div class="max-w-7xl mx-auto px-6 relative z-10 fade-in-up">
                 <h2 class="font-gothic text-5xl md:text-7xl mb-12 text-center text-kazenoko-cyan">黄金比のフォーマット</h2>
                 
                 <div class="flex flex-col md:flex-row justify-center items-center gap-8 mb-12">
-                    <div class="w-48 h-48 border-4 border-white rounded-full flex items-center justify-center bg-kazenoko-cyan text-kazenoko-dark k-shadow-sm">
+                    <div class="w-48 h-48 border-4 border-white rounded-full flex items-center justify-center bg-kazenoko-cyan text-kazenoko-dark k-shadow-sm pulse-cyan">
                         <div class="text-center">
                             <p class="text-xl font-bold">主催</p>
                             <p class="text-6xl font-gothic">2</p>
                         </div>
                     </div>
                     <div class="text-4xl font-gothic">×</div>
-                    <div class="w-48 h-48 border-4 border-white rounded-full flex items-center justify-center bg-white text-kazenoko-dark k-shadow-sm">
+                    <div class="w-48 h-48 border-4 border-white rounded-full flex items-center justify-center bg-white text-kazenoko-dark k-shadow-sm pulse-white" style="animation-delay: 1s;">
                         <div class="text-center">
                             <p class="text-xl font-bold">ゲスト</p>
                             <p class="text-6xl font-gothic">4</p>
@@ -170,31 +210,31 @@
                 
                 <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
                     <!-- Group 1 -->
-                    <div class="bg-white border-2 border-kazenoko-dark p-6 k-shadow hover:-translate-y-2 transition-transform duration-300 fade-in-up">
+                    <div class="bg-white border-2 border-kazenoko-dark p-6 k-shadow k-hover-punch scale-in">
                         <div class="bg-kazenoko-cyan text-white font-bold text-xs px-2 py-1 inline-block mb-4">GROUP 01</div>
-                        <h3 class="font-gothic text-2xl mb-4">エンタメグループ<br><span class="text-sm font-normal text-gray-500">(名称未定)</span></h3>
+                        <h3 class="font-gothic text-2xl mb-4 cursor-snap px-2">エンタメグループ<br><span class="text-sm font-normal text-gray-500">(名称未定)</span></h3>
                         <p class="text-sm font-bold mb-4">「多くの人が憧れる楽しいエンタメグループをつくる」</p>
-                        <p class="text-sm text-gray-600 leading-relaxed">
+                        <p class="text-sm leading-relaxed opacity-80">
                             声、ユーモア、想像力。精査し発掘し、全力で面白いことを実現する特攻部隊。
                         </p>
                     </div>
 
                     <!-- Group 2 -->
-                    <div class="bg-white border-2 border-kazenoko-dark p-6 k-shadow hover:-translate-y-2 transition-transform duration-300 fade-in-up" style="animation-delay: 0.1s;">
+                    <div class="bg-white border-2 border-kazenoko-dark p-6 k-shadow k-hover-punch scale-in" style="animation-delay: 0.1s;">
                         <div class="bg-yellow-400 text-kazenoko-dark font-bold text-xs px-2 py-1 inline-block mb-4">GROUP 02</div>
-                        <h3 class="font-gothic text-2xl mb-4">ツキミ<br><span class="text-sm font-normal text-gray-500">(Tsukimi)</span></h3>
+                        <h3 class="font-gothic text-2xl mb-4 cursor-snap px-2">ツキミ<br><span class="text-sm font-normal text-gray-500">(Tsukimi)</span></h3>
                         <p class="text-sm font-bold mb-4">「安心して長く定住できる居場所」</p>
-                        <p class="text-sm text-gray-600 leading-relaxed">
+                        <p class="text-sm leading-relaxed opacity-80">
                             参加難易度は低いが、最低限の常識と個性を持った人間が集まる、帰るべき場所。
                         </p>
                     </div>
 
                     <!-- Group 3 -->
-                    <div class="bg-kazenoko-dark text-white border-2 border-kazenoko-dark p-6 k-shadow hover:-translate-y-2 transition-transform duration-300 fade-in-up" style="animation-delay: 0.2s;">
+                    <div class="bg-kazenoko-dark text-white border-2 border-kazenoko-dark p-6 k-shadow k-hover-punch scale-in" style="animation-delay: 0.2s;">
                         <div class="bg-white text-kazenoko-dark font-bold text-xs px-2 py-1 inline-block mb-4">GROUP 03: VIP</div>
-                        <h3 class="font-gothic text-2xl mb-4 text-kazenoko-cyan">防空壕<br><span class="text-sm font-normal text-white">(Boukuugou)</span></h3>
+                        <h3 class="font-gothic text-2xl mb-4 text-kazenoko-cyan cursor-snap px-2">防空壕<br><span class="text-sm font-normal text-white">(Boukuugou)</span></h3>
                         <p class="text-sm font-bold mb-4">「伝統維持の為に管理される原点」</p>
-                        <p class="text-sm text-gray-400 leading-relaxed">
+                        <p class="text-sm leading-relaxed opacity-60">
                             カゼノコ幹事会結成前より存在した伝説。定員14名の完全VIPグループ（満員）。
                         </p>
                     </div>
@@ -203,20 +243,23 @@
         </section>
 
         <!-- Recruitment -->
-        <section class="py-20 px-6 border-t-2 border-kazenoko-dark">
-            <div class="max-w-4xl mx-auto text-center fade-in-up">
-                <h2 class="font-gothic text-4xl mb-8">JOIN THE CHAOS</h2>
-                <p class="font-bold mb-8">次世代のスターをここから排出する</p>
+        <section class="py-24 px-6 border-t-4 border-kazenoko-dark bg-white relative overflow-hidden">
+            <div class="absolute -bottom-10 -left-10 text-[15rem] font-gothic opacity-5 leading-none select-none pointer-events-none transform -rotate-12">JOIN</div>
+            <div class="max-w-4xl mx-auto text-center relative z-10 fade-in-up">
+                <h2 class="font-gothic text-5xl md:text-8xl mb-4 tracking-tighter">JOIN THE <span class="text-kazenoko-cyan">CHAOS</span></h2>
+                <p class="font-bold text-xl md:text-2xl mb-12 bg-kazenoko-dark text-white inline-block px-4 py-1 transform rotate-1">次世代のスターをここから排出する</p>
                 
-                <div class="flex flex-wrap justify-center gap-4">
-                    <a href="https://forms.gle/Q3FFG3uoK79oe2yZ6" target="_blank" class="border-2 border-kazenoko-dark px-6 py-3 font-bold hover:bg-kazenoko-cyan hover:text-white transition-colors cursor-pointer inline-block">
+                <div class="flex flex-wrap justify-center gap-6">
+                    <a href="https://forms.gle/Q3FFG3uoK79oe2yZ6" target="_blank" class="border-4 border-kazenoko-dark px-8 py-4 font-gothic text-xl hover:bg-kazenoko-cyan hover:text-white transition-all transform hover:-translate-y-1 hover:rotate-1 k-shadow-sm cursor-pointer inline-block">
                         クリエイター
                     </a>
-                    <a href="https://docs.google.com/forms/d/1QLAfZrvZTOflpO_ZoUm6tKQ5E1QYL5YXXfpO1TOEJ4c/viewform" target="_blank" class="border-2 border-kazenoko-dark px-6 py-3 font-bold hover:bg-kazenoko-cyan hover:text-white transition-colors cursor-pointer inline-block">
+                    <a href="https://docs.google.com/forms/d/1QLAfZrvZTOflpO_ZoUm6tKQ5E1QYL5YXXfpO1TOEJ4c/viewform" target="_blank" class="border-4 border-kazenoko-dark px-8 py-4 font-gothic text-xl hover:bg-kazenoko-cyan hover:text-white transition-all transform hover:-translate-y-1 hover:-rotate-1 k-shadow-sm cursor-pointer inline-block">
                         タレント
                     </a>
-                    <a href="join.html" class="border-2 border-kazenoko-dark px-6 py-3 font-bold hover:bg-kazenoko-dark hover:text-white transition-colors cursor-pointer inline-block">
-                        募集職種一覧へ →
+                </div>
+                <div class="mt-12">
+                    <a href="join.html" class="font-bold text-lg border-b-2 border-kazenoko-dark hover:text-kazenoko-cyan hover:border-kazenoko-cyan transition-colors">
+                        すべての募集職種を見る →
                     </a>
                 </div>
             </div>

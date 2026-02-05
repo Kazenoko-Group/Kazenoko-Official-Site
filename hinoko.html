@@ -32,6 +32,9 @@
 </head>
 <body class="antialiased w-full h-full relative bg-hinoko-black text-white font-mplus">
 
+    <!-- Noise Background -->
+    <div class="noise-bg"></div>
+
     <!-- Transition Layer -->
     <div id="transition-overlay"></div>
 
@@ -39,13 +42,13 @@
     <nav class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-6 py-4 mix-blend-difference text-white">
         <div class="font-gothic text-xl tracking-tighter" id="nav-logo">HINOKO</div>
         <div class="flex gap-4 items-center">
-            <a href="index.html" data-transition-color="#ffffff" class="magnetic-btn font-zen font-bold hover:opacity-70 transition-opacity uppercase text-sm tracking-widest cursor-pointer">Kazenoko</a>
+            <a href="index.html" data-transition-color="#ffffff" class="magnetic-btn cursor-snap px-2 py-1 font-zen font-bold hover:opacity-70 transition-opacity uppercase text-sm tracking-widest cursor-pointer">Kazenoko</a>
             <span class="opacity-50">/</span>
-            <a href="hinoko.html" class="magnetic-btn font-mplus font-medium hover:opacity-70 transition-opacity uppercase text-sm tracking-widest cursor-pointer text-hinoko-orange">Hinoko</a>
+            <a href="hinoko.html" class="magnetic-btn cursor-snap px-2 py-1 font-mplus font-medium hover:opacity-70 transition-opacity uppercase text-sm tracking-widest cursor-pointer text-hinoko-orange">Hinoko</a>
             <span class="opacity-50">/</span>
-            <a href="join.html" class="magnetic-btn font-zen font-bold hover:opacity-70 transition-opacity uppercase text-sm tracking-widest cursor-pointer">Join</a>
+            <a href="join.html" class="magnetic-btn cursor-snap px-2 py-1 font-zen font-bold hover:opacity-70 transition-opacity uppercase text-sm tracking-widest cursor-pointer">Join</a>
             <span class="opacity-50">/</span>
-            <a href="news/index.html" class="magnetic-btn font-zen font-bold hover:opacity-70 transition-opacity uppercase text-sm tracking-widest cursor-pointer">News</a>
+            <a href="news/index.html" class="magnetic-btn cursor-snap px-2 py-1 font-zen font-bold hover:opacity-70 transition-opacity uppercase text-sm tracking-widest cursor-pointer">News</a>
         </div>
     </nav>
 
@@ -66,7 +69,7 @@
                     Hino<span class="text-hinoko-orange">ko</span>
                 </h1>
                 <p class="text-2xl md:text-4xl font-light text-gray-300 mb-12 fade-in-up" style="animation-delay: 0.2s;">
-                    みんなの役にたつものを。
+                    <span id="typewriter-text"></span><span class="typewriter-cursor">|</span>
                 </p>
                 <div class="flex flex-col md:flex-row gap-8 fade-in-up" style="animation-delay: 0.3s;">
                     <div class="border-l-2 border-hinoko-orange pl-4">
@@ -95,30 +98,29 @@
                 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                     <!-- Hino -->
-                    <a href="products/Hinoko Brand/Hino/index.html" class="group relative block h-[400px] overflow-hidden rounded-2xl border border-white/10 bg-white/5 transition-all duration-500 hover:border-hinoko-orange/50 fade-in-up">
+                    <a href="products/Hinoko Brand/Hino/index.html" class="group relative block h-[400px] overflow-hidden rounded-2xl border border-white/10 bg-white/5 transition-all duration-500 hover:border-hinoko-orange/50 scale-in">
                         <div class="absolute inset-0 bg-gradient-to-br from-hinoko-orange/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                         <div class="absolute bottom-0 left-0 p-8 w-full">
+                            <span class="text-hinoko-orange text-xs font-bold tracking-widest mb-2 block">AI ASSISTANT</span>
                             <h3 class="text-4xl font-bold mb-2">Hino</h3>
-                            <p class="text-sm tracking-widest text-hinoko-orange mb-4">PERSONAL AI CHAT</p>
-                            <p class="text-gray-400 text-sm leading-relaxed max-w-sm transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
-                                ユーザー第一主義を掲げる、パーソナルAIチャット。あなたの日常に寄り添い、体験をパーソナライズする。
-                            </p>
+                            <p class="text-gray-400 text-sm max-w-sm mb-4">Gemini 3 Flashを搭載した、あなたの創作活動を支えるAIパートナー。</p>
+                            <span class="inline-block border border-white/20 px-4 py-2 text-xs font-bold rounded-full group-hover:bg-white group-hover:text-black transition-colors">VIEW PROJECT</span>
                         </div>
-                        <div class="absolute top-8 right-8 text-6xl font-thin text-white/5 group-hover:text-white/20 transition-colors">01</div>
                     </a>
 
                     <!-- HinoCo -->
-                    <a href="products/Hinoko Brand/HinoCo/index.html" class="group relative block h-[400px] overflow-hidden rounded-2xl border border-white/10 bg-white/5 transition-all duration-500 hover:border-blue-500/50 fade-in-up" style="animation-delay: 0.1s;">
+                    <div class="group relative block h-[400px] overflow-hidden rounded-2xl border border-white/10 bg-white/5 scale-in" style="animation-delay: 0.1s;">
                         <div class="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                        <div class="absolute bottom-0 left-0 p-8 w-full">
-                            <h3 class="text-4xl font-bold mb-2">HinoCo</h3>
-                            <p class="text-sm tracking-widest text-blue-400 mb-4">CODING AGENT</p>
-                            <p class="text-gray-400 text-sm leading-relaxed max-w-sm transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
-                                Hinokoが贈る、次世代のコーディングエージェント。創造を加速させ、エンジニアのポテンシャルを最大化する。非エンジニアでも使いやすいツール。
-                            </p>
+                        <div class="absolute top-4 right-4">
+                            <span class="text-[10px] font-bold tracking-widest px-3 py-1.5 rounded-full bg-blue-500/20 text-blue-400 border border-blue-500/30">2026.04 COMING SOON</span>
                         </div>
-                        <div class="absolute top-8 right-8 text-6xl font-thin text-white/5 group-hover:text-white/20 transition-colors">02</div>
-                    </a>
+                        <div class="absolute bottom-0 left-0 p-8 w-full">
+                            <span class="text-blue-400 text-xs font-bold tracking-widest mb-2 block">NEXT-GEN INTERFACE</span>
+                            <h3 class="text-4xl font-bold mb-2">HinoCo</h3>
+                            <p class="text-gray-400 text-sm max-w-sm mb-4">次世代の操作感。あなたのデジタルライフを加速させるインタラクティブツール。2026年春、登場。</p>
+                            <span class="inline-block border border-white/20 px-4 py-2 text-xs font-bold rounded-full text-gray-500 cursor-not-allowed">COMING SOON</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
