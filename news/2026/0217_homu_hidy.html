@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hinoko製品ラインナップの発表 | News | Kazenoko Official</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=M+PLUS+1:wght@300;400;500;700&family=Zen+Kaku+Gothic+New:wght@400;700;900&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="../../style/style.css">
+    
+    <!-- Tailwind Config -->
+    <style type="text/tailwindcss">
+        @theme {
+            --color-kazenoko-cyan: #00e5ff;
+            --color-kazenoko-dark: #1a1a1a;
+            --color-hinoko-orange: #ff6b00;
+            --color-hinoko-black: #050505;
+            --color-homu-green: #00ff88;
+            --color-hidy-purple: #a855f7;
+            --color-hidy-blue: #3b82f6;
+            
+            --font-gothic: "Dela Gothic One", sans-serif;
+            --font-zen: "Zen Kaku Gothic New", sans-serif;
+            --font-mplus: "M PLUS 1", sans-serif;
+        }
+    </style>
+</head>
+<body class="antialiased w-full h-full relative bg-white text-kazenoko-dark font-zen">
+
+    <!-- Transition Layer -->
+    <div id="transition-overlay"></div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-6 py-4 mix-blend-difference text-white">
+        <div class="font-gothic text-xl tracking-tighter">KAZENOKO</div>
+        <div class="flex gap-4 items-center">
+            <a href="../../index.html" class="magnetic-btn cursor-snap px-2 py-1 font-zen font-bold hover:opacity-70 transition-opacity uppercase text-sm tracking-widest cursor-pointer">Kazenoko</a>
+            <span class="opacity-50">/</span>
+            <a href="../../hinoko.html" class="magnetic-btn cursor-snap px-2 py-1 font-mplus font-medium hover:opacity-70 transition-opacity uppercase text-sm tracking-widest cursor-pointer">Hinoko</a>
+            <span class="opacity-50">/</span>
+            <a href="../../join.html" class="magnetic-btn cursor-snap px-2 py-1 font-zen font-bold hover:opacity-70 transition-opacity uppercase text-sm tracking-widest cursor-pointer">Join</a>
+            <span class="opacity-50">/</span>
+            <a href="../index.html" class="magnetic-btn cursor-snap px-2 py-1 font-zen font-bold text-kazenoko-cyan hover:opacity-70 transition-opacity uppercase text-sm tracking-widest cursor-pointer">News</a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="pt-32 pb-20 px-6 max-w-4xl mx-auto min-h-screen">
+        
+        <article class="fade-in-up">
+            <div class="mb-8 border-b border-gray-200 pb-8">
+                <div class="flex items-center gap-4 mb-4">
+                    <span class="font-mono text-gray-500">2026.02.17</span>
+                    <span class="bg-kazenoko-dark text-white text-[10px] tracking-widest font-black px-3 py-1 uppercase">Release</span>
+                </div>
+                <h1 class="text-3xl md:text-5xl font-black leading-tight mb-4">Hinoko製品ラインナップの発表</h1>
+                <p class="text-gray-400 font-medium">Introducing the complete Hinoko product lineup: Hino, Homu, and Hidy series.</p>
+            </div>
+            
+            <div class="prose prose-lg max-w-none text-gray-800 leading-relaxed space-y-12">
+                <section>
+                    <p>
+                        Hinoko Engineeringは、新たなAI製品ラインナップとして<strong>「Hino」</strong>、<strong>「Homu」</strong>、および<strong>「Hidy」</strong>シリーズを発表いたします。
+                    </p>
+                    <p>
+                        これらの製品は、それぞれ異なる目的と用途に特化しており、幅広いユーザーのニーズにお届けします。
+                    </p>
+                    <div class="bg-yellow-50 p-4 mt-6 text-sm border-l-2 border-yellow-500">
+                        <p class="font-bold mb-1">【お知らせ】リリース順序について</p>
+                        <p>現在、各製品の詳細なリリース順序は決定しておりませんが、<strong>最も早い段階でリリース予定なのはHino</strong>となっており、その他の製品については準備が整い次第、逐次リリースさせていただきます。今後の発信にご期待ください。</p>
+                    </div>
+                </section>
+
+                <section class="bg-orange-50 p-8 border-l-4 border-hinoko-orange">
+                    <h2 class="text-2xl font-black mb-6 flex items-center gap-3">
+                        <span class="text-hinoko-orange">●</span> Hino 〜 Personal AI Chat
+                    </h2>
+                    <p class="mb-6">
+                        <strong>Hino</strong>は、ユーザー第一主義を掲げるAIパートナーです。会話を通じてあなたを理解し、最適な情報とサポートを提供します。
+                    </p>
+                    <div class="bg-white p-4 mb-6 text-sm border-l-2 border-gray-300">
+                        <p class="font-bold mb-2">【AIモデル実装について】</p>
+                        <p>Anthropic社のモデルについては、コストパフォーマンスとフロントエンド性能の観点から実装を見送り、Google Gemini、OpenAI GPT、国産モデル（PLaMo、LLM-JP等）を中心に展開いたします。</p>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <div class="p-4 border border-hinoko-orange/30 bg-white rounded-lg">
+                            <p class="text-hinoko-orange text-sm font-bold mb-2">パーソナライズ</p>
+                            <p class="text-xs text-gray-500">あなたに寄り添うAI</p>
+                        </div>
+                        <div class="p-4 border border-hinoko-orange/30 bg-white rounded-lg">
+                            <p class="text-hinoko-orange text-sm font-bold mb-2">マルチモデル</p>
+                            <p class="text-xs text-gray-500">最適なモデルを自動選択</p>
+                        </div>
+                        <div class="p-4 border border-hinoko-orange/30 bg-white rounded-lg">
+                            <p class="text-hinoko-orange text-sm font-bold mb-2">国産対応</p>
+                            <p class="text-xs text-gray-500">日本語に最適化</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="bg-green-50 p-8 border-l-4 border-homu-green">
+                    <h2 class="text-2xl font-black mb-6 flex items-center gap-3">
+                        <span class="text-homu-green">●</span> Homu 〜 Autonomous AI Agent
+                    </h2>
+                    <p class="mb-6">
+                        <strong>Homu</strong>は、最新鋭の国産AIモデルを搭載した自律型AIエージェントです。日本国内サーバーで稼働し、プライバシーと安全性を重視した信頼できるAI体験を提供します。
+                    </p>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <div class="p-4 border border-homu-green/30 bg-white rounded-lg">
+                            <p class="text-homu-green text-sm font-bold mb-2">国産モデル</p>
+                            <p class="text-xs text-gray-500">PLaMo / LLM-JP等を搭載</p>
+                        </div>
+                        <div class="p-4 border border-homu-green/30 bg-white rounded-lg">
+                            <p class="text-homu-green text-sm font-bold mb-2">国内サーバー</p>
+                            <p class="text-xs text-gray-500">プライバシー保護</p>
+                        </div>
+                        <div class="p-4 border border-homu-green/30 bg-white rounded-lg">
+                            <p class="text-homu-green text-sm font-bold mb-2">自律実行</p>
+                            <p class="text-xs text-gray-500">タスク自動遂行</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="bg-purple-50 p-8 border-l-4 border-hidy-purple">
+                    <h2 class="text-2xl font-black mb-6 flex items-center gap-3">
+                        <span class="text-hidy-purple">●</span> Hidy for Student 〜 Learning Support
+                    </h2>
+                    <p class="mb-6">
+                        <strong>Hidy for Student</strong>は、学生の学習体験を最大化するために設計された学習支援サービスです。個々の学習スタイルに合わせた最適なサポートで、効率的かつ深い理解へと導きます。
+                    </p>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <div class="p-4 border border-hidy-purple/30 bg-white rounded-lg">
+                            <p class="text-hidy-purple text-sm font-bold mb-2">個別最適化</p>
+                            <p class="text-xs text-gray-500">学習スタイルに合わせたサポート</p>
+                        </div>
+                        <div class="p-4 border border-hidy-purple/30 bg-white rounded-lg">
+                            <p class="text-hidy-purple text-sm font-bold mb-2">24時間対応</p>
+                            <p class="text-xs text-gray-500">いつでも質問可能</p>
+                        </div>
+                        <div class="p-4 border border-hidy-purple/30 bg-white rounded-lg">
+                            <p class="text-hidy-purple text-sm font-bold mb-2">分野別対応</p>
+                            <p class="text-xs text-gray-500">幅広い科目をカバー</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="bg-blue-50 p-8 border-l-4 border-hidy-blue">
+                    <h2 class="text-2xl font-black mb-6 flex items-center gap-3">
+                        <span class="text-hidy-blue">●</span> Hidy for Teacher 〜 Education Support
+                    </h2>
+                    <p class="mb-6">
+                        <strong>Hidy for Teacher</strong>は、教育現場の業務効率化を実現する教育支援サービスです。問題作成からテスト生成まで、AIがサポートし、先生方は本来の教育活動により多くの時間を費やせます。
+                    </p>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <div class="p-4 border border-hidy-blue/30 bg-white rounded-lg">
+                            <p class="text-hidy-blue text-sm font-bold mb-2">問題自動生成</p>
+                            <p class="text-xs text-gray-500">難易度・分野を指定して作成</p>
+                        </div>
+                        <div class="p-4 border border-hidy-blue/30 bg-white rounded-lg">
+                            <p class="text-hidy-blue text-sm font-bold mb-2">テスト作成</p>
+                            <p class="text-xs text-gray-500">フォーマット自動調整</p>
+                        </div>
+                        <div class="p-4 border border-hidy-blue/30 bg-white rounded-lg">
+                            <p class="text-hidy-blue text-sm font-bold mb-2">採点支援</p>
+                            <p class="text-xs text-gray-500">効率的なフィードバック</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h2 class="text-2xl font-black mb-6 flex items-center gap-3">
+                        <span class="text-kazenoko-cyan text-sm font-mono">SUMMARY</span>
+                        製品ラインナップ
+                    </h2>
+                    <div class="overflow-x-auto">
+                        <table class="w-full border-collapse border border-gray-200 text-sm">
+                            <thead>
+                                <tr class="bg-gray-100">
+                                    <th class="border border-gray-200 px-4 py-3 text-left">製品名</th>
+                                    <th class="border border-gray-200 px-4 py-3 text-left">カテゴリ</th>
+                                    <th class="border border-gray-200 px-4 py-3 text-left">主な特徴</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="bg-orange-50/30">
+                                    <td class="border border-gray-200 px-4 py-3 font-bold text-hinoko-orange">Hino</td>
+                                    <td class="border border-gray-200 px-4 py-3">Personal AI Chat</td>
+                                    <td class="border border-gray-200 px-4 py-3 text-gray-500">パーソナライズ・マルチモデル対応</td>
+                                </tr>
+                                <tr>
+                                    <td class="border border-gray-200 px-4 py-3 font-bold text-homu-green">Homu</td>
+                                    <td class="border border-gray-200 px-4 py-3">Autonomous AI Agent</td>
+                                    <td class="border border-gray-200 px-4 py-3 text-gray-500">国産モデル・国内サーバー・自律実行</td>
+                                </tr>
+                                <tr class="bg-purple-50/30">
+                                    <td class="border border-gray-200 px-4 py-3 font-bold text-hidy-purple">Hidy for Student</td>
+                                    <td class="border border-gray-200 px-4 py-3">Learning Support</td>
+                                    <td class="border border-gray-200 px-4 py-3 text-gray-500">個別最適化・24時間対応</td>
+                                </tr>
+                                <tr class="bg-blue-50/30">
+                                    <td class="border border-gray-200 px-4 py-3 font-bold text-hidy-blue">Hidy for Teacher</td>
+                                    <td class="border border-gray-200 px-4 py-3">Education Support</td>
+                                    <td class="border border-gray-200 px-4 py-3 text-gray-500">問題生成・テスト作成・採点支援</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <section>
+                    <p>
+                        各製品の詳細については、それぞれの製品ページをご覧ください。今後もHinoko Engineeringは、ユーザーの皆様に最高のAI体験を提供できるよう、継続して製品の開発・改善に取り組んでまいります。
+                    </p>
+                </section>
+            </div>
+        </article>
+        
+        <div class="mt-24 border-t border-gray-200 pt-12 flex justify-between items-center">
+             <a href="../index.html" class="magnetic-btn font-bold hover:text-kazenoko-cyan transition-colors px-4 py-2">
+                ← BACK TO NEWS
+            </a>
+        </div>
+
+    </main>
+
+    <footer class="bg-white border-t-4 border-kazenoko-dark pt-16 pb-8 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+                <!-- Brand -->
+                <div class="md:col-span-2">
+                    <div class="font-gothic text-3xl tracking-tighter mb-6">KAZENOKO</div>
+                    <p class="text-gray-600 font-bold leading-relaxed max-w-sm">
+                        夢を作る × 未来を創る。<br>
+                        私たちは、圧倒的な規模感でエンターテインメントの新しい形を追求するクリエイティブ集団です。
+                    </p>
+                </div>
+
+                <!-- Links -->
+                <div>
+                    <h4 class="font-gothic text-lg mb-6 border-b-2 border-kazenoko-cyan inline-block">LINKS</h4>
+                    <ul class="space-y-4 font-bold">
+                        <li><a href="../../index.html" class="hover:text-kazenoko-cyan transition-colors">Kazenoko Top</a></li>
+                        <li><a href="../../hinoko.html" class="hover:text-hinoko-orange transition-colors">Hinoko Engineering</a></li>
+                        <li><a href="../../join.html" class="hover:text-kazenoko-cyan transition-colors">Join Us</a></li>
+                        <li><a href="../index.html" class="hover:text-kazenoko-cyan transition-colors">News</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact/Social -->
+                <div>
+                    <h4 class="font-gothic text-lg mb-6 border-b-2 border-kazenoko-cyan inline-block">SOCIAL</h4>
+                    <ul class="space-y-4 font-bold">
+                        <li><a href="#" class="hover:text-kazenoko-cyan transition-colors">X (Twitter)</a></li>
+                        <li><a href="#" class="hover:text-kazenoko-cyan transition-colors">YouTube</a></li>
+                        <li><a href="#" class="hover:text-kazenoko-cyan transition-colors">Discord</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="pt-8 border-t border-gray-100 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-gray-400 font-bold uppercase tracking-widest">
+                <div>© Kazenoko Official. All Rights Reserved.</div>
+                <div class="flex gap-6">
+                    <a href="../../privacy.html" class="hover:text-kazenoko-dark transition-colors">Privacy Policy</a>
+                    <a href="../../terms.html" class="hover:text-kazenoko-dark transition-colors">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Global Scripts -->
+    <script src="../../js/main.js"></script>
+</body>
+</html>

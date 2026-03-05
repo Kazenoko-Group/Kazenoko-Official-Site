@@ -1,21 +1,24 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hino | Personal AI Chat</title>
-    
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=M+PLUS+1:wght@300;400;500;700&family=Zen+Kaku+Gothic+New:wght@400;700;900&display=swap" rel="stylesheet">
-    
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=M+PLUS+1:wght@300;400;500;700&family=Zen+Kaku+Gothic+New:wght@400;700;900&display=swap"
+        rel="stylesheet">
+
     <!-- Tailwind CSS -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    
+
     <!-- Custom Styles -->
     <link rel="stylesheet" href="../../../style/style.css">
-    
+
     <!-- Tailwind Config -->
     <style type="text/tailwindcss">
         @theme {
@@ -30,21 +33,24 @@
         }
     </style>
 </head>
+
 <body class="antialiased w-full h-full relative bg-hinoko-black text-white font-mplus">
 
     <!-- Transition Layer -->
     <div id="transition-overlay"></div>
 
     <!-- Navigation -->
-    <nav class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-6 py-4 mix-blend-difference text-white">
+    <nav
+        class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-6 py-4 mix-blend-difference text-white">
         <div class="font-gothic text-xl tracking-tighter">HINOKO</div>
         <div class="flex gap-4 items-center">
-            <a href="../../../hinoko.html" class="magnetic-btn font-mplus font-medium hover:opacity-70 transition-opacity uppercase text-sm tracking-widest cursor-pointer text-hinoko-orange">BACK</a>
+            <a href="../../../hinoko.html"
+                class="magnetic-btn font-mplus font-medium hover:opacity-70 transition-opacity uppercase text-sm tracking-widest cursor-pointer text-hinoko-orange">BACK</a>
         </div>
     </nav>
 
     <main class="min-h-screen flex flex-col justify-center items-center px-6 text-center relative overflow-hidden">
-        
+
         <!-- Background Video -->
         <div class="absolute inset-0 z-0">
             <video id="bg-video" class="w-full h-full object-cover" autoplay loop muted playsinline>
@@ -54,13 +60,20 @@
         </div>
 
         <!-- Audio Toggle Button -->
-        <button id="audio-toggle" class="fixed bottom-8 right-8 z-50 w-12 h-12 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center hover:bg-white/20 transition-all cursor-pointer">
+        <button id="audio-toggle"
+            class="fixed bottom-8 right-8 z-50 w-12 h-12 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center hover:bg-white/20 transition-all cursor-pointer">
             <svg id="audio-icon-off" class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"></path>
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2"></path>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z">
+                </path>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M17 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2"></path>
             </svg>
-            <svg id="audio-icon-on" class="w-5 h-5 text-white hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"></path>
+            <svg id="audio-icon-on" class="w-5 h-5 text-white hidden" fill="none" stroke="currentColor"
+                viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z">
+                </path>
             </svg>
         </button>
 
@@ -70,8 +83,9 @@
             <p class="text-2xl md:text-4xl font-light text-gray-300 mb-12 fade-in-up" style="animation-delay: 0.2s;">
                 あなたの日常に寄り添い、<br>体験をパーソナライズする。
             </p>
-            
-            <div class="p-8 border border-white/10 bg-white/5 rounded-xl backdrop-blur-md fade-in-up" style="animation-delay: 0.3s;">
+
+            <div class="p-8 border border-white/10 bg-white/5 rounded-xl backdrop-blur-md fade-in-up"
+                style="animation-delay: 0.3s;">
                 <p class="text-lg leading-relaxed text-gray-400">
                     Hinoは、ユーザー第一主義を掲げるAIパートナーです。<br>
                     会話を通じてあなたを理解し、最適な情報とサポートを提供します。
@@ -83,7 +97,7 @@
 
     <!-- Global Scripts -->
     <script src="../../../js/main.js"></script>
-    
+
     <!-- Audio Toggle Script -->
     <script>
         const video = document.getElementById('bg-video');
@@ -95,7 +109,7 @@
         audioToggle.addEventListener('click', () => {
             isMuted = !isMuted;
             video.muted = isMuted;
-            
+
             if (isMuted) {
                 audioIconOff.classList.remove('hidden');
                 audioIconOn.classList.add('hidden');
@@ -106,4 +120,5 @@
         });
     </script>
 </body>
+
 </html>

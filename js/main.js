@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    
+
     // --- 0. IxD Init: Custom Cursor ---
     const cursorDot = document.createElement('div');
     cursorDot.id = 'cursor-dot';
@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.addEventListener('mousemove', (e) => {
         mouseX = e.clientX;
         mouseY = e.clientY;
-        
+
         // Instant update for dot
         cursorDot.style.left = `${mouseX}px`;
         cursorDot.style.top = `${mouseY}px`;
@@ -50,13 +50,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const dx = targetX - cursorX;
         const dy = targetY - cursorY;
-        
+
         cursorX += dx * 0.15;
         cursorY += dy * 0.15;
-        
+
         cursorOutline.style.left = `${cursorX}px`;
         cursorOutline.style.top = `${cursorY}px`;
-        
+
         requestAnimationFrame(animateCursor);
     };
     animateCursor();
@@ -90,7 +90,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- 1. Initialize Overlay ---
     const overlay = document.getElementById('transition-overlay');
-    
+
     // Determine entrance animation (slide out)
     if (overlay) {
         // Wait a tiny bit to ensure the browser has painted the initial state (covering)
@@ -103,7 +103,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const links = document.querySelectorAll('a[href]');
     links.forEach(link => {
         const href = link.getAttribute('href');
-        
+
         // Skip external links or anchors
         if (!href || href.startsWith('#') || href.startsWith('http') || link.target === '_blank') return;
 
@@ -116,10 +116,10 @@ document.addEventListener('DOMContentLoaded', () => {
             if (overlay) {
                 // Set overlay color for the exit
                 overlay.style.backgroundColor = transitionColor;
-                
+
                 // Remove hidden class to slide it back in (cover screen)
                 overlay.classList.remove('overlay-hidden');
-                
+
                 // Wait for animation then navigate
                 setTimeout(() => {
                     window.location.href = targetUrl;
@@ -150,61 +150,45 @@ document.addEventListener('DOMContentLoaded', () => {
     animatedElements.forEach(el => observer.observe(el));
 
 
-    // Opening Animation
+    // Premium Opening Animation
     const opening = document.getElementById('opening-overlay');
-    const openingText = document.querySelector('.opening-text');
-    const openingLine = document.querySelector('.opening-line');
     const body = document.body;
 
     if (opening) {
-        // Initial state
-        openingLine.style.transition = 'width 0.8s cubic-bezier(0.77, 0, 0.175, 1)';
-
-        // Animation sequence: Cinematic Snap
         setTimeout(() => {
-            openingText.style.opacity = '1';
-            openingText.style.letterSpacing = '-0.05em';
-            openingText.style.filter = 'blur(0px)';
-        }, 500);
-
-        // Settle motion
-        setTimeout(() => {
-            openingText.style.letterSpacing = '0.05em';
-        }, 1200);
-
-        setTimeout(() => {
-            openingLine.style.width = '100%';
-        }, 1800);
-
-        setTimeout(() => {
-            opening.style.transition = 'transform 1s cubic-bezier(0.77, 0, 0.175, 1)';
             opening.style.transform = 'translateY(-100%)';
             body.classList.remove('overflow-hidden');
-            
-            // Trigger fade-in elements
+
+            // Trigger fade-in elements sequentially
             const fadeElements = document.querySelectorAll('.fade-in-up');
             fadeElements.forEach((el, index) => {
                 setTimeout(() => {
-                    el.style.opacity = '1';
-                    el.style.transform = 'translateY(0)';
-                }, 200 + (index * 100));
+                    el.classList.add('visible');
+                    // Remove inline styles if they interfere with CSS
+                    el.style.opacity = '';
+                    el.style.transform = '';
+                }, 200 + (index * 150));
             });
+
+            setTimeout(() => {
+                opening.remove();
+            }, 1200);
         }, 2200);
     }
 
     // --- 4. Magnetic Buttons (IxD) ---
     const magneticBtns = document.querySelectorAll('.magnetic-btn'); // Add this class to desired elements
-    
+
     magneticBtns.forEach(btn => {
         btn.addEventListener('mousemove', (e) => {
             const rect = btn.getBoundingClientRect();
             const x = e.clientX - rect.left - rect.width / 2;
             const y = e.clientY - rect.top - rect.height / 2;
-            
+
             // Move element slightly towards mouse
             btn.style.transform = `translate(${x * 0.1}px, ${y * 0.1}px)`;
         });
-        
+
         btn.addEventListener('mouseleave', () => {
             btn.style.transform = 'translate(0px, 0px)';
         });
@@ -226,23 +210,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- 6. Typewriter Effect ---
-    const typewriterElement = document.getElementById('typewriter-text');
-    if (typewriterElement) {
-        const text = 'みんなの役にたつものを。';
-        let index = 0;
-        const typingSpeed = 150;
-        const startDelay = 800;
-
-        const typeWriter = () => {
-            if (index < text.length) {
-                typewriterElement.textContent += text.charAt(index);
-                index++;
-                setTimeout(typeWriter, typingSpeed);
-            }
-        };
-
-        setTimeout(typeWriter, startDelay);
-    }
+    // Removed Typewriter Effect (Terminal-like animations are banned)
 
 });

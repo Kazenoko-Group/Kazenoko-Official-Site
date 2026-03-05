@@ -1,21 +1,24 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>News | Kazenoko Official</title>
-    
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=M+PLUS+1:wght@300;400;500;700&family=Zen+Kaku+Gothic+New:wght@400;700;900&display=swap" rel="stylesheet">
-    
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=M+PLUS+1:wght@300;400;500;700&family=Zen+Kaku+Gothic+New:wght@400;700;900&display=swap"
+        rel="stylesheet">
+
     <!-- Tailwind CSS -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    
+
     <!-- Custom Styles -->
     <link rel="stylesheet" href="../style/style.css">
-    
+
     <!-- Tailwind Config -->
     <style type="text/tailwindcss">
         @theme {
@@ -30,65 +33,103 @@
         }
     </style>
 </head>
+
 <body class="antialiased w-full h-full relative bg-white text-kazenoko-dark font-zen">
 
     <!-- Transition Layer -->
     <div id="transition-overlay"></div>
 
     <!-- Navigation -->
-    <nav class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-6 py-4 mix-blend-difference text-white">
-        <div class="font-gothic text-xl tracking-tighter">KAZENOKO</div>
-        <div class="flex gap-4 items-center">
-            <a href="../index.html" class="magnetic-btn cursor-snap px-2 py-1 font-zen font-bold hover:opacity-70 transition-opacity uppercase text-sm tracking-widest cursor-pointer">Kazenoko</a>
+    <nav
+        class="fixed top-0 left-0 w-full z-50 flex flex-wrap md:flex-nowrap justify-between items-center px-4 md:px-6 py-3 md:py-4 mix-blend-difference text-white gap-y-2">
+        <div class="font-gothic text-lg md:text-xl tracking-tighter w-full text-center md:w-auto md:text-left">KAZENOKO
+        </div>
+        <div class="flex gap-2 md:gap-4 items-center justify-center w-full md:w-auto text-[10px] sm:text-xs md:text-sm">
+            <a href="../index.html"
+                class="magnetic-btn cursor-snap font-zen font-bold hover:opacity-70 transition-opacity uppercase tracking-widest cursor-pointer px-1 md:px-2 py-1">Kazenoko</a>
             <span class="opacity-50">/</span>
-            <a href="../hinoko.html" class="magnetic-btn cursor-snap px-2 py-1 font-mplus font-medium hover:opacity-70 transition-opacity uppercase text-sm tracking-widest cursor-pointer">Hinoko</a>
+            <a href="../hinoko.html" data-transition-color="#050505"
+                class="magnetic-btn cursor-snap font-mplus font-medium hover:opacity-70 transition-opacity uppercase tracking-widest cursor-pointer px-1 md:px-2 py-1">Hinoko</a>
             <span class="opacity-50">/</span>
-            <a href="../join.html" class="magnetic-btn cursor-snap px-2 py-1 font-zen font-bold hover:opacity-70 transition-opacity uppercase text-sm tracking-widest cursor-pointer">Join</a>
+            <a href="../join.html"
+                class="magnetic-btn cursor-snap font-zen font-bold hover:opacity-70 transition-opacity uppercase tracking-widest cursor-pointer px-1 md:px-2 py-1">Join</a>
             <span class="opacity-50">/</span>
-            <a href="index.html" class="magnetic-btn cursor-snap px-2 py-1 font-zen font-bold text-kazenoko-cyan hover:opacity-70 transition-opacity uppercase text-sm tracking-widest cursor-pointer">News</a>
+            <a href="index.html"
+                class="magnetic-btn cursor-snap font-zen font-bold hover:opacity-70 transition-opacity uppercase tracking-widest cursor-pointer px-1 md:px-2 py-1 text-kazenoko-cyan">News</a>
         </div>
     </nav>
 
     <!-- Main Content -->
     <main class="pt-32 pb-20 px-6 max-w-4xl mx-auto min-h-screen">
-        <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 border-b-4 border-kazenoko-dark pb-4 fade-in-up">
+        <div
+            class="flex flex-col md:flex-row md:items-end justify-between mb-12 border-b-4 border-kazenoko-dark pb-4 fade-in-up">
             <h1 class="font-gothic text-5xl md:text-7xl">NEWS</h1>
             <div class="flex gap-6 mt-4 md:mt-0 font-mono text-sm tracking-tighter">
                 <span class="cursor-pointer border-b-2 border-kazenoko-cyan text-kazenoko-cyan">ALL</span>
-                <span class="cursor-pointer border-b-2 border-transparent hover:border-gray-300 transition-colors">RELEASE</span>
-                <span class="cursor-pointer border-b-2 border-transparent hover:border-gray-300 transition-colors">INFO</span>
+                <span
+                    class="cursor-pointer border-b-2 border-transparent hover:border-gray-300 transition-colors">RELEASE</span>
+                <span
+                    class="cursor-pointer border-b-2 border-transparent hover:border-gray-300 transition-colors">INFO</span>
             </div>
         </div>
-        
+
         <div class="space-y-4">
-            
+
             <!-- News Item -->
-            <a href="2026/0124_anthropic_model.html" class="magnetic-btn block w-full border-b border-gray-100 py-8 hover:bg-gray-50/50 transition-all group fade-in-up">
+            <a href="2026/0301_major_update.html"
+                class="magnetic-btn block w-full border-b border-gray-100 py-8 hover:bg-gray-50/50 transition-all group fade-in-up">
                 <div class="flex flex-col md:flex-row md:items-center gap-6 px-4">
                     <div class="flex items-center gap-6 min-w-[200px]">
-                        <span class="font-mono text-gray-400 text-sm">2026.01.24</span>
-                        <span class="bg-gray-500 text-white text-[10px] tracking-widest font-black px-3 py-1 uppercase">Info</span>
+                        <span class="font-mono text-gray-400 text-sm">2026.03.01</span>
+                        <span
+                            class="bg-kazenoko-dark text-white text-[10px] tracking-widest font-black px-3 py-1 uppercase">INFO</span>
                     </div>
                     <div class="flex-1">
-                        <h2 class="text-xl md:text-2xl font-bold group-hover:text-kazenoko-cyan transition-colors flex items-center justify-between">
-                            Hino / HinoCo におけるAIモデル実装計画のアップデート
-                            <span class="opacity-0 group-hover:opacity-100 transform translate-x-[-10px] group-hover:translate-x-0 transition-all duration-300 text-kazenoko-cyan">→</span>
+                        <h2
+                            class="text-xl md:text-2xl font-bold group-hover:text-kazenoko-cyan transition-colors flex items-center justify-between">
+                            公式サイト大幅アップデート＆特大のお知らせ
+                            <span
+                                class="opacity-0 group-hover:opacity-100 transform translate-x-[-10px] group-hover:translate-x-0 transition-all duration-300 text-kazenoko-cyan">→</span>
                         </h2>
                     </div>
                 </div>
             </a>
 
             <!-- News Item -->
-            <a href="2026/0119_site_open.html" class="magnetic-btn block w-full border-b border-gray-100 py-8 hover:bg-gray-50/50 transition-all group fade-in-up">
+            <a href="2026/0217_homu_hidy.html"
+                class="magnetic-btn block w-full border-b border-gray-100 py-8 hover:bg-gray-50/50 transition-all group fade-in-up">
+                <div class="flex flex-col md:flex-row md:items-center gap-6 px-4">
+                    <div class="flex items-center gap-6 min-w-[200px]">
+                        <span class="font-mono text-gray-400 text-sm">2026.02.17</span>
+                        <span
+                            class="bg-kazenoko-dark text-white text-[10px] tracking-widest font-black px-3 py-1 uppercase">Release</span>
+                    </div>
+                    <div class="flex-1">
+                        <h2
+                            class="text-xl md:text-2xl font-bold group-hover:text-kazenoko-cyan transition-colors flex items-center justify-between">
+                            Hinoko製品ラインナップの発表
+                            <span
+                                class="opacity-0 group-hover:opacity-100 transform translate-x-[-10px] group-hover:translate-x-0 transition-all duration-300 text-kazenoko-cyan">→</span>
+                        </h2>
+                    </div>
+                </div>
+            </a>
+
+            <!-- News Item -->
+            <a href="2026/0119_site_open.html"
+                class="magnetic-btn block w-full border-b border-gray-100 py-8 hover:bg-gray-50/50 transition-all group fade-in-up">
                 <div class="flex flex-col md:flex-row md:items-center gap-6 px-4">
                     <div class="flex items-center gap-6 min-w-[200px]">
                         <span class="font-mono text-gray-400 text-sm">2026.01.22</span>
-                        <span class="bg-kazenoko-dark text-white text-[10px] tracking-widest font-black px-3 py-1 uppercase">Release</span>
+                        <span
+                            class="bg-kazenoko-dark text-white text-[10px] tracking-widest font-black px-3 py-1 uppercase">Release</span>
                     </div>
                     <div class="flex-1">
-                        <h2 class="text-xl md:text-2xl font-bold group-hover:text-kazenoko-cyan transition-colors flex items-center justify-between">
+                        <h2
+                            class="text-xl md:text-2xl font-bold group-hover:text-kazenoko-cyan transition-colors flex items-center justify-between">
                             公式サイトをオープンしました
-                            <span class="opacity-0 group-hover:opacity-100 transform translate-x-[-10px] group-hover:translate-x-0 transition-all duration-300 text-kazenoko-cyan">→</span>
+                            <span
+                                class="opacity-0 group-hover:opacity-100 transform translate-x-[-10px] group-hover:translate-x-0 transition-all duration-300 text-kazenoko-cyan">→</span>
                         </h2>
                     </div>
                 </div>
@@ -106,11 +147,12 @@
                 </div>
             </a>
              -->
-             
+
         </div>
-        
+
         <div class="mt-24 text-center">
-             <a href="../index.html" class="inline-block border-2 border-kazenoko-dark px-8 py-3 font-bold hover:bg-kazenoko-dark hover:text-white transition-colors">
+            <a href="../index.html"
+                class="inline-block border-2 border-kazenoko-dark px-8 py-3 font-bold hover:bg-kazenoko-dark hover:text-white transition-colors">
                 ← BACK TO TOP
             </a>
         </div>
@@ -133,8 +175,10 @@
                 <div>
                     <h4 class="font-gothic text-lg mb-6 border-b-2 border-kazenoko-cyan inline-block">LINKS</h4>
                     <ul class="space-y-4 font-bold">
-                        <li><a href="../index.html" class="hover:text-kazenoko-cyan transition-colors">Kazenoko Top</a></li>
-                        <li><a href="../hinoko.html" class="hover:text-hinoko-orange transition-colors">Hinoko Engineering</a></li>
+                        <li><a href="../index.html" class="hover:text-kazenoko-cyan transition-colors">Kazenoko Top</a>
+                        </li>
+                        <li><a href="../hinoko.html" class="hover:text-hinoko-orange transition-colors">Hinoko
+                                Engineering</a></li>
                         <li><a href="../join.html" class="hover:text-kazenoko-cyan transition-colors">Join Us</a></li>
                         <li><a href="index.html" class="hover:text-kazenoko-cyan transition-colors">News</a></li>
                     </ul>
@@ -150,8 +194,9 @@
                     </ul>
                 </div>
             </div>
-            
-            <div class="pt-8 border-t border-gray-100 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-gray-400 font-bold uppercase tracking-widest">
+
+            <div
+                class="pt-8 border-t border-gray-100 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-gray-400 font-bold uppercase tracking-widest">
                 <div>© Kazenoko Official. All Rights Reserved.</div>
                 <div class="flex gap-6">
                     <a href="../privacy.html" class="hover:text-kazenoko-dark transition-colors">Privacy Policy</a>
@@ -164,4 +209,5 @@
     <!-- Global Scripts -->
     <script src="../js/main.js"></script>
 </body>
+
 </html>
