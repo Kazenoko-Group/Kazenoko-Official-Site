@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>カゼノコ幹事会 | Kazenoko Official</title>
+    <meta name="description" content="カゼノコ幹事会公式サイト。200人越えのエンターテインメントクリエイティブグループ。夢を作る × 未来を創る。">
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -35,10 +36,34 @@
 
 <body class="antialiased w-full h-full relative bg-white text-kazenoko-dark font-zen overflow-hidden">
 
-    <!-- Premium Opening Overlay -->
-    <div id="opening-overlay"
-        class="fixed inset-0 z-[10000] flex w-full h-full pointer-events-none items-center justify-center bg-kazenoko-dark overflow-hidden">
-        <div class="opening-logo text-white font-gothic text-[10vw] md:text-[8vw] tracking-[0.2em]">KAZENOKO</div>
+    <!-- Premium Opening Overlay V2 -->
+    <div id="opening-overlay" class="fixed inset-0 z-[10000] pointer-events-none w-full h-full">
+        <!-- Split Backgrounds -->
+        <div id="opening-bg-top" class="absolute top-0 left-0 w-full h-1/2 bg-kazenoko-dark origin-top"></div>
+        <div id="opening-bg-bottom" class="absolute bottom-0 left-0 w-full h-1/2 bg-kazenoko-dark origin-bottom"></div>
+
+        <!-- Content Container -->
+        <div id="opening-content" class="absolute inset-0 flex flex-col items-center justify-center z-10 w-full h-full">
+            <!-- Logo -->
+            <div class="flex overflow-hidden py-4 px-4 relative z-10">
+                <span
+                    class="opening-char text-white font-gothic text-[15vw] md:text-[10vw] leading-none opacity-0">K</span>
+                <span
+                    class="opening-char text-white font-gothic text-[15vw] md:text-[10vw] leading-none opacity-0">A</span>
+                <span
+                    class="opening-char text-white font-gothic text-[15vw] md:text-[10vw] leading-none opacity-0">Z</span>
+                <span
+                    class="opening-char text-white font-gothic text-[15vw] md:text-[10vw] leading-none opacity-0">E</span>
+                <span
+                    class="opening-char text-white font-gothic text-[15vw] md:text-[10vw] leading-none opacity-0">N</span>
+                <span
+                    class="opening-char text-white font-gothic text-[15vw] md:text-[10vw] leading-none opacity-0">O</span>
+                <span
+                    class="opening-char text-white font-gothic text-[15vw] md:text-[10vw] leading-none opacity-0">K</span>
+                <span
+                    class="opening-char text-white font-gothic text-[15vw] md:text-[10vw] leading-none opacity-0">O</span>
+            </div>
+        </div>
     </div>
 
     <!-- Kinetic Background -->

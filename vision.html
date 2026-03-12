@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vision | Kazenoko Official</title>
+    <meta name="description" content="カゼノコ幹事会のビジョン。コミュニティからブランドへ、圧倒的な規模感で次世代のスタンダードを築く。">
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -24,8 +25,12 @@
         @theme {
             --color-kazenoko-cyan: #00e5ff;
             --color-kazenoko-dark: #1a1a1a;
+            --color-hinoko-orange: #ff6b00;
+            --color-hinoko-black: #050505;
+
             --font-gothic: "Dela Gothic One", sans-serif;
             --font-zen: "Zen Kaku Gothic New", sans-serif;
+            --font-mplus: "M PLUS 1", sans-serif;
         }
     </style>
 </head>
@@ -40,20 +45,21 @@
 
     <!-- Navigation -->
     <nav
-        class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-6 py-4 mix-blend-difference text-white">
-        <div class="font-gothic text-xl tracking-tighter">KAZENOKO</div>
-        <div class="flex gap-4 items-center">
+        class="fixed top-0 left-0 w-full z-50 flex flex-wrap md:flex-nowrap justify-between items-center px-4 md:px-6 py-3 md:py-4 mix-blend-difference text-white gap-y-2">
+        <div class="font-gothic text-lg md:text-xl tracking-tighter w-full text-center md:w-auto md:text-left">KAZENOKO
+        </div>
+        <div class="flex gap-2 md:gap-4 items-center justify-center w-full md:w-auto text-[10px] sm:text-xs md:text-sm">
             <a href="index.html"
-                class="magnetic-btn font-zen font-bold hover:opacity-70 transition-opacity uppercase text-sm tracking-widest cursor-pointer">Kazenoko</a>
+                class="magnetic-btn cursor-snap font-zen font-bold hover:opacity-70 transition-opacity uppercase tracking-widest cursor-pointer px-1 md:px-2 py-1">Kazenoko</a>
             <span class="opacity-50">/</span>
-            <a href="hinoko.html"
-                class="magnetic-btn font-mplus font-medium hover:opacity-70 transition-opacity uppercase text-sm tracking-widest cursor-pointer">Hinoko</a>
+            <a href="hinoko.html" data-transition-color="#050505"
+                class="magnetic-btn cursor-snap font-mplus font-medium hover:opacity-70 transition-opacity uppercase tracking-widest cursor-pointer px-1 md:px-2 py-1">Hinoko</a>
             <span class="opacity-50">/</span>
             <a href="join.html"
-                class="magnetic-btn font-zen font-bold hover:opacity-70 transition-opacity uppercase text-sm tracking-widest cursor-pointer">Join</a>
+                class="magnetic-btn cursor-snap font-zen font-bold hover:opacity-70 transition-opacity uppercase tracking-widest cursor-pointer px-1 md:px-2 py-1">Join</a>
             <span class="opacity-50">/</span>
             <a href="news/index.html"
-                class="magnetic-btn font-zen font-bold hover:opacity-70 transition-opacity uppercase text-sm tracking-widest cursor-pointer">News</a>
+                class="magnetic-btn cursor-snap font-zen font-bold hover:opacity-70 transition-opacity uppercase tracking-widest cursor-pointer px-1 md:px-2 py-1">News</a>
         </div>
     </nav>
 

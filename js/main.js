@@ -150,13 +150,30 @@ document.addEventListener('DOMContentLoaded', () => {
     animatedElements.forEach(el => observer.observe(el));
 
 
-    // Premium Opening Animation
+    // Premium Opening Animation V2
     const opening = document.getElementById('opening-overlay');
     const body = document.body;
 
     if (opening) {
+        // Prevent scrolling during opening
+        body.classList.add('overflow-hidden');
+
+        const chars = document.querySelectorAll('.opening-char');
+        const content = document.getElementById('opening-content');
+
+        // 1. Stagger letters in
         setTimeout(() => {
-            opening.style.transform = 'translateY(-100%)';
+            chars.forEach((char, index) => {
+                setTimeout(() => {
+                    char.classList.add('char-visible');
+                }, index * 60); // Stagger by 60ms
+            });
+        }, 300);
+
+        // 2. Split and zoom out
+        setTimeout(() => {
+            content.classList.add('opening-zoom-out');
+            opening.classList.add('opening-split-open');
             body.classList.remove('overflow-hidden');
 
             // Trigger fade-in elements sequentially
@@ -164,16 +181,16 @@ document.addEventListener('DOMContentLoaded', () => {
             fadeElements.forEach((el, index) => {
                 setTimeout(() => {
                     el.classList.add('visible');
-                    // Remove inline styles if they interfere with CSS
                     el.style.opacity = '';
                     el.style.transform = '';
-                }, 200 + (index * 150));
+                }, index * 150);
             });
+        }, 1200);
 
-            setTimeout(() => {
-                opening.remove();
-            }, 1200);
-        }, 2200);
+        // 3. Remove from DOM
+        setTimeout(() => {
+            opening.remove();
+        }, 2400);
     }
 
     // --- 4. Magnetic Buttons (IxD) ---
@@ -195,6 +212,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // --- 5. Parallax Background (IxD) ---
+    // Uses individual `translate` property to avoid overriding CSS `transform` animations
     const parallaxLayers = document.querySelectorAll('.parallax-layer');
     if (parallaxLayers.length > 0) {
         document.addEventListener('mousemove', (e) => {
@@ -205,7 +223,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const speed = layer.getAttribute('data-speed') || 1;
                 const xPos = x * speed;
                 const yPos = y * speed;
-                layer.style.transform = `translate(${xPos}px, ${yPos}px)`;
+                layer.style.translate = `${xPos}px ${yPos}px`;
             });
         });
     }

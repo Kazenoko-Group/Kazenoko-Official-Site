@@ -1,22 +1,23 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="ja" data-theme="light">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hinoko | Kazenoko Engineering Team</title>
+    <meta name="description" content="Hinoko — カゼノコ幹事会のエンジニアリングチーム。バイブコーディングと次世代IxDで最高のサービスを追求する。">
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=M+PLUS+1:wght@300;400;500;700&family=Zen+Kaku+Gothic+New:wght@400;700;900&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Inter:wght@300;400;500;600;700;800&family=M+PLUS+1:wght@300;400;500;700&family=Zen+Kaku+Gothic+New:wght@400;700;900&display=swap"
         rel="stylesheet">
 
     <!-- Tailwind CSS -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
-    <!-- Custom Styles -->
+    <!-- Global Shared Styles -->
     <link rel="stylesheet" href="style/style.css">
 
     <!-- Tailwind Config -->
@@ -26,278 +27,1136 @@
             --color-kazenoko-dark: #1a1a1a;
             --color-hinoko-orange: #ff6b00;
             --color-hinoko-black: #050505;
-            
+
             --font-gothic: "Dela Gothic One", sans-serif;
             --font-zen: "Zen Kaku Gothic New", sans-serif;
             --font-mplus: "M PLUS 1", sans-serif;
+            --font-inter: "Inter", sans-serif;
+        }
+    </style>
+
+    <!-- Hinoko Refined Styles -->
+    <style>
+        /* ===== Theme Variables ===== */
+        :root {
+            --bg-primary: #fafafa;
+            --bg-secondary: #ffffff;
+            --bg-card: rgba(255, 255, 255, 0.6);
+            --bg-card-hover: rgba(255, 255, 255, 0.9);
+            --bg-nav: rgba(250, 250, 250, 0.7);
+            --text-primary: #1a1a1a;
+            --text-secondary: #525252;
+            --text-tertiary: #a3a3a3;
+            --text-hint: #d4d4d8;
+            --border-color: rgba(0, 0, 0, 0.06);
+            --border-hover: rgba(0, 0, 0, 0.15);
+            --shadow-soft: 0 4px 20px -2px rgba(0, 0, 0, 0.03);
+            --shadow-card: 0 8px 32px rgba(0, 0, 0, 0.04), inset 0 0 0 1px rgba(255, 255, 255, 0.5);
+            --shadow-card-hover: 0 16px 48px rgba(0, 0, 0, 0.08), inset 0 0 0 1px #ffffff;
+            --accent: #ff6b00;
+            --accent-soft: rgba(255, 107, 0, 0.1);
+            --accent-text: #e55d00;
+            --wave-color: rgba(0, 0, 0, 0.03);
+            --dot-color: rgba(0, 0, 0, 0.04);
+            --toggle-bg: #e5e5e5;
+            --toggle-icon: #525252;
+            --kazenoko-section-bg: #f0f0f0;
+            --kazenoko-section-text: #1a1a1a;
+            --footer-bg: #1a1a1a;
+            --footer-text: #9ca3af;
+            --footer-text-dim: #6b7280;
+            --footer-border: rgba(255, 255, 255, 0.08);
+            --footer-heading: #ffffff;
+        }
+
+        [data-theme="dark"] {
+            --bg-primary: #050505;
+            --bg-secondary: #0a0a0a;
+            --bg-card: rgba(20, 20, 20, 0.6);
+            --bg-card-hover: rgba(30, 30, 30, 0.8);
+            --bg-nav: rgba(5, 5, 5, 0.7);
+            --text-primary: #ffffff;
+            --text-secondary: #a3a3a3;
+            --text-tertiary: #737373;
+            --text-hint: #404040;
+            --border-color: rgba(255, 255, 255, 0.08);
+            --border-hover: rgba(255, 255, 255, 0.15);
+            --shadow-soft: 0 4px 20px -2px rgba(0, 0, 0, 0.2);
+            --shadow-card: 0 8px 32px rgba(0, 0, 0, 0.4), inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+            --shadow-card-hover: 0 16px 48px rgba(0, 0, 0, 0.6), inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+            --accent: #ff8c38;
+            --accent-soft: rgba(255, 140, 56, 0.15);
+            --accent-text: #ff8c38;
+            --wave-color: rgba(255, 255, 255, 0.04);
+            --dot-color: rgba(255, 255, 255, 0.03);
+            --toggle-bg: #1a1a1a;
+            --toggle-icon: #a3a3a3;
+            --kazenoko-section-bg: #111111;
+            --kazenoko-section-text: #f0f0f0;
+            --footer-bg: #060606;
+            --footer-text: #6b7280;
+            --footer-text-dim: #4b5563;
+            --footer-border: rgba(255, 255, 255, 0.05);
+            --footer-heading: #e0e0e0;
+        }
+
+        /* ===== Base ===== */
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            font-family: "Inter", "M PLUS 1", -apple-system, sans-serif;
+            transition: background 0.5s ease, color 0.4s ease;
+            overflow-x: hidden;
+        }
+
+        /* ===== Custom cursor override for light theme ===== */
+        [data-theme="light"] #cursor-dot {
+            background-color: #1a1a1a !important;
+        }
+
+        [data-theme="light"] #cursor-outline {
+            border-color: #1a1a1a !important;
+        }
+
+        [data-theme="dark"] #cursor-dot {
+            background-color: #ffffff !important;
+        }
+
+        [data-theme="dark"] #cursor-outline {
+            border-color: #ffffff !important;
+        }
+
+        [data-theme="light"] .hovering #cursor-outline {
+            background-color: rgba(255, 107, 0, 0.08) !important;
+            border-color: var(--accent) !important;
+        }
+
+        [data-theme="dark"] .hovering #cursor-outline {
+            background-color: rgba(255, 140, 56, 0.1) !important;
+            border-color: var(--accent) !important;
+        }
+
+        /* ===== Scroll progress override ===== */
+        [data-theme="light"] #scroll-progress {
+            background: var(--accent) !important;
+        }
+
+        [data-theme="dark"] #scroll-progress {
+            background: var(--accent) !important;
+        }
+
+        /* ===== Navigation ===== */
+        .h-nav {
+            background: var(--bg-nav);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-color);
+            transition: background 0.4s ease, border-color 0.4s ease;
+        }
+
+        .h-nav-link {
+            color: var(--text-secondary);
+            font-size: 0.75rem;
+            font-weight: 500;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+            text-decoration: none;
+            padding: 4px 8px;
+        }
+
+        .h-nav-link:hover {
+            color: var(--text-primary);
+        }
+
+        .h-nav-link.active {
+            color: var(--accent-text);
+            font-weight: 600;
+        }
+
+        /* ===== Theme Toggle ===== */
+        .theme-toggle {
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            background: var(--toggle-bg);
+            border: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: var(--toggle-icon);
+        }
+
+        .theme-toggle:hover {
+            border-color: var(--border-hover);
+            color: var(--text-primary);
+        }
+
+        .theme-toggle svg {
+            width: 16px;
+            height: 16px;
+            transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .theme-toggle:hover svg {
+            transform: rotate(30deg);
+        }
+
+        /* ===== Particle Canvas ===== */
+        #hero-particles {
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        /* ===== Ambient Gradient Orbs ===== */
+        .ambient-orbs {
+            position: absolute;
+            inset: 0;
+            overflow: hidden;
+            pointer-events: none;
+            z-index: 0;
+        }
+        .ambient-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(100px);
+            opacity: 0.15;
+            will-change: transform;
+        }
+        [data-theme="light"] .ambient-orb { opacity: 0.08; }
+        .orb-1 {
+            width: 600px; height: 600px;
+            background: var(--accent);
+            top: -10%; right: -5%;
+            animation: orb-drift-1 25s ease-in-out infinite;
+        }
+        .orb-2 {
+            width: 500px; height: 500px;
+            background: #7c3aed;
+            bottom: -15%; left: -10%;
+            animation: orb-drift-2 30s ease-in-out infinite;
+        }
+        .orb-3 {
+            width: 400px; height: 400px;
+            background: #06b6d4;
+            top: 40%; left: 50%;
+            animation: orb-drift-3 20s ease-in-out infinite;
+        }
+        @keyframes orb-drift-1 {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(-40px, 30px) scale(1.1); }
+            66% { transform: translate(20px, -20px) scale(0.95); }
+        }
+        @keyframes orb-drift-2 {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(30px, -40px) scale(1.05); }
+            66% { transform: translate(-20px, 20px) scale(0.9); }
+        }
+        @keyframes orb-drift-3 {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(-30px, -30px) scale(1.15); }
+        }
+
+        /* ===== Grid Pattern Background ===== */
+        .grid-bg {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 0;
+            background-image:
+                linear-gradient(var(--border-color) 1px, transparent 1px),
+                linear-gradient(90deg, var(--border-color) 1px, transparent 1px);
+            background-size: 60px 60px;
+            mask-image: radial-gradient(ellipse 70% 50% at 50% 50%, black, transparent);
+            -webkit-mask-image: radial-gradient(ellipse 70% 50% at 50% 50%, black, transparent);
+        }
+
+        /* ===== Animated Gradient Title ===== */
+        @keyframes gradient-shift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        .gradient-title {
+            background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent) 40%, var(--text-primary) 60%, var(--text-tertiary) 100%);
+            background-size: 300% 300%;
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradient-shift 8s ease-in-out infinite;
+        }
+
+        /* ===== Typography ===== */
+        .h-headline {
+            font-family: "Inter", "M PLUS 1", sans-serif;
+            font-weight: 800;
+            letter-spacing: -0.04em;
+            line-height: 1;
+            color: var(--text-primary);
+        }
+
+        .h-subhead {
+            font-family: "Inter", "M PLUS 1", sans-serif;
+            font-weight: 400;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        .h-mono {
+            font-family: "SF Mono", "Fira Code", "Consolas", monospace;
+            font-size: 0.65rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--text-tertiary);
+        }
+
+        .h-label {
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--text-tertiary);
+        }
+
+        /* ===== Cards with 3D Tilt ===== */
+        .h-card {
+            background: var(--bg-card);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            box-shadow: var(--shadow-card);
+            transition: box-shadow 0.5s ease, border-color 0.5s ease;
+            overflow: hidden;
+            display: block;
+            text-decoration: none;
+            color: inherit;
+            position: relative;
+            transform-style: preserve-3d;
+            will-change: transform;
+        }
+
+        .h-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 20px;
+            background: radial-gradient(600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), var(--accent-soft), transparent 40%);
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .h-card::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 20px;
+            background: linear-gradient(105deg, transparent 40%, rgba(255,255,255,0.03) 45%, rgba(255,255,255,0.12) 50%, rgba(255,255,255,0.03) 55%, transparent 60%);
+            background-size: 200% 200%;
+            background-position: var(--shine-x, 200%) 50%;
+            pointer-events: none;
+            z-index: 2;
+            transition: background-position 0.3s ease;
+        }
+
+        .h-card:hover::before {
+            opacity: 1;
+        }
+
+        .h-card > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .h-card:hover {
+            border-color: var(--border-hover);
+            box-shadow: var(--shadow-card-hover);
+        }
+
+        .h-card .card-arrow {
+            opacity: 0;
+            transform: translateX(-8px);
+            transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            color: var(--accent);
+        }
+
+        .h-card:hover .card-arrow {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        /* Card icon containers */
+        .card-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            position: relative;
+        }
+        .card-icon svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        /* Status dot */
+        .status-dot {
+            width: 6px; height: 6px;
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: 6px;
+            animation: status-pulse 2s ease-in-out infinite;
+        }
+        @keyframes status-pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.4; }
+        }
+
+        .h-card .card-tag {
+            display: inline-block;
+            padding: 3px 12px;
+            border-radius: 100px;
+            font-size: 0.6rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        /* ===== Section Divider ===== */
+        .section-divider {
+            height: 1px;
+            background: var(--border-color);
+            margin: 0 auto;
+        }
+
+        /* ===== News ===== */
+        .news-row {
+            display: flex;
+            flex-direction: column;
+            padding: 20px 16px;
+            border-radius: 12px;
+            transition: background 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .news-row:hover {
+            background: var(--accent-soft);
+        }
+
+        .news-row:hover .news-title {
+            color: var(--accent-text);
+        }
+
+        .news-title {
+            transition: color 0.3s ease;
+        }
+
+        @media (min-width: 768px) {
+            .news-row {
+                flex-direction: row;
+                align-items: center;
+                gap: 32px;
+            }
+        }
+
+        /* ===== CTA Button ===== */
+        .h-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 36px;
+            border: 1.5px solid var(--accent);
+            color: var(--accent-text);
+            border-radius: 100px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .h-btn::before {
+            content: '';
+            position: absolute;
+            inset: -2px;
+            border-radius: 100px;
+            background: var(--accent);
+            opacity: 0;
+            filter: blur(16px);
+            transition: opacity 0.4s ease;
+            z-index: -1;
+        }
+
+        .h-btn:hover {
+            background: var(--accent);
+            color: #ffffff;
+            border-color: var(--accent);
+            box-shadow: 0 8px 32px rgba(255, 107, 0, 0.35);
+            transform: translateY(-2px);
+        }
+
+        .h-btn:hover::before {
+            opacity: 0.4;
+        }
+
+        .h-btn .btn-arrow {
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .h-btn:hover .btn-arrow {
+            transform: translateX(4px);
+        }
+
+        /* ===== Floating decorative elements ===== */
+        .float-el {
+            position: absolute;
+            pointer-events: none;
+            border-radius: 16px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-card);
+            transition: background 0.5s ease, border-color 0.5s ease, box-shadow 0.5s ease;
+            will-change: transform;
+        }
+
+        .float-el-1 {
+            width: 200px;
+            height: 130px;
+            top: 12%;
+            right: 8%;
+            animation: float-1 8s ease-in-out infinite;
+        }
+
+        .float-el-2 {
+            width: 160px;
+            height: 100px;
+            top: 58%;
+            left: 5%;
+            animation: float-2 10s ease-in-out infinite;
+        }
+
+        .float-el-3 {
+            width: 180px;
+            height: 110px;
+            bottom: 15%;
+            right: 15%;
+            animation: float-3 12s ease-in-out infinite;
+        }
+
+        @keyframes float-1 {
+            0%, 100% { transform: rotate(6deg) translateY(0); }
+            50% { transform: rotate(6deg) translateY(-16px); }
+        }
+        @keyframes float-2 {
+            0%, 100% { transform: rotate(-4deg) translateY(0); }
+            50% { transform: rotate(-4deg) translateY(-12px); }
+        }
+        @keyframes float-3 {
+            0%, 100% { transform: rotate(3deg) translateY(0); }
+            50% { transform: rotate(3deg) translateY(-14px); }
+        }
+
+        /* Inner content of floating elements */
+        .float-bar {
+            height: 6px;
+            border-radius: 3px;
+            background: var(--border-color);
+        }
+
+        .float-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+        }
+
+        /* ===== Kazenoko Teaser ===== */
+        .kazenoko-section {
+            background: var(--kazenoko-section-bg);
+            color: var(--kazenoko-section-text);
+            transition: background 0.5s ease, color 0.4s ease;
+        }
+
+        .kazenoko-section a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .kazenoko-arrow {
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            display: inline-block;
+        }
+
+        .kazenoko-section:hover .kazenoko-arrow {
+            transform: translateX(6px);
+        }
+
+        /* ===== Footer ===== */
+        .h-footer {
+            background: var(--footer-bg);
+            color: var(--footer-text);
+            transition: background 0.5s ease;
+        }
+
+        .h-footer a {
+            color: var(--footer-text);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .h-footer a:hover {
+            color: var(--footer-heading);
+        }
+
+        /* ===== Scroll Indicator ===== */
+        .scroll-indicator {
+            animation: scroll-bob 2s ease-in-out infinite;
+        }
+
+        @keyframes scroll-bob {
+
+            0%,
+            100% {
+                transform: translateY(0);
+                opacity: 0.5;
+            }
+
+            50% {
+                transform: translateY(6px);
+                opacity: 1;
+            }
+        }
+
+        /* ===== Overlay ===== */
+        .noise-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+            z-index: 9999;
+            opacity: 0.035;
+            background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><filter id="noiseFilter"><feTurbulence type="fractalNoise" baseFrequency="0.75" numOctaves="3" stitchTiles="stitch"/></filter><rect width="100%" height="100%" filter="url(%23noiseFilter)"/></svg>');
+        }
+
+        [data-theme="dark"] .noise-overlay {
+            opacity: 0.055;
+        }
+
+        /* ===== Animations ===== */
+        .h-reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            filter: blur(10px);
+            transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 1.2s cubic-bezier(0.16, 1, 0.3, 1),
+                filter 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: transform, opacity, filter;
+        }
+
+        .h-reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+            filter: blur(0px);
+        }
+
+        .h-scale {
+            opacity: 0;
+            transform: scale(0.9) translateY(20px);
+            filter: blur(10px);
+            transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 1.2s cubic-bezier(0.16, 1, 0.3, 1),
+                filter 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: transform, opacity, filter;
+        }
+
+        .h-scale.visible {
+            opacity: 1;
+            transform: scale(1) translateY(0);
+            filter: blur(0px);
+        }
+
+        /* ===== Responsive ===== */
+        @media (max-width: 768px) {
+            .float-el {
+                display: none;
+            }
         }
     </style>
 </head>
 
-<body class="antialiased w-full h-full relative bg-hinoko-black text-white font-mplus">
+<body class="antialiased w-full relative">
+    <div class="noise-overlay"></div>
+    <div class="grid-bg"></div>
 
-    <!-- Noise Background -->
-    <div class="noise-bg"></div>
-
-    <!-- Transition Layer -->
+    <!-- Transition Layer (for page transitions) -->
     <div id="transition-overlay"></div>
 
-    <!-- Navigation -->
-    <nav
-        class="fixed top-0 left-0 w-full z-50 flex flex-wrap md:flex-nowrap justify-between items-center px-4 md:px-6 py-3 md:py-4 mix-blend-difference text-white gap-y-2">
-        <div class="font-gothic text-lg md:text-xl tracking-tighter w-full text-center md:w-auto md:text-left"
-            id="nav-logo">HINOKO</div>
-        <div class="flex gap-2 md:gap-4 items-center justify-center w-full md:w-auto text-[10px] sm:text-xs md:text-sm">
-            <a href="index.html" data-transition-color="#ffffff"
-                class="magnetic-btn cursor-snap px-1 md:px-2 py-1 font-zen font-bold hover:opacity-70 transition-opacity uppercase tracking-widest cursor-pointer">Kazenoko</a>
-            <span class="opacity-50">/</span>
-            <a href="hinoko.html"
-                class="magnetic-btn cursor-snap px-1 md:px-2 py-1 font-mplus font-medium hover:opacity-70 transition-opacity uppercase tracking-widest cursor-pointer text-hinoko-orange">Hinoko</a>
-            <span class="opacity-50">/</span>
-            <a href="join.html"
-                class="magnetic-btn cursor-snap px-1 md:px-2 py-1 font-zen font-bold hover:opacity-70 transition-opacity uppercase tracking-widest cursor-pointer">Join</a>
-            <span class="opacity-50">/</span>
-            <a href="news/index.html"
-                class="magnetic-btn cursor-snap px-1 md:px-2 py-1 font-zen font-bold hover:opacity-70 transition-opacity uppercase tracking-widest cursor-pointer">News</a>
+    <!-- ===== Navigation ===== -->
+    <nav class="h-nav fixed top-0 left-0 w-full z-50 px-5 md:px-8 py-3">
+        <div class="max-w-6xl mx-auto flex items-center justify-between">
+            <!-- Logo -->
+            <a href="hinoko.html" class="font-gothic text-sm tracking-tight"
+                style="color: var(--text-primary); text-decoration: none;">
+                Hinoko
+            </a>
+
+            <!-- Nav Links + Theme Toggle -->
+            <div class="flex items-center gap-5 md:gap-6">
+                <a href="index.html" data-transition-color="#ffffff"
+                    class="h-nav-link magnetic-btn cursor-snap hidden sm:inline cursor-pointer">Kazenoko</a>
+                <a href="hinoko.html"
+                    class="h-nav-link active magnetic-btn cursor-snap hidden sm:inline cursor-pointer">About</a>
+                <a href="#products"
+                    class="h-nav-link magnetic-btn cursor-snap hidden sm:inline cursor-pointer">Works</a>
+                <a href="join.html" class="h-nav-link magnetic-btn cursor-snap hidden sm:inline cursor-pointer">Join</a>
+                <a href="news/index.html"
+                    class="h-nav-link magnetic-btn cursor-snap hidden sm:inline cursor-pointer">News</a>
+
+                <!-- Language indicator -->
+                <span class="h-mono" style="font-size: 0.7rem; color: var(--text-hint);">JA</span>
+
+                <!-- Theme Toggle Button -->
+                <button id="theme-toggle" class="theme-toggle magnetic-btn cursor-snap" aria-label="Toggle theme">
+                    <!-- Sun icon (shown in dark mode) -->
+                    <svg id="icon-sun" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor" stroke-width="2" style="display: none;">
+                        <circle cx="12" cy="12" r="5" />
+                        <path
+                            d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" />
+                    </svg>
+                    <!-- Moon icon (shown in light mode) -->
+                    <svg id="icon-moon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor" stroke-width="2">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+                    </svg>
+                </button>
+            </div>
         </div>
     </nav>
 
-    <!-- Main Content -->
+    <!-- ===== Main Content ===== -->
     <main>
 
-        <!-- Background Elements -->
-        <div class="fixed inset-0 pointer-events-none z-0">
-            <div class="parallax-layer absolute top-[-20%] left-[-10%] w-[50%] h-[50%] bg-hinoko-orange rounded-full blur-[120px] opacity-10"
-                data-speed="2"></div>
-            <div class="parallax-layer absolute bottom-[-20%] right-[-10%] w-[40%] h-[40%] bg-blue-600 rounded-full blur-[120px] opacity-5"
-                data-speed="-1.5"></div>
-        </div>
+        <!-- ===== Hero Section ===== -->
+        <section id="hero-section"
+            class="relative min-h-screen flex flex-col items-center justify-center px-6 pt-20 pb-16 overflow-hidden">
 
-        <!-- Hero -->
-        <header class="relative z-10 w-full min-h-screen flex flex-col justify-center px-6 md:px-20">
-            <div class="max-w-4xl">
-                <p class="text-hinoko-orange font-medium tracking-[0.2em] mb-6 fade-in-up">KAZENOKO ENGINEERING TEAM</p>
-                <h1 class="text-7xl md:text-9xl font-bold mb-8 leading-none tracking-tight fade-in-up"
-                    style="animation-delay: 0.1s;">
-                    Hino<span class="text-hinoko-orange">ko</span>
-                </h1>
-                <p class="text-2xl md:text-4xl font-light text-gray-300 mb-12 fade-in-up"
-                    style="animation-delay: 0.2s;">
-                    <span id="typewriter-text"></span><span class="typewriter-cursor">|</span>
-                </p>
-                <div class="flex flex-col md:flex-row gap-8 fade-in-up" style="animation-delay: 0.3s;">
-                    <div class="border-l-2 border-hinoko-orange pl-4">
-                        <span class="block text-xs text-gray-500 uppercase tracking-wider mb-1">CHIEF TECHNOLOGY
-                            OFFICER</span>
-                        <span class="text-lg font-bold">CTO</span>
+            <!-- Ambient Gradient Orbs -->
+            <div class="ambient-orbs">
+                <div class="ambient-orb orb-1"></div>
+                <div class="ambient-orb orb-2"></div>
+                <div class="ambient-orb orb-3"></div>
+            </div>
+
+            <!-- Particle Canvas -->
+            <canvas id="hero-particles"></canvas>
+
+            <!-- Floating decorative elements (Mac OS Window style) -->
+            <div class="float-el float-el-1 parallax-layer" data-speed="1.5" style="backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);">
+                <div class="p-3">
+                    <div class="flex gap-1.5 mb-3">
+                        <div class="float-dot" style="background: #ff5f57;"></div>
+                        <div class="float-dot" style="background: #febc2e;"></div>
+                        <div class="float-dot" style="background: #28c840;"></div>
                     </div>
-                    <div class="max-w-md text-gray-400 text-sm leading-relaxed">
-                        バイブコーディング、次世代エンジニアリング。<br>
-                        最高のサービスとIxD（インタラクションデザイン）を追求し、<br>
-                        エンジニアのポテンシャルを最大化する。
+                    <div class="float-bar w-3/4 mb-2"></div>
+                    <div class="float-bar w-1/2 mb-2"></div>
+                    <div class="float-bar w-2/3"></div>
+                </div>
+            </div>
+
+            <div class="float-el float-el-2 parallax-layer" data-speed="2" style="backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);">
+                <div class="p-3">
+                    <div class="flex gap-1.5 mb-3">
+                        <div class="float-dot" style="background: #ff5f57;"></div>
+                        <div class="float-dot" style="background: #febc2e;"></div>
+                        <div class="float-dot" style="background: #28c840;"></div>
+                    </div>
+                    <div class="flex gap-2 mb-2">
+                        <div class="float-bar w-8"></div>
+                        <div class="float-bar w-12" style="background: var(--accent-soft);"></div>
+                    </div>
+                    <div class="float-bar w-full"></div>
+                </div>
+            </div>
+
+            <!-- 3rd floating element: Code snippet style -->
+            <div class="float-el float-el-3 parallax-layer" data-speed="1.2" style="backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);">
+                <div class="p-3">
+                    <div class="flex gap-1.5 mb-3">
+                        <div class="float-dot" style="background: #ff5f57;"></div>
+                        <div class="float-dot" style="background: #febc2e;"></div>
+                        <div class="float-dot" style="background: #28c840;"></div>
+                    </div>
+                    <div style="font-family: 'SF Mono', monospace; font-size: 7px; line-height: 1.8; color: var(--text-tertiary);">
+                        <div><span style="color: var(--accent);">const</span> hinoko = {</div>
+                        <div>&nbsp;&nbsp;mission: <span style="color: #22c55e;">"最高"</span>,</div>
+                        <div>};</div>
                     </div>
                 </div>
             </div>
 
-            <!-- Scroll Down Indicator -->
-            <div
-                class="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-2 opacity-50 animate-bounce">
-                <span class="text-xs tracking-widest">SCROLL</span>
-                <div class="w-[1px] h-12 bg-gradient-to-b from-white to-transparent"></div>
+            <!-- Hero Content -->
+            <div class="relative z-10 text-center max-w-3xl mx-auto">
+                <!-- Eyebrow -->
+                <p class="h-label mb-6 h-reveal" style="color: var(--text-tertiary);">
+                    Engineering Team
+                </p>
+
+                <!-- Main Title -->
+                <div class="relative inline-block mb-6 h-reveal" style="animation-delay: 0.1s;">
+                    <!-- Glow effect -->
+                    <div class="absolute inset-0 blur-[80px] opacity-30 rounded-full scale-150 pointer-events-none" style="background: radial-gradient(circle, var(--accent) 0%, transparent 70%); z-index: -1;"></div>
+                    <h1 class="h-headline gradient-title text-7xl sm:text-8xl md:text-9xl lg:text-[10rem] tracking-tighter">
+                        Hinoko
+                    </h1>
+                </div>
+
+                <!-- Subtitle -->
+                <p class="h-subhead text-base md:text-lg mb-12 max-w-lg mx-auto h-reveal"
+                    style="animation-delay: 0.15s;">
+                    バイブコーディングと次世代IxDで<br class="hidden md:block">
+                    最高のサービスとユーザー体験を追求する。
+                </p>
+
+                <!-- Quick Links -->
+                <div class="flex items-center justify-center gap-4 h-reveal" style="animation-delay: 0.2s;">
+                    <a href="#products" class="h-btn magnetic-btn cursor-snap cursor-pointer">
+                        VIEW WORKS
+                        <span class="btn-arrow">→</span>
+                    </a>
+                </div>
             </div>
-        </header>
 
-        <!-- Products Section -->
-        <section class="relative z-10 py-20 px-6">
-            <div class="max-w-7xl mx-auto">
-                <h2 class="text-3xl md:text-5xl font-bold mb-16 text-center fade-in-up">PRODUCTS</h2>
+            <!-- Scroll Indicator -->
+            <div class="absolute bottom-8 left-1/2 -translate-x-1/2 scroll-indicator">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--text-hint)"
+                    stroke-width="1.5">
+                    <path d="M12 5v14M19 12l-7 7-7-7" />
+                </svg>
+            </div>
+        </section>
 
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <!-- ===== About Section ===== -->
+        <section class="py-16 md:py-24 px-6">
+            <div class="max-w-3xl mx-auto text-center">
+                <p class="h-label mb-6 h-reveal">About</p>
+                <p class="h-subhead text-lg md:text-xl leading-relaxed h-reveal" style="animation-delay: 0.08s;">
+                    バイブコーディングと次世代IxDで、<br class="hidden md:block">
+                    最高のサービスとユーザー体験を追求する。<br class="hidden md:block">
+                    みんなの役にたつものを。
+                </p>
+
+                <!-- Stats -->
+                <div class="flex flex-wrap justify-center gap-x-20 gap-y-8 mt-14 h-reveal"
+                    style="animation-delay: 0.16s;">
+                    <div>
+                        <span class="block h-headline text-4xl md:text-5xl mb-2 count-up" data-target="4" style="background: linear-gradient(135deg, var(--text-primary), var(--accent)); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent;">0</span>
+                        <span class="h-mono">Products</span>
+                    </div>
+                    <div>
+                        <span class="block h-headline text-4xl md:text-5xl mb-2" style="background: linear-gradient(135deg, var(--text-primary), #7c3aed); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent;">AI</span>
+                        <span class="h-mono">&amp; IxD</span>
+                    </div>
+                    <div>
+                        <span class="block text-4xl md:text-5xl mb-2">
+                            <span class="font-gothic text-3xl md:text-4xl tracking-tight" style="background: linear-gradient(135deg, var(--text-primary), #06b6d4); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent;">K</span>
+                        </span>
+                        <span class="h-mono">Kazenoko</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== Products Section ===== -->
+        <section id="products" class="py-16 md:py-24 px-6 relative">
+            <div class="max-w-6xl mx-auto">
+                <!-- Section Header -->
+                <div class="text-center mb-14 h-reveal">
+                    <p class="h-label mb-4">Works</p>
+                    <h2 class="h-headline text-3xl md:text-5xl">Products</h2>
+                </div>
+
+                <!-- Product Cards Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-5" style="perspective: 1000px;">
                     <!-- Hino -->
-                    <a href="products/Hinoko Brand/Hino/index.html"
-                        class="group relative block h-[400px] overflow-hidden rounded-2xl border border-white/10 bg-white/5 transition-all duration-500 hover:border-hinoko-orange/50 scale-in">
-                        <div
-                            class="absolute inset-0 bg-gradient-to-br from-hinoko-orange/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                    <a href="products/Hinoko Brand/Hino/index.html" class="h-card p-7 md:p-8 h-scale">
+                        <div class="card-icon" style="background: var(--accent-soft);">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="var(--accent-text)" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
                         </div>
-                        <div class="absolute bottom-0 left-0 p-8 w-full">
-                            <span class="text-hinoko-orange text-xs font-bold tracking-widest mb-2 block">AI
-                                ASSISTANT</span>
-                            <h3 class="text-4xl font-bold mb-2">Hino</h3>
-                            <p class="text-gray-400 text-sm max-w-sm mb-4">Gemini 3 Flashを搭載した、あなたの創作活動を支えるAIパートナー。</p>
-                            <span
-                                class="inline-block border border-white/20 px-4 py-2 text-xs font-bold rounded-full group-hover:bg-white group-hover:text-black transition-colors">VIEW
-                                PROJECT</span>
+                        <div class="flex items-start justify-between mb-6">
+                            <span class="card-tag" style="background: var(--accent-soft); color: var(--accent-text);"><span class="status-dot" style="background: var(--accent);"></span>AI Assistant</span>
+                            <span class="card-arrow text-lg">→</span>
                         </div>
+                        <h3 class="h-headline text-2xl md:text-3xl mb-3">Hino</h3>
+                        <p class="text-sm leading-relaxed" style="color: var(--text-secondary);">
+                            Gemini 3 Flashを搭載した、創作活動を支えるAIパートナー。
+                        </p>
                     </a>
 
                     <!-- Homu -->
-                    <a href="products/Hinoko Brand/Homu/index.html"
-                        class="group relative block h-[400px] overflow-hidden rounded-2xl border border-white/10 bg-white/5 transition-all duration-500 hover:border-green-500/50 scale-in"
-                        style="animation-delay: 0.1s;">
-                        <div
-                            class="absolute inset-0 bg-gradient-to-br from-green-500/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                    <a href="products/Hinoko Brand/Homu/index.html" class="h-card p-7 md:p-8 h-scale"
+                        style="transition-delay: 0.06s;">
+                        <div class="card-icon" style="background: rgba(34,197,94,0.08);">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2" stroke-linecap="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
                         </div>
-                        <div class="absolute bottom-0 left-0 p-8 w-full">
-                            <span class="text-green-400 text-xs font-bold tracking-widest mb-2 block">AUTONOMOUS
-                                AGENT</span>
-                            <h3 class="text-4xl font-bold mb-2">Homu</h3>
-                            <p class="text-gray-400 text-sm max-w-sm mb-4">最新鋭の国産モデルを搭載した、自律型AIエージェント。</p>
-                            <span
-                                class="inline-block border border-white/20 px-4 py-2 text-xs font-bold rounded-full group-hover:bg-green-400 group-hover:text-black transition-colors">VIEW
-                                PROJECT</span>
+                        <div class="flex items-start justify-between mb-6">
+                            <span class="card-tag" style="background: rgba(34,197,94,0.08); color: #16a34a;"><span class="status-dot" style="background: #16a34a;"></span>Autonomous Agent</span>
+                            <span class="card-arrow text-lg">→</span>
                         </div>
+                        <h3 class="h-headline text-2xl md:text-3xl mb-3">Homu</h3>
+                        <p class="text-sm leading-relaxed" style="color: var(--text-secondary);">
+                            最新鋭の国産モデルを搭載した、自律型AIエージェント。
+                        </p>
                     </a>
 
                     <!-- Hidy for Student -->
-                    <a href="products/Hinoko Brand/Hidy for Student/index.html"
-                        class="group relative block h-[400px] overflow-hidden rounded-2xl border border-white/10 bg-white/5 transition-all duration-500 hover:border-purple-500/50 scale-in"
-                        style="animation-delay: 0.2s;">
-                        <div
-                            class="absolute inset-0 bg-gradient-to-br from-purple-500/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                    <a href="products/Hinoko Brand/Hidy for Student/index.html" class="h-card p-7 md:p-8 h-scale"
+                        style="transition-delay: 0.12s;">
+                        <div class="card-icon" style="background: rgba(168,85,247,0.08);">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="#9333ea" stroke-width="2" stroke-linecap="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
                         </div>
-                        <div class="absolute bottom-0 left-0 p-8 w-full">
-                            <span class="text-purple-400 text-xs font-bold tracking-widest mb-2 block">LEARNING
-                                SUPPORT</span>
-                            <h3 class="text-4xl font-bold mb-2">Hidy <span class="text-purple-400">for Student</span>
-                            </h3>
-                            <p class="text-gray-400 text-sm max-w-sm mb-4">学生の学習のために作られた、最高の学習支援サービス。</p>
-                            <span
-                                class="inline-block border border-white/20 px-4 py-2 text-xs font-bold rounded-full group-hover:bg-purple-400 group-hover:text-black transition-colors">VIEW
-                                PROJECT</span>
+                        <div class="flex items-start justify-between mb-6">
+                            <span class="card-tag" style="background: rgba(168,85,247,0.08); color: #9333ea;"><span class="status-dot" style="background: #9333ea;"></span>Learning Support</span>
+                            <span class="card-arrow text-lg">→</span>
                         </div>
+                        <h3 class="h-headline text-2xl md:text-3xl mb-3">Hidy <span
+                                style="font-weight: 400; font-size: 0.7em; color: #9333ea;">for Student</span></h3>
+                        <p class="text-sm leading-relaxed" style="color: var(--text-secondary);">
+                            学生の学習のために作られた、最高の学習支援サービス。
+                        </p>
                     </a>
 
                     <!-- Hidy for Teacher -->
-                    <a href="products/Hinoko Brand/Hidy for Teacher/index.html"
-                        class="group relative block h-[400px] overflow-hidden rounded-2xl border border-white/10 bg-white/5 transition-all duration-500 hover:border-blue-500/50 scale-in"
-                        style="animation-delay: 0.3s;">
-                        <div
-                            class="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                    <a href="products/Hinoko Brand/Hidy for Teacher/index.html" class="h-card p-7 md:p-8 h-scale"
+                        style="transition-delay: 0.18s;">
+                        <div class="card-icon" style="background: rgba(59,130,246,0.08);">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
                         </div>
-                        <div class="absolute bottom-0 left-0 p-8 w-full">
-                            <span class="text-blue-400 text-xs font-bold tracking-widest mb-2 block">EDUCATION
-                                SUPPORT</span>
-                            <h3 class="text-4xl font-bold mb-2">Hidy <span class="text-blue-400">for Teacher</span></h3>
-                            <p class="text-gray-400 text-sm max-w-sm mb-4">問題作成、テスト作成の効率化を強力にサポート。</p>
-                            <span
-                                class="inline-block border border-white/20 px-4 py-2 text-xs font-bold rounded-full group-hover:bg-blue-400 group-hover:text-black transition-colors">VIEW
-                                PROJECT</span>
+                        <div class="flex items-start justify-between mb-6">
+                            <span class="card-tag" style="background: rgba(59,130,246,0.08); color: #2563eb;"><span class="status-dot" style="background: #2563eb;"></span>Education Support</span>
+                            <span class="card-arrow text-lg">→</span>
                         </div>
+                        <h3 class="h-headline text-2xl md:text-3xl mb-3">Hidy <span
+                                style="font-weight: 400; font-size: 0.7em; color: #2563eb;">for Teacher</span></h3>
+                        <p class="text-sm leading-relaxed" style="color: var(--text-secondary);">
+                            問題作成、テスト作成の効率化を強力にサポート。
+                        </p>
                     </a>
                 </div>
             </div>
         </section>
 
-        <!-- News Section -->
-        <section class="relative z-10 py-20 px-6 border-t border-white/5">
+        <!-- ===== News Section ===== -->
+        <section class="py-16 md:py-24 px-6">
             <div class="max-w-4xl mx-auto">
-                <div class="flex items-center justify-between mb-12 fade-in-up">
-                    <h2 class="text-2xl md:text-3xl font-bold tracking-widest">LATEST NEWS</h2>
-                    <a href="news/index.html"
-                        class="text-xs font-bold text-gray-500 hover:text-hinoko-orange transition-colors tracking-[0.2em]">VIEW
-                        ALL →</a>
+                <div class="flex items-end justify-between mb-10 h-reveal">
+                    <div>
+                        <p class="h-label mb-3">Latest</p>
+                        <h2 class="h-headline text-2xl md:text-3xl">News</h2>
+                    </div>
+                    <a href="news/index.html" class="h-mono cursor-pointer"
+                        style="color: var(--text-tertiary); text-decoration: none; transition: color 0.3s;">
+                        VIEW ALL →
+                    </a>
                 </div>
 
-                <div class="space-y-1 fade-in-up" style="animation-delay: 0.1s;">
-                    <a href="news/2026/0124_anthropic_model.html"
-                        class="group block p-6 rounded-xl border border-white/5 bg-white/5 hover:bg-white/10 hover:border-hinoko-orange/30 transition-all duration-300">
-                        <div class="flex flex-col md:flex-row md:items-center gap-6">
-                            <div class="flex items-center gap-4 min-w-[140px]">
-                                <span class="font-mono text-xs text-gray-500">2026.01.24</span>
-                                <span
-                                    class="text-[10px] tracking-widest font-black px-2 py-0.5 rounded-sm bg-gray-800 text-gray-400 uppercase">Info</span>
-                            </div>
-                            <h3 class="text-lg font-bold group-hover:text-hinoko-orange transition-colors">
-                                Hino におけるAIモデル実装計画のアップデート
-                            </h3>
+                <div class="h-reveal" style="animation-delay: 0.08s;">
+                    <div style="border-top: 1px solid var(--border-color);"></div>
+                    <a href="news/2026/0124_anthropic_model.html" class="news-row">
+                        <div class="flex items-center gap-4 shrink-0 mb-2 md:mb-0">
+                            <span class="h-mono">2026.01.24</span>
+                            <span class="card-tag"
+                                style="background: var(--accent-soft); color: var(--accent-text); font-size: 0.55rem; padding: 2px 8px; border-radius: 4px;">Info</span>
                         </div>
+                        <h3 class="news-title text-sm md:text-base font-medium" style="color: var(--text-primary);">
+                            Hino におけるAIモデル実装計画のアップデート
+                        </h3>
                     </a>
+                    <div style="border-bottom: 1px solid var(--border-color);"></div>
                 </div>
             </div>
         </section>
 
-        <!-- Recruitment Hinoko -->
-        <section class="relative z-10 py-32 px-6 bg-gradient-to-t from-black via-transparent to-transparent">
-            <div class="max-w-4xl mx-auto text-center fade-in-up">
-                <h2 class="text-2xl mb-8 tracking-widest text-gray-400">RECRUITMENT</h2>
-                <p class="text-4xl font-bold mb-12">エンジニア、求む。</p>
-                <a href="https://forms.gle/zGx6sCpbMmNQQCQe6" target="_blank"
-                    class="inline-block px-12 py-4 border border-hinoko-orange text-hinoko-orange hover:bg-hinoko-orange hover:text-white transition-all duration-300 rounded-full tracking-widest cursor-pointer">
+        <!-- ===== Recruitment CTA ===== -->
+        <section class="py-24 md:py-32 px-6 relative overflow-hidden">
+            <!-- CTA Glow Background -->
+            <div class="absolute inset-0 pointer-events-none" style="background: radial-gradient(ellipse 60% 50% at 50% 50%, var(--accent-soft), transparent);"></div>
+            <div class="max-w-3xl mx-auto text-center h-reveal relative z-10">
+                <p class="h-label mb-6">Recruitment</p>
+                <h2 class="h-headline text-4xl md:text-6xl mb-6">エンジニア、求む。</h2>
+                <p class="h-subhead text-base md:text-lg mb-12 max-w-md mx-auto">
+                    私たちと一緒に最高のプロダクトを生み出しませんか。
+                </p>
+                <a href="https://forms.gle/zGx6sCpbMmNQQCQe6" target="_blank" class="h-btn cursor-pointer">
                     APPLY NOW
+                    <span class="btn-arrow">→</span>
                 </a>
             </div>
         </section>
 
-        <!-- Kazenoko Teaser -->
-        <section class="py-16 bg-white text-kazenoko-dark text-center cursor-pointer group relative overflow-hidden">
-            <a href="index.html" data-transition-color="#ffffff" class="block w-full h-full relative z-10 py-16">
-                <div class="relative z-10">
-                    <p class="font-gothic text-sm tracking-[0.2em] mb-2 text-gray-500">ENTERTAINMENT PARENT</p>
-                    <h2
-                        class="font-gothic text-4xl md:text-5xl mb-4 group-hover:scale-110 transition-transform duration-500">
-                        KAZENOKO →</h2>
-                    <p class="text-gray-600 text-sm">エンタメの世界へ戻る</p>
+        <!-- ===== Kazenoko Teaser ===== -->
+        <section class="kazenoko-section group cursor-pointer">
+            <a href="index.html" data-transition-color="#ffffff" class="block py-20 md:py-24">
+                <div class="text-center">
+                    <p class="h-mono mb-3" style="color: var(--text-tertiary);">Entertainment Parent</p>
+                    <h2 class="font-gothic text-2xl md:text-3xl mb-3">
+                        KAZENOKO <span class="kazenoko-arrow">→</span>
+                    </h2>
+                    <p class="text-xs" style="color: var(--text-tertiary);">エンタメの世界へ戻る</p>
                 </div>
             </a>
         </section>
 
-        <footer class="bg-hinoko-black border-t border-white/10 pt-16 pb-8 px-6 relative z-10">
-            <div class="max-w-7xl mx-auto">
-                <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
-                    <!-- Brand -->
-                    <div class="md:col-span-2">
-                        <div class="font-gothic text-3xl tracking-tighter mb-6 text-white">HINOKO</div>
-                        <p class="text-gray-400 font-medium leading-relaxed max-w-sm">
-                            みんなの役にたつものを。<br>
-                            エンジニアリングチームHinokoは、カゼノコ幹事会の技術的基盤として、革新的なインタラクションと最高のユーザー体験を創造します。
-                        </p>
-                    </div>
+    </main>
 
-                    <!-- Links -->
-                    <div>
-                        <h4 class="font-mplus font-bold text-sm tracking-[0.2em] mb-6 text-hinoko-orange">PROJECTS</h4>
-                        <ul class="space-y-4 text-sm font-medium">
-                            <li><a href="products/Hinoko Brand/Hino/index.html"
-                                    class="text-gray-400 hover:text-white transition-colors">Hino - AI Chat</a></li>
-                            <li><a href="products/Hinoko Brand/Homu/index.html"
-                                    class="text-gray-400 hover:text-white transition-colors">Homu - AI Agent</a></li>
-                            <li><a href="products/Hinoko Brand/Hidy for Student/index.html"
-                                    class="text-gray-400 hover:text-white transition-colors">Hidy for Student</a></li>
-                            <li><a href="products/Hinoko Brand/Hidy for Teacher/index.html"
-                                    class="text-gray-400 hover:text-white transition-colors">Hidy for Teacher</a></li>
-                            <li><a href="join.html"
-                                    class="text-gray-400 hover:text-white transition-colors">Recruitment</a></li>
-                        </ul>
+    <!-- ===== Footer ===== -->
+    <footer class="h-footer pt-16 pb-8 px-6">
+        <div class="max-w-5xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 md:gap-16 mb-16">
+                <!-- Brand -->
+                <div class="md:col-span-2">
+                    <div class="font-gothic text-lg tracking-tight mb-5" style="color: var(--footer-heading);">Hinoko
                     </div>
-
-                    <!-- Global -->
-                    <div>
-                        <h4 class="font-mplus font-bold text-sm tracking-[0.2em] mb-6 text-hinoko-orange">GLOBAL</h4>
-                        <ul class="space-y-4 text-sm font-medium">
-                            <li><a href="index.html" class="text-gray-400 hover:text-white transition-colors">Kazenoko
-                                    Top</a></li>
-                            <li><a href="news/index.html"
-                                    class="text-gray-400 hover:text-white transition-colors">Latest News</a></li>
-                            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Github</a></li>
-                        </ul>
-                    </div>
+                    <p class="text-sm leading-relaxed max-w-sm" style="color: var(--footer-text-dim);">
+                        みんなの役にたつものを。<br>
+                        エンジニアリングチームHinokoは、カゼノコ幹事会の技術的基盤として、革新的なインタラクションと最高のユーザー体験を創造します。
+                    </p>
                 </div>
 
-                <div
-                    class="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] text-gray-600 font-medium uppercase tracking-[0.2em]">
-                    <div>© Hinoko Engineering Team. Part of Kazenoko Group.</div>
-                    <div class="flex gap-6">
-                        <a href="privacy.html" class="hover:text-gray-400 transition-colors">Privacy Policy</a>
-                        <a href="terms.html" class="hover:text-gray-400 transition-colors">Terms of Service</a>
-                    </div>
+                <!-- Projects -->
+                <div>
+                    <h4 class="h-mono mb-5" style="color: var(--footer-text-dim);">Projects</h4>
+                    <ul class="space-y-3 text-sm">
+                        <li><a href="products/Hinoko Brand/Hino/index.html">Hino</a></li>
+                        <li><a href="products/Hinoko Brand/Homu/index.html">Homu</a></li>
+                        <li><a href="products/Hinoko Brand/Hidy for Student/index.html">Hidy for Student</a></li>
+                        <li><a href="products/Hinoko Brand/Hidy for Teacher/index.html">Hidy for Teacher</a></li>
+                    </ul>
+                </div>
+
+                <!-- Global -->
+                <div>
+                    <h4 class="h-mono mb-5" style="color: var(--footer-text-dim);">Global</h4>
+                    <ul class="space-y-3 text-sm">
+                        <li><a href="index.html">Kazenoko Top</a></li>
+                        <li><a href="news/index.html">Latest News</a></li>
+                        <li><a href="join.html">Recruitment</a></li>
+                        <li><a href="#">Github</a></li>
+                    </ul>
                 </div>
             </div>
-        </footer>
 
-    </main>
+            <div style="border-top: 1px solid var(--footer-border);"
+                class="pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] uppercase tracking-widest">
+                <div style="color: var(--footer-text-dim);">© Hinoko Engineering Team. Part of Kazenoko Group.</div>
+                <div class="flex gap-6" style="color: var(--footer-text-dim);">
+                    <a href="privacy.html">Privacy Policy</a>
+                    <a href="terms.html">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
 
     <!-- Global Scripts -->
     <script src="js/main.js"></script>
+
+    <!-- Hinoko Page Scripts -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+
+            // ===== Theme Toggle =====
+            const toggle = document.getElementById('theme-toggle');
+            const html = document.documentElement;
+            const iconSun = document.getElementById('icon-sun');
+            const iconMoon = document.getElementById('icon-moon');
+
+            // Load saved preference
+            const saved = localStorage.getItem('hinoko-theme');
+            if (saved) {
+                html.setAttribute('data-theme', saved);
+            } else {
+                // Check system preference
+                if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                    html.setAttribute('data-theme', 'dark');
+                }
+            }
+
+            const updateIcons = () => {
+                const theme = html.getAttribute('data-theme');
+                if (theme === 'dark') {
+                    iconSun.style.display = 'block';
+                    iconMoon.style.display = 'none';
+                } else {
+                    iconSun.style.display = 'none';
+                    iconMoon.style.display = 'block';
+                }
+            };
+            updateIcons();
+
+            toggle.addEventListener('click', () => {
+                const current = html.getAttribute('data-theme');
+                const next = current === 'dark' ? 'light' : 'dark';
+                html.setAttribute('data-theme', next);
+                localStorage.setItem('hinoko-theme', next);
+                updateIcons();
+            });
+
+            // ===== Intersection Observer for Animations =====
+            const revealElements = document.querySelectorAll('.h-reveal, .h-scale');
+            const revealObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: '0px 0px -40px 0px'
+            });
+
+            revealElements.forEach(el => revealObserver.observe(el));
+
+            // ===== Smooth Scroll for Anchor Links =====
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', (e) => {
+                    const target = document.querySelector(anchor.getAttribute('href'));
+                    if (target) {
+                        e.preventDefault();
+                        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                });
+            });
+
+            // ===== Cards Hover Glow Effect =====
+            const cards = document.querySelectorAll('.h-card');
+            cards.forEach(card => {
+                card.addEventListener('mousemove', e => {
+                    const rect = card.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    card.style.setProperty('--mouse-x', `${x}px`);
+                    card.style.setProperty('--mouse-y', `${y}px`);
+                });
+            });
+        });
+    </script>
 </body>
 
 </html>
