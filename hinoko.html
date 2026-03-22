@@ -17,6 +17,11 @@
     <!-- Tailwind CSS -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
+    <!-- GSAP & Three.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
     <!-- Global Shared Styles -->
     <link rel="stylesheet" href="style/style.css">
 
@@ -224,6 +229,7 @@
             pointer-events: none;
             z-index: 0;
         }
+
         .ambient-orb {
             position: absolute;
             border-radius: 50%;
@@ -231,38 +237,80 @@
             opacity: 0.15;
             will-change: transform;
         }
-        [data-theme="light"] .ambient-orb { opacity: 0.08; }
+
+        [data-theme="light"] .ambient-orb {
+            opacity: 0.08;
+        }
+
         .orb-1 {
-            width: 600px; height: 600px;
+            width: 600px;
+            height: 600px;
             background: var(--accent);
-            top: -10%; right: -5%;
+            top: -10%;
+            right: -5%;
             animation: orb-drift-1 25s ease-in-out infinite;
         }
+
         .orb-2 {
-            width: 500px; height: 500px;
+            width: 500px;
+            height: 500px;
             background: #7c3aed;
-            bottom: -15%; left: -10%;
+            bottom: -15%;
+            left: -10%;
             animation: orb-drift-2 30s ease-in-out infinite;
         }
+
         .orb-3 {
-            width: 400px; height: 400px;
+            width: 400px;
+            height: 400px;
             background: #06b6d4;
-            top: 40%; left: 50%;
+            top: 40%;
+            left: 50%;
             animation: orb-drift-3 20s ease-in-out infinite;
         }
+
         @keyframes orb-drift-1 {
-            0%, 100% { transform: translate(0, 0) scale(1); }
-            33% { transform: translate(-40px, 30px) scale(1.1); }
-            66% { transform: translate(20px, -20px) scale(0.95); }
+
+            0%,
+            100% {
+                transform: translate(0, 0) scale(1);
+            }
+
+            33% {
+                transform: translate(-40px, 30px) scale(1.1);
+            }
+
+            66% {
+                transform: translate(20px, -20px) scale(0.95);
+            }
         }
+
         @keyframes orb-drift-2 {
-            0%, 100% { transform: translate(0, 0) scale(1); }
-            33% { transform: translate(30px, -40px) scale(1.05); }
-            66% { transform: translate(-20px, 20px) scale(0.9); }
+
+            0%,
+            100% {
+                transform: translate(0, 0) scale(1);
+            }
+
+            33% {
+                transform: translate(30px, -40px) scale(1.05);
+            }
+
+            66% {
+                transform: translate(-20px, 20px) scale(0.9);
+            }
         }
+
         @keyframes orb-drift-3 {
-            0%, 100% { transform: translate(0, 0) scale(1); }
-            50% { transform: translate(-30px, -30px) scale(1.15); }
+
+            0%,
+            100% {
+                transform: translate(0, 0) scale(1);
+            }
+
+            50% {
+                transform: translate(-30px, -30px) scale(1.15);
+            }
         }
 
         /* ===== Grid Pattern Background ===== */
@@ -281,9 +329,17 @@
 
         /* ===== Animated Gradient Title ===== */
         @keyframes gradient-shift {
-            0%, 100% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
+
+            0%,
+            100% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
         }
+
         .gradient-title {
             background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent) 40%, var(--text-primary) 60%, var(--text-tertiary) 100%);
             background-size: 300% 300%;
@@ -360,7 +416,7 @@
             position: absolute;
             inset: 0;
             border-radius: 20px;
-            background: linear-gradient(105deg, transparent 40%, rgba(255,255,255,0.03) 45%, rgba(255,255,255,0.12) 50%, rgba(255,255,255,0.03) 55%, transparent 60%);
+            background: linear-gradient(105deg, transparent 40%, rgba(255, 255, 255, 0.03) 45%, rgba(255, 255, 255, 0.12) 50%, rgba(255, 255, 255, 0.03) 55%, transparent 60%);
             background-size: 200% 200%;
             background-position: var(--shine-x, 200%) 50%;
             pointer-events: none;
@@ -372,7 +428,7 @@
             opacity: 1;
         }
 
-        .h-card > * {
+        .h-card>* {
             position: relative;
             z-index: 1;
         }
@@ -405,6 +461,7 @@
             margin-bottom: 20px;
             position: relative;
         }
+
         .card-icon svg {
             width: 24px;
             height: 24px;
@@ -412,15 +469,24 @@
 
         /* Status dot */
         .status-dot {
-            width: 6px; height: 6px;
+            width: 6px;
+            height: 6px;
             border-radius: 50%;
             display: inline-block;
             margin-right: 6px;
             animation: status-pulse 2s ease-in-out infinite;
         }
+
         @keyframes status-pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.4; }
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.4;
+            }
         }
 
         .h-card .card-tag {
@@ -559,16 +625,39 @@
         }
 
         @keyframes float-1 {
-            0%, 100% { transform: rotate(6deg) translateY(0); }
-            50% { transform: rotate(6deg) translateY(-16px); }
+
+            0%,
+            100% {
+                transform: rotate(6deg) translateY(0);
+            }
+
+            50% {
+                transform: rotate(6deg) translateY(-16px);
+            }
         }
+
         @keyframes float-2 {
-            0%, 100% { transform: rotate(-4deg) translateY(0); }
-            50% { transform: rotate(-4deg) translateY(-12px); }
+
+            0%,
+            100% {
+                transform: rotate(-4deg) translateY(0);
+            }
+
+            50% {
+                transform: rotate(-4deg) translateY(-12px);
+            }
         }
+
         @keyframes float-3 {
-            0%, 100% { transform: rotate(3deg) translateY(0); }
-            50% { transform: rotate(3deg) translateY(-14px); }
+
+            0%,
+            100% {
+                transform: rotate(3deg) translateY(0);
+            }
+
+            50% {
+                transform: rotate(3deg) translateY(-14px);
+            }
         }
 
         /* Inner content of floating elements */
@@ -691,6 +780,43 @@
             filter: blur(0px);
         }
 
+        /* ===== Splash Loader ===== */
+        #splash-loader {
+            position: fixed;
+            inset: 0;
+            z-index: 99999;
+            background: var(--bg-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .splash-text-container {
+            overflow: hidden;
+            display: inline-block;
+            padding: 20px;
+        }
+
+        .splash-text {
+            font-family: "Dela Gothic One", "Inter", sans-serif;
+            font-weight: 800;
+            font-size: 6rem; /* 大きく */
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--text-primary);
+            opacity: 0;
+            transform: translateY(150%) scale(0.9) rotate(5deg);
+            transform-origin: center;
+        }
+
+        @media (min-width: 768px) {
+            .splash-text {
+                font-size: 10rem;
+            }
+        }
+
         /* ===== Responsive ===== */
         @media (max-width: 768px) {
             .float-el {
@@ -701,6 +827,13 @@
 </head>
 
 <body class="antialiased w-full relative">
+    <!-- ===== Splash Loader ===== -->
+    <div id="splash-loader">
+        <div class="splash-text-container">
+            <div class="splash-text gradient-title">Hinoko</div>
+        </div>
+    </div>
+
     <div class="noise-overlay"></div>
     <div class="grid-bg"></div>
 
@@ -768,7 +901,8 @@
             <canvas id="hero-particles"></canvas>
 
             <!-- Floating decorative elements (Mac OS Window style) -->
-            <div class="float-el float-el-1 parallax-layer" data-speed="1.5" style="backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);">
+            <div class="float-el float-el-1 parallax-layer" data-speed="1.5"
+                style="backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);">
                 <div class="p-3">
                     <div class="flex gap-1.5 mb-3">
                         <div class="float-dot" style="background: #ff5f57;"></div>
@@ -781,7 +915,8 @@
                 </div>
             </div>
 
-            <div class="float-el float-el-2 parallax-layer" data-speed="2" style="backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);">
+            <div class="float-el float-el-2 parallax-layer" data-speed="2"
+                style="backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);">
                 <div class="p-3">
                     <div class="flex gap-1.5 mb-3">
                         <div class="float-dot" style="background: #ff5f57;"></div>
@@ -797,14 +932,16 @@
             </div>
 
             <!-- 3rd floating element: Code snippet style -->
-            <div class="float-el float-el-3 parallax-layer" data-speed="1.2" style="backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);">
+            <div class="float-el float-el-3 parallax-layer" data-speed="1.2"
+                style="backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);">
                 <div class="p-3">
                     <div class="flex gap-1.5 mb-3">
                         <div class="float-dot" style="background: #ff5f57;"></div>
                         <div class="float-dot" style="background: #febc2e;"></div>
                         <div class="float-dot" style="background: #28c840;"></div>
                     </div>
-                    <div style="font-family: 'SF Mono', monospace; font-size: 7px; line-height: 1.8; color: var(--text-tertiary);">
+                    <div
+                        style="font-family: 'SF Mono', monospace; font-size: 7px; line-height: 1.8; color: var(--text-tertiary);">
                         <div><span style="color: var(--accent);">const</span> hinoko = {</div>
                         <div>&nbsp;&nbsp;mission: <span style="color: #22c55e;">"最高"</span>,</div>
                         <div>};</div>
@@ -822,8 +959,11 @@
                 <!-- Main Title -->
                 <div class="relative inline-block mb-6 h-reveal" style="animation-delay: 0.1s;">
                     <!-- Glow effect -->
-                    <div class="absolute inset-0 blur-[80px] opacity-30 rounded-full scale-150 pointer-events-none" style="background: radial-gradient(circle, var(--accent) 0%, transparent 70%); z-index: -1;"></div>
-                    <h1 class="h-headline gradient-title text-7xl sm:text-8xl md:text-9xl lg:text-[10rem] tracking-tighter">
+                    <div class="absolute inset-0 blur-[80px] opacity-30 rounded-full scale-150 pointer-events-none"
+                        style="background: radial-gradient(circle, var(--accent) 0%, transparent 70%); z-index: -1;">
+                    </div>
+                    <h1
+                        class="h-headline gradient-title text-7xl sm:text-8xl md:text-9xl lg:text-[10rem] tracking-tighter">
                         Hinoko
                     </h1>
                 </div>
@@ -867,16 +1007,19 @@
                 <div class="flex flex-wrap justify-center gap-x-20 gap-y-8 mt-14 h-reveal"
                     style="animation-delay: 0.16s;">
                     <div>
-                        <span class="block h-headline text-4xl md:text-5xl mb-2 count-up" data-target="4" style="background: linear-gradient(135deg, var(--text-primary), var(--accent)); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent;">0</span>
+                        <span class="block h-headline text-4xl md:text-5xl mb-2 count-up" data-target="4"
+                            style="background: linear-gradient(135deg, var(--text-primary), var(--accent)); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent;">0</span>
                         <span class="h-mono">Products</span>
                     </div>
                     <div>
-                        <span class="block h-headline text-4xl md:text-5xl mb-2" style="background: linear-gradient(135deg, var(--text-primary), #7c3aed); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent;">AI</span>
+                        <span class="block h-headline text-4xl md:text-5xl mb-2"
+                            style="background: linear-gradient(135deg, var(--text-primary), #7c3aed); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent;">AI</span>
                         <span class="h-mono">&amp; IxD</span>
                     </div>
                     <div>
                         <span class="block text-4xl md:text-5xl mb-2">
-                            <span class="font-gothic text-3xl md:text-4xl tracking-tight" style="background: linear-gradient(135deg, var(--text-primary), #06b6d4); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent;">K</span>
+                            <span class="font-gothic text-3xl md:text-4xl tracking-tight"
+                                style="background: linear-gradient(135deg, var(--text-primary), #06b6d4); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent;">K</span>
                         </span>
                         <span class="h-mono">Kazenoko</span>
                     </div>
@@ -898,10 +1041,17 @@
                     <!-- Hino -->
                     <a href="products/Hinoko Brand/Hino/index.html" class="h-card p-7 md:p-8 h-scale">
                         <div class="card-icon" style="background: var(--accent-soft);">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="var(--accent-text)" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="var(--accent-text)" stroke-width="2"
+                                stroke-linecap="round">
+                                <circle cx="12" cy="12" r="3" />
+                                <path
+                                    d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83" />
+                            </svg>
                         </div>
                         <div class="flex items-start justify-between mb-6">
-                            <span class="card-tag" style="background: var(--accent-soft); color: var(--accent-text);"><span class="status-dot" style="background: var(--accent);"></span>AI Assistant</span>
+                            <span class="card-tag"
+                                style="background: var(--accent-soft); color: var(--accent-text);"><span
+                                    class="status-dot" style="background: var(--accent);"></span>AI Assistant</span>
                             <span class="card-arrow text-lg">→</span>
                         </div>
                         <h3 class="h-headline text-2xl md:text-3xl mb-3">Hino</h3>
@@ -914,10 +1064,15 @@
                     <a href="products/Hinoko Brand/Homu/index.html" class="h-card p-7 md:p-8 h-scale"
                         style="transition-delay: 0.06s;">
                         <div class="card-icon" style="background: rgba(34,197,94,0.08);">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2" stroke-linecap="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2"
+                                stroke-linecap="round">
+                                <rect x="2" y="3" width="20" height="14" rx="2" />
+                                <path d="M8 21h8M12 17v4" />
+                            </svg>
                         </div>
                         <div class="flex items-start justify-between mb-6">
-                            <span class="card-tag" style="background: rgba(34,197,94,0.08); color: #16a34a;"><span class="status-dot" style="background: #16a34a;"></span>Autonomous Agent</span>
+                            <span class="card-tag" style="background: rgba(34,197,94,0.08); color: #16a34a;"><span
+                                    class="status-dot" style="background: #16a34a;"></span>Autonomous Agent</span>
                             <span class="card-arrow text-lg">→</span>
                         </div>
                         <h3 class="h-headline text-2xl md:text-3xl mb-3">Homu</h3>
@@ -930,10 +1085,15 @@
                     <a href="products/Hinoko Brand/Hidy for Student/index.html" class="h-card p-7 md:p-8 h-scale"
                         style="transition-delay: 0.12s;">
                         <div class="card-icon" style="background: rgba(168,85,247,0.08);">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="#9333ea" stroke-width="2" stroke-linecap="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="#9333ea" stroke-width="2"
+                                stroke-linecap="round">
+                                <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
+                                <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
+                            </svg>
                         </div>
                         <div class="flex items-start justify-between mb-6">
-                            <span class="card-tag" style="background: rgba(168,85,247,0.08); color: #9333ea;"><span class="status-dot" style="background: #9333ea;"></span>Learning Support</span>
+                            <span class="card-tag" style="background: rgba(168,85,247,0.08); color: #9333ea;"><span
+                                    class="status-dot" style="background: #9333ea;"></span>Learning Support</span>
                             <span class="card-arrow text-lg">→</span>
                         </div>
                         <h3 class="h-headline text-2xl md:text-3xl mb-3">Hidy <span
@@ -947,10 +1107,17 @@
                     <a href="products/Hinoko Brand/Hidy for Teacher/index.html" class="h-card p-7 md:p-8 h-scale"
                         style="transition-delay: 0.18s;">
                         <div class="card-icon" style="background: rgba(59,130,246,0.08);">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2"
+                                stroke-linecap="round">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                                <circle cx="9" cy="7" r="4" />
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                            </svg>
                         </div>
                         <div class="flex items-start justify-between mb-6">
-                            <span class="card-tag" style="background: rgba(59,130,246,0.08); color: #2563eb;"><span class="status-dot" style="background: #2563eb;"></span>Education Support</span>
+                            <span class="card-tag" style="background: rgba(59,130,246,0.08); color: #2563eb;"><span
+                                    class="status-dot" style="background: #2563eb;"></span>Education Support</span>
                             <span class="card-arrow text-lg">→</span>
                         </div>
                         <h3 class="h-headline text-2xl md:text-3xl mb-3">Hidy <span
@@ -997,7 +1164,8 @@
         <!-- ===== Recruitment CTA ===== -->
         <section class="py-24 md:py-32 px-6 relative overflow-hidden">
             <!-- CTA Glow Background -->
-            <div class="absolute inset-0 pointer-events-none" style="background: radial-gradient(ellipse 60% 50% at 50% 50%, var(--accent-soft), transparent);"></div>
+            <div class="absolute inset-0 pointer-events-none"
+                style="background: radial-gradient(ellipse 60% 50% at 50% 50%, var(--accent-soft), transparent);"></div>
             <div class="max-w-3xl mx-auto text-center h-reveal relative z-10">
                 <p class="h-label mb-6">Recruitment</p>
                 <h2 class="h-headline text-4xl md:text-6xl mb-6">エンジニア、求む。</h2>
@@ -1155,6 +1323,167 @@
                     card.style.setProperty('--mouse-y', `${y}px`);
                 });
             });
+
+            // ===== Splash Animation (GSAP) =====
+            // パーティクルアニメーションをスプラッシュと同時に初期化する
+            initThreeJS();
+
+            const tl = gsap.timeline();
+
+            tl.to('.splash-text', {
+                y: '0%',
+                scale: 1,
+                rotate: 0,
+                opacity: 1,
+                duration: 1.5,
+                ease: 'expo.out',
+                delay: 0.2
+            })
+            .to('.splash-text', {
+                y: '-150%',
+                scale: 1.1,
+                rotate: -5,
+                opacity: 0,
+                duration: 1.0,
+                ease: 'expo.in'
+            }, "+=0.8")
+            .to('#splash-loader', {
+                opacity: 0,
+                duration: 0.8,
+                ease: 'power2.inOut',
+                onComplete: () => {
+                    document.getElementById('splash-loader').style.display = 'none';
+                }
+            }, "-=0.2");
+
+            // ===== Three.js Particles for Hero Section =====
+            function initThreeJS() {
+                const canvas = document.getElementById('hero-particles');
+                if (!canvas) return;
+
+                const scene = new THREE.Scene();
+                const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+                const renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true, antialias: true });
+                
+                renderer.setSize(window.innerWidth, window.innerHeight);
+                renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+                
+                camera.position.z = 30;
+
+                // Create particles
+                const particlesGeometry = new THREE.BufferGeometry();
+                const particlesCount = 800;
+                
+                const posArray = new Float32Array(particlesCount * 3);
+                const colorsArray = new Float32Array(particlesCount * 3);
+                
+                // Colors based on theme
+                const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+                const color1 = new THREE.Color(isDark ? '#ff8c38' : '#ff6b00');
+                const color2 = new THREE.Color(isDark ? '#00e5ff' : '#7c3aed');
+                
+                for(let i = 0; i < particlesCount * 3; i+=3) {
+                    // Position
+                    posArray[i] = (Math.random() - 0.5) * 100; // x
+                    posArray[i+1] = (Math.random() - 0.5) * 100; // y
+                    posArray[i+2] = (Math.random() - 0.5) * 50; // z
+                    
+                    // Color mix
+                    const mixRatio = Math.random();
+                    const mixedColor = color1.clone().lerp(color2, mixRatio);
+                    colorsArray[i] = mixedColor.r;
+                    colorsArray[i+1] = mixedColor.g;
+                    colorsArray[i+2] = mixedColor.b;
+                }
+                
+                particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
+                particlesGeometry.setAttribute('color', new THREE.BufferAttribute(colorsArray, 3));
+                
+                // Create material
+                const particlesMaterial = new THREE.PointsMaterial({
+                    size: 0.2,
+                    vertexColors: true,
+                    transparent: true,
+                    opacity: 0.8,
+                    blending: THREE.AdditiveBlending
+                });
+                
+                const particlesMesh = new THREE.Points(particlesGeometry, particlesMaterial);
+                scene.add(particlesMesh);
+                
+                // Mouse interaction
+                let mouseX = 0;
+                let mouseY = 0;
+                let targetX = 0;
+                let targetY = 0;
+                
+                const windowHalfX = window.innerWidth / 2;
+                const windowHalfY = window.innerHeight / 2;
+                
+                document.addEventListener('mousemove', (event) => {
+                    mouseX = (event.clientX - windowHalfX);
+                    mouseY = (event.clientY - windowHalfY);
+                });
+                
+                // Animation loop
+                const clock = new THREE.Clock();
+                
+                function animate() {
+                    requestAnimationFrame(animate);
+                    const elapsedTime = clock.getElapsedTime();
+                    
+                    targetX = mouseX * 0.001;
+                    targetY = mouseY * 0.001;
+                    
+                    particlesMesh.rotation.y += 0.002;
+                    particlesMesh.rotation.x += 0.001;
+                    
+                    // Wave effect
+                    const positions = particlesGeometry.attributes.position.array;
+                    for(let i = 0; i < particlesCount; i++) {
+                        const i3 = i * 3;
+                        const x = positions[i3];
+                        const z = positions[i3 + 2];
+                        positions[i3 + 1] += Math.sin(elapsedTime + x) * 0.02;
+                    }
+                    particlesGeometry.attributes.position.needsUpdate = true;
+                    
+                    // Parallax
+                    particlesMesh.rotation.y += 0.05 * (targetX - particlesMesh.rotation.y);
+                    particlesMesh.rotation.x += 0.05 * (targetY - particlesMesh.rotation.x);
+                    
+                    renderer.render(scene, camera);
+                }
+                
+                animate();
+                
+                // Resize handler
+                window.addEventListener('resize', () => {
+                    camera.aspect = window.innerWidth / window.innerHeight;
+                    camera.updateProjectionMatrix();
+                    renderer.setSize(window.innerWidth, window.innerHeight);
+                });
+
+                // Update colors on theme toggle
+                const toggle = document.getElementById('theme-toggle');
+                toggle.addEventListener('click', () => {
+                    setTimeout(() => {
+                        const newIsDark = document.documentElement.getAttribute('data-theme') === 'dark';
+                        const newColor1 = new THREE.Color(newIsDark ? '#ff8c38' : '#ff6b00');
+                        const newColor2 = new THREE.Color(newIsDark ? '#00e5ff' : '#7c3aed');
+                        
+                        const colors = particlesGeometry.attributes.color.array;
+                        for(let i = 0; i < particlesCount * 3; i+=3) {
+                            const mixRatio = Math.random();
+                            const mixedColor = newColor1.clone().lerp(newColor2, mixRatio);
+                            colors[i] = mixedColor.r;
+                            colors[i+1] = mixedColor.g;
+                            colors[i+2] = mixedColor.b;
+                        }
+                        particlesGeometry.attributes.color.needsUpdate = true;
+                    }, 100);
+                });
+            }
         });
     </script>
 </body>
