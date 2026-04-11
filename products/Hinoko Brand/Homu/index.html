@@ -4,96 +4,309 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Homu | Autonomous AI Agent</title>
+    <title>Homu | Hinoko Engineering Team</title>
+    <meta name="description" content="最新鋭の国産モデルを搭載した、次世代の自律型AIエージェント。Homu by Hinoko">
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=M+PLUS+1:wght@300;400;500;700&family=Zen+Kaku+Gothic+New:wght@400;700;900&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 
     <!-- Tailwind CSS -->
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
 
-    <!-- Custom Styles -->
-    <link rel="stylesheet" href="../../../style/style.css">
+    <!-- GSAP & Lenis & Three.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.33/dist/lenis.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 
     <!-- Tailwind Config -->
-    <style type="text/tailwindcss">
-        @theme {
-            --color-kazenoko-cyan: #00e5ff;
-            --color-kazenoko-dark: #1a1a1a;
-            --color-hinoko-orange: #ff6b00;
-            --color-hinoko-black: #050505;
-            --color-homu-green: #00ff88;
-            
-            --font-gothic: "Dela Gothic One", sans-serif;
-            --font-zen: "Zen Kaku Gothic New", sans-serif;
-            --font-mplus: "M PLUS 1", sans-serif;
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'h-black': '#34322D',
+                        'h-gray': '#F8F8F8',
+                        'h-white': '#FFFFFF',
+                    },
+                    fontFamily: {
+                        'serif': ['"Libre Baskerville"', '"YuMincho"', '"Hiragino Mincho ProN"', 'serif'],
+                        'sans': ['"DM Sans"', '"Helvetica Neue"', 'Arial', '"Hiragino Kaku Gothic ProN"', '"Hiragino Sans"', '"Meiryo"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom Styles -->
+    <style>
+        :root {
+            --c-black: #34322D;
+            --c-gray: #F8F8F8;
+            --c-white: #FFFFFF;
+        }
+
+        body {
+            background-color: var(--c-black);
+            color: var(--c-gray);
+            font-family: "DM Sans", "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Meiryo", sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            overscroll-behavior: none;
+            line-height: 1.8;
+        }
+
+        ::selection {
+            background-color: var(--c-gray);
+            color: var(--c-black);
+        }
+
+        /* Smooth Scroll Utilities */
+        html.lenis { height: auto; }
+        .lenis.lenis-smooth { scroll-behavior: auto; }
+        .lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
+        .lenis.lenis-stopped { overflow: hidden; }
+        .lenis.lenis-scrolling iframe { pointer-events: none; }
+
+        /* Typography */
+        .font-serif {
+            font-family: "Libre Baskerville", "YuMincho", "Hiragino Mincho ProN", serif;
+        }
+
+        /* Navigation */
+        .h-nav {
+            background: transparent;
+            border-bottom: 1px solid rgba(248, 248, 248, 0.08);
+            transition: background 0.4s ease, backdrop-filter 0.4s ease;
+        }
+
+        .h-nav.scrolled {
+            background: rgba(52, 50, 45, 0.85);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+        }
+
+        .nav-link {
+            position: relative;
+            display: inline-block;
+            color: rgba(248, 248, 248, 0.6);
+            transition: color 0.3s ease;
+        }
+        
+        .nav-link:hover {
+            color: var(--c-gray);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background-color: currentColor;
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        
+        .nav-link:hover::after {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+
+        /* GSAP Reveal Classes */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(40px);
+            will-change: opacity, transform;
+        }
+
+        /* Utilities */
+        .text-balance {
+            text-wrap: balance;
+        }
+        
+        .section-padding {
+            padding-top: 10rem;
+            padding-bottom: 10rem;
+        }
+        
+        @media (min-width: 768px) {
+            .section-padding {
+                padding-top: 15rem;
+                padding-bottom: 15rem;
+            }
         }
     </style>
 </head>
 
-<body class="antialiased w-full h-full relative bg-hinoko-black text-white font-mplus">
-
-    <!-- Transition Layer -->
-    <div id="transition-overlay"></div>
+<body class="bg-h-black text-h-gray">
 
     <!-- Navigation -->
-    <nav
-        class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-6 py-4 mix-blend-difference text-white">
-        <div class="font-gothic text-xl tracking-tighter">HINOKO</div>
-        <div class="flex gap-4 items-center">
-            <a href="../../../hinoko.html"
-                class="magnetic-btn font-mplus font-medium hover:opacity-70 transition-opacity uppercase text-sm tracking-widest cursor-pointer text-homu-green">BACK</a>
+    <nav id="navbar" class="h-nav fixed top-0 left-0 w-full z-50 px-6 md:px-12 py-5">
+        <div class="max-w-[1600px] mx-auto flex justify-between items-center w-full">
+            <a href="../../../hinoko.html" class="font-serif text-xl md:text-2xl tracking-tight text-h-gray" style="text-decoration: none;">Hinoko</a>
+            <div class="flex gap-10 font-sans text-xs uppercase tracking-widest font-medium">
+                <a href="../../../hinoko.html" class="nav-link">Close</a>
+            </div>
         </div>
     </nav>
 
-    <main class="min-h-screen flex flex-col justify-center items-center px-6 text-center relative overflow-hidden">
-
-        <!-- Background -->
-        <div class="absolute inset-0 pointer-events-none z-0">
-            <div class="parallax-layer absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[60vw] h-[60vw] bg-homu-green rounded-full blur-[150px] opacity-20 animate-pulse"
-                data-speed="2"></div>
-        </div>
-
-        <div class="relative z-10 max-w-4xl">
-            <p class="text-homu-green tracking-[0.3em] mb-4 fade-in-up">AUTONOMOUS AI AGENT</p>
-            <h1 class="text-7xl md:text-9xl font-bold mb-8 fade-in-up" style="animation-delay: 0.1s;">Homu</h1>
-            <p class="text-2xl md:text-4xl font-light text-gray-300 mb-12 fade-in-up" style="animation-delay: 0.2s;">
-                最新鋭の国産モデルを搭載した、<br>自律型AIエージェント。
-            </p>
-
-            <div class="p-8 border border-white/10 bg-white/5 rounded-xl backdrop-blur-md fade-in-up"
-                style="animation-delay: 0.3s;">
-                <p class="text-lg leading-relaxed text-gray-400">
-                    Homuは、日本国内サーバーで稼働する最新鋭の国産AIモデルを搭載。<br>
-                    自律的に思考し、タスクを遂行する次世代のパートナーです。<br>
-                    プライバシーと安全性を重視した、信頼できるAI体験を提供します。
+    <main>
+        <!-- Hero Section -->
+        <section class="relative min-h-[90vh] w-full flex flex-col justify-center items-center overflow-hidden bg-h-black">
+            <div class="relative z-10 flex flex-col items-center w-full px-6 mt-16 text-center max-w-[1200px] mx-auto">
+                <p class="hero-reveal font-sans text-xs uppercase tracking-widest text-h-gray/40 font-medium mb-8 opacity-0 translate-y-4">Flagship Autonomous Agent</p>
+                <h1 class="hero-reveal font-serif text-6xl md:text-8xl lg:text-[12rem] leading-none tracking-tighter text-h-gray mb-12 opacity-0 translate-y-8">HOMU</h1>
+                <p class="hero-reveal font-serif text-2xl md:text-4xl text-h-gray/80 leading-[1.4] tracking-tight max-w-3xl text-balance opacity-0 translate-y-4">
+                    最新鋭の国産モデルを搭載した、<br class="hidden md:block">次世代の自律型AIエージェント。
                 </p>
             </div>
+        </section>
 
-            <div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-4 fade-in-up" style="animation-delay: 0.4s;">
-                <div class="p-4 border border-homu-green/30 bg-homu-green/5 rounded-lg">
-                    <p class="text-homu-green text-sm font-bold mb-2">国産モデル</p>
-                    <p class="text-xs text-gray-500">PLaMo / LLM-JP等</p>
-                </div>
-                <div class="p-4 border border-homu-green/30 bg-homu-green/5 rounded-lg">
-                    <p class="text-homu-green text-sm font-bold mb-2">国内サーバー</p>
-                    <p class="text-xs text-gray-500">プライバシー保護</p>
-                </div>
-                <div class="p-4 border border-homu-green/30 bg-homu-green/5 rounded-lg">
-                    <p class="text-homu-green text-sm font-bold mb-2">自律実行</p>
-                    <p class="text-xs text-gray-500">タスク自動遂行</p>
+        <!-- Concept Section -->
+        <section class="section-padding px-6 md:px-12 bg-h-black border-t border-h-gray/10 relative">
+            <div class="max-w-[1200px] mx-auto">
+                <div class="flex flex-col md:flex-row justify-between items-start gap-16 md:gap-24">
+                    <div class="w-full md:w-1/4">
+                        <p class="fade-up text-xs uppercase tracking-widest text-h-gray/40 font-medium">Concept</p>
+                    </div>
+                    <div class="w-full md:w-3/4">
+                        <h2 class="fade-up font-serif text-3xl md:text-5xl leading-[1.4] tracking-tight mb-16 text-balance">
+                            プライバシーと安全性を重視した、<br class="hidden md:block">
+                            信頼できるAI体験を提供する。
+                        </h2>
+                        <div class="max-w-2xl">
+                            <p class="fade-up font-sans text-base md:text-lg text-h-gray/70 mb-8 leading-[2]">
+                                Homuは、日本国内サーバーで稼働する最新鋭の国産AIモデル（PLaMo / LLM-JP等）を搭載しています。
+                            </p>
+                            <p class="fade-up font-sans text-base md:text-lg text-h-gray/70 leading-[2]">
+                                自律的に思考し、タスクを遂行する次世代のパートナーとして、あなたの日常と業務を強力にサポートします。
+                            </p>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
+        </section>
 
+        <!-- Features Grid -->
+        <section class="pb-32 md:pb-48 px-6 md:px-12 bg-h-black">
+            <div class="max-w-[1200px] mx-auto">
+                <div class="border-t border-h-gray/10 pt-16">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-x-8 gap-y-16">
+                        <!-- Feature 1 -->
+                        <div class="fade-up flex flex-col">
+                            <span class="font-serif text-xl md:text-2xl text-h-gray/30 mb-8">01</span>
+                            <h3 class="font-sans text-lg md:text-xl tracking-wide mb-4">Domestic Model</h3>
+                            <p class="font-sans text-sm text-h-gray/60 leading-[2]">
+                                PLaMoやLLM-JPなど、日本語の文脈を深く理解する最高峰の国産モデルを採用。自然で高度な推論を実現します。
+                            </p>
+                        </div>
+                        
+                        <!-- Feature 2 -->
+                        <div class="fade-up flex flex-col">
+                            <span class="font-serif text-xl md:text-2xl text-h-gray/30 mb-8">02</span>
+                            <h3 class="font-sans text-lg md:text-xl tracking-wide mb-4">Domestic Server</h3>
+                            <p class="font-sans text-sm text-h-gray/60 leading-[2]">
+                                すべての処理は日本国内のサーバーで完結。機密データが海外に流出するリスクを根本から排除し、確固たるプライバシー保護を約束します。
+                            </p>
+                        </div>
+
+                        <!-- Feature 3 -->
+                        <div class="fade-up flex flex-col">
+                            <span class="font-serif text-xl md:text-2xl text-h-gray/30 mb-8">03</span>
+                            <h3 class="font-sans text-lg md:text-xl tracking-wide mb-4">Autonomous Action</h3>
+                            <p class="font-sans text-sm text-h-gray/60 leading-[2]">
+                                指示を待つだけでなく、目的達成のために自ら計画を立て、ツールを操作し、タスクを自動で遂行します。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Closing Section -->
+        <section class="py-32 md:py-48 px-6 md:px-12 bg-h-gray text-h-black text-center">
+            <div class="max-w-[800px] mx-auto">
+                <p class="fade-up text-xs uppercase tracking-widest text-h-black/40 font-medium mb-12">Status</p>
+                <h2 class="fade-up font-serif text-4xl md:text-6xl leading-[1.3] tracking-tight mb-8">
+                    In Development
+                </h2>
+                <p class="fade-up font-sans text-base md:text-lg text-h-black/70 leading-[2]">
+                    現在開発中です。<br>
+                    今後のアップデート情報は、HinokoのNewsセクションにてお知らせいたします。
+                </p>
+            </div>
+        </section>
     </main>
 
-    <!-- Global Scripts -->
-    <script src="../../../js/main.js"></script>
-</body>
+    <!-- Footer (Minimal) -->
+    <footer class="bg-h-black text-h-gray py-12 px-6 md:px-12 border-t border-h-gray/10">
+        <div class="max-w-[1600px] mx-auto flex flex-col md:flex-row justify-between items-center gap-6 font-sans text-[11px] uppercase tracking-widest text-h-gray/40">
+            <div>© 2026 Hinoko Engineering Team.</div>
+            <div>
+                <a href="../../../hinoko.html" class="hover:text-h-gray transition-colors">Back to Hinoko</a>
+            </div>
+        </div>
+    </footer>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            // 1. Setup Smooth Scrolling (Lenis)
+            const lenis = new Lenis({
+                duration: 1.2,
+                easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+                direction: 'vertical',
+                gestureDirection: 'vertical',
+                smooth: true,
+            });
+
+            lenis.on('scroll', ScrollTrigger.update);
+            gsap.ticker.add((time) => { lenis.raf(time * 1000); });
+            gsap.ticker.lagSmoothing(0);
+
+            // Navbar scroll effect
+            const navbar = document.getElementById('navbar');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+            });
+
+            // 2. GSAP Animations
+            const tl = gsap.timeline();
+
+            // Hero Reveal
+            tl.to(".hero-reveal", { 
+                opacity: 1, 
+                y: 0, 
+                duration: 1.5, 
+                stagger: 0.2,
+                ease: "power3.out",
+                delay: 0.2
+            });
+
+            // Scroll Reveal Animations
+            gsap.utils.toArray('.fade-up').forEach(element => {
+                gsap.to(element, {
+                    opacity: 1,
+                    y: 0,
+                    duration: 1.2,
+                    ease: "power3.out",
+                    scrollTrigger: {
+                        trigger: element,
+                        start: "top 85%",
+                        toggleActions: "play none none none"
+                    }
+                });
+            });
+        });
+    </script>
+</body>
 </html>
