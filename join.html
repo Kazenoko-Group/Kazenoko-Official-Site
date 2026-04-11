@@ -129,18 +129,18 @@
                         </div>
 
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                            <button onclick="showRole('director', this)"
+                            <button data-role="director"
                                 class="role-btn p-6 border-2 border-kazenoko-dark hover:bg-kazenoko-dark hover:text-white transition-all k-shadow-sm font-bold text-center bg-white cursor-pointer text-sm md:text-base">ディレクター</button>
-                            <button onclick="showRole('planner', this)"
+                            <button data-role="planner"
                                 class="role-btn p-6 border-2 border-kazenoko-dark hover:bg-kazenoko-dark hover:text-white transition-all k-shadow-sm font-bold text-center bg-white cursor-pointer text-sm md:text-base">プランナー</button>
-                            <button onclick="showRole('management', this)"
+                            <button data-role="management"
                                 class="role-btn p-6 border-2 border-kazenoko-dark hover:bg-kazenoko-dark hover:text-white transition-all k-shadow-sm font-bold text-center bg-white cursor-pointer text-sm md:text-base">マネジメント</button>
-                            <button onclick="showRole('creator', this)"
+                            <button data-role="creator"
                                 class="role-btn p-6 border-2 border-kazenoko-dark hover:bg-kazenoko-dark hover:text-white transition-all k-shadow-sm font-bold text-center bg-white cursor-pointer text-sm md:text-base">クリエイター</button>
-                            <button onclick="showRole('engineer', this)"
+                            <button data-role="engineer"
                                 class="role-btn p-6 border-2 border-kazenoko-dark hover:bg-kazenoko-dark hover:text-white transition-all k-shadow-sm font-bold text-center bg-white cursor-pointer text-sm md:text-base">エンジニア
                                 (Hinoko)</button>
-                            <button onclick="showRole('supporter', this)"
+                            <button data-role="supporter"
                                 class="role-btn p-6 border-2 border-kazenoko-dark hover:bg-kazenoko-dark hover:text-white transition-all k-shadow-sm font-bold text-center bg-white cursor-pointer text-sm md:text-base">サポーター</button>
                         </div>
                     </div>
@@ -239,43 +239,64 @@
                 }
             };
 
-            function showRole(roleKey, btn) {
+            const roleButtons = Array.from(document.querySelectorAll('.role-btn'));
+            const roleDisplay = document.getElementById('role-display');
+            const roleName = document.getElementById('role-name');
+            const roleDesc = document.getElementById('role-desc');
+            const roleRequirements = document.getElementById('role-requirements');
+            const roleLink = document.getElementById('role-link');
+            const roleBgText = document.getElementById('role-bg-text');
+
+            function renderRequirements(requirements) {
+                roleRequirements.replaceChildren(
+                    ...requirements.map((requirement) => {
+                        const item = document.createElement('div');
+                        item.textContent = requirement;
+                        return item;
+                    })
+                );
+            }
+
+            function updateRoleButtonState(activeButton) {
+                roleButtons.forEach((button) => {
+                    const isActive = button === activeButton;
+                    button.classList.toggle('bg-kazenoko-dark', isActive);
+                    button.classList.toggle('text-white', isActive);
+                    button.classList.toggle('bg-white', !isActive);
+                    button.classList.toggle('text-kazenoko-dark', !isActive);
+                });
+            }
+
+            function showRole(roleKey, button) {
                 const role = roles[roleKey];
-                const display = document.getElementById('role-display');
-                const name = document.getElementById('role-name');
-                const desc = document.getElementById('role-desc');
-                const reqs = document.getElementById('role-requirements');
-                const link = document.getElementById('role-link');
-                const bgText = document.getElementById('role-bg-text');
 
-                // Update content
-                name.textContent = role.name;
-                desc.textContent = role.desc;
-                bgText.textContent = roleKey.toUpperCase();
-                link.href = role.link;
+                if (!role || !button) {
+                    return;
+                }
 
-                reqs.innerHTML = role.requirements.map(r => `<div>${r}</div>`).join('');
+                roleName.textContent = role.name;
+                roleDesc.textContent = role.desc;
+                roleBgText.textContent = roleKey.toUpperCase();
+                roleLink.href = role.link;
 
-                // Reset buttons
-                document.querySelectorAll('.role-btn').forEach(b => {
-                    b.classList.remove('bg-kazenoko-dark', 'text-white');
-                    b.classList.add('bg-white', 'text-kazenoko-dark');
+                renderRequirements(role.requirements);
+                updateRoleButtonState(button);
+
+                roleDisplay.classList.remove('hidden');
+
+                requestAnimationFrame(() => {
+                    roleDisplay.classList.remove('opacity-0', 'translate-y-4');
+                    roleDisplay.classList.add('opacity-100', 'translate-y-0');
                 });
 
-                // Highlight active button
-                btn.classList.remove('bg-white', 'text-kazenoko-dark');
-                btn.classList.add('bg-kazenoko-dark', 'text-white');
-
-                // Show display with animation
-                display.classList.remove('hidden');
-                setTimeout(() => {
-                    display.classList.remove('opacity-0', 'translate-y-4');
-                    display.classList.add('opacity-100', 'translate-y-0');
-                }, 10);
-
-                // Scroll to display
-                display.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                roleDisplay.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
             }
+
+            roleButtons.forEach((button) => {
+                button.addEventListener('click', () => {
+                    showRole(button.dataset.role, button);
+                });
+            });
         </script>
 
         <!-- Application Flow -->

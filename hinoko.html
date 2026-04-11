@@ -1,1491 +1,484 @@
 <!DOCTYPE html>
-<html lang="ja" data-theme="light">
-
+<html lang="ja">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hinoko | Kazenoko Engineering Team</title>
-    <meta name="description" content="Hinoko — カゼノコ幹事会のエンジニアリングチーム。バイブコーディングと次世代IxDで最高のサービスを追求する。">
+    <meta name="description" content="みんなの役に立つものを。Hinoko — カゼノコ幹事会のエンジニアリングチーム。">
 
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Inter:wght@300;400;500;600;700;800&family=M+PLUS+1:wght@300;400;500;700&family=Zen+Kaku+Gothic+New:wght@400;700;900&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-
-    <!-- GSAP & Three.js -->
+    <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.33/dist/lenis.min.js"></script>
 
-    <!-- Global Shared Styles -->
-    <link rel="stylesheet" href="style/style.css">
-
-    <!-- Tailwind Config -->
-    <style type="text/tailwindcss">
-        @theme {
-            --color-kazenoko-cyan: #00e5ff;
-            --color-kazenoko-dark: #1a1a1a;
-            --color-hinoko-orange: #ff6b00;
-            --color-hinoko-black: #050505;
-
-            --font-gothic: "Dela Gothic One", sans-serif;
-            --font-zen: "Zen Kaku Gothic New", sans-serif;
-            --font-mplus: "M PLUS 1", sans-serif;
-            --font-inter: "Inter", sans-serif;
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'h-black': '#34322D',
+                        'h-gray': '#F8F8F8',
+                        'h-white': '#FFFFFF',
+                    },
+                    fontFamily: {
+                        'serif': ['"Libre Baskerville"', '"YuMincho"', '"Hiragino Mincho ProN"', 'serif'],
+                        'sans': ['"DM Sans"', '"Helvetica Neue"', 'Arial', '"Hiragino Kaku Gothic ProN"', '"Hiragino Sans"', '"Meiryo"', 'sans-serif'],
+                    },
+                    transitionTimingFunction: {
+                        'expo': 'cubic-bezier(0.16, 1, 0.3, 1)',
+                    }
+                }
+            }
         }
-    </style>
+    </script>
 
-    <!-- Hinoko Refined Styles -->
     <style>
-        /* ===== Theme Variables ===== */
         :root {
-            --bg-primary: #fafafa;
-            --bg-secondary: #ffffff;
-            --bg-card: rgba(255, 255, 255, 0.6);
-            --bg-card-hover: rgba(255, 255, 255, 0.9);
-            --bg-nav: rgba(250, 250, 250, 0.7);
-            --text-primary: #1a1a1a;
-            --text-secondary: #525252;
-            --text-tertiary: #a3a3a3;
-            --text-hint: #d4d4d8;
-            --border-color: rgba(0, 0, 0, 0.06);
-            --border-hover: rgba(0, 0, 0, 0.15);
-            --shadow-soft: 0 4px 20px -2px rgba(0, 0, 0, 0.03);
-            --shadow-card: 0 8px 32px rgba(0, 0, 0, 0.04), inset 0 0 0 1px rgba(255, 255, 255, 0.5);
-            --shadow-card-hover: 0 16px 48px rgba(0, 0, 0, 0.08), inset 0 0 0 1px #ffffff;
-            --accent: #ff6b00;
-            --accent-soft: rgba(255, 107, 0, 0.1);
-            --accent-text: #e55d00;
-            --wave-color: rgba(0, 0, 0, 0.03);
-            --dot-color: rgba(0, 0, 0, 0.04);
-            --toggle-bg: #e5e5e5;
-            --toggle-icon: #525252;
-            --kazenoko-section-bg: #f0f0f0;
-            --kazenoko-section-text: #1a1a1a;
-            --footer-bg: #1a1a1a;
-            --footer-text: #9ca3af;
-            --footer-text-dim: #6b7280;
-            --footer-border: rgba(255, 255, 255, 0.08);
-            --footer-heading: #ffffff;
-        }
-
-        [data-theme="dark"] {
-            --bg-primary: #050505;
-            --bg-secondary: #0a0a0a;
-            --bg-card: rgba(20, 20, 20, 0.6);
-            --bg-card-hover: rgba(30, 30, 30, 0.8);
-            --bg-nav: rgba(5, 5, 5, 0.7);
-            --text-primary: #ffffff;
-            --text-secondary: #a3a3a3;
-            --text-tertiary: #737373;
-            --text-hint: #404040;
-            --border-color: rgba(255, 255, 255, 0.08);
-            --border-hover: rgba(255, 255, 255, 0.15);
-            --shadow-soft: 0 4px 20px -2px rgba(0, 0, 0, 0.2);
-            --shadow-card: 0 8px 32px rgba(0, 0, 0, 0.4), inset 0 0 0 1px rgba(255, 255, 255, 0.05);
-            --shadow-card-hover: 0 16px 48px rgba(0, 0, 0, 0.6), inset 0 0 0 1px rgba(255, 255, 255, 0.1);
-            --accent: #ff8c38;
-            --accent-soft: rgba(255, 140, 56, 0.15);
-            --accent-text: #ff8c38;
-            --wave-color: rgba(255, 255, 255, 0.04);
-            --dot-color: rgba(255, 255, 255, 0.03);
-            --toggle-bg: #1a1a1a;
-            --toggle-icon: #a3a3a3;
-            --kazenoko-section-bg: #111111;
-            --kazenoko-section-text: #f0f0f0;
-            --footer-bg: #060606;
-            --footer-text: #6b7280;
-            --footer-text-dim: #4b5563;
-            --footer-border: rgba(255, 255, 255, 0.05);
-            --footer-heading: #e0e0e0;
-        }
-
-        /* ===== Base ===== */
-        * {
-            box-sizing: border-box;
+            --c-black: #34322D;
+            --c-gray: #F8F8F8;
+            --c-white: #FFFFFF;
         }
 
         body {
-            background: var(--bg-primary);
-            color: var(--text-primary);
-            font-family: "Inter", "M PLUS 1", -apple-system, sans-serif;
-            transition: background 0.5s ease, color 0.4s ease;
-            overflow-x: hidden;
+            background-color: var(--c-gray);
+            color: var(--c-black);
+            overscroll-behavior: none;
+            -webkit-font-smoothing: antialiased;
         }
 
-        /* ===== Custom cursor override for light theme ===== */
-        [data-theme="light"] #cursor-dot {
-            background-color: #1a1a1a !important;
+        ::selection {
+            background-color: var(--c-black);
+            color: var(--c-white);
         }
 
-        [data-theme="light"] #cursor-outline {
-            border-color: #1a1a1a !important;
-        }
-
-        [data-theme="dark"] #cursor-dot {
-            background-color: #ffffff !important;
-        }
-
-        [data-theme="dark"] #cursor-outline {
-            border-color: #ffffff !important;
-        }
-
-        [data-theme="light"] .hovering #cursor-outline {
-            background-color: rgba(255, 107, 0, 0.08) !important;
-            border-color: var(--accent) !important;
-        }
-
-        [data-theme="dark"] .hovering #cursor-outline {
-            background-color: rgba(255, 140, 56, 0.1) !important;
-            border-color: var(--accent) !important;
-        }
-
-        /* ===== Scroll progress override ===== */
-        [data-theme="light"] #scroll-progress {
-            background: var(--accent) !important;
-        }
-
-        [data-theme="dark"] #scroll-progress {
-            background: var(--accent) !important;
-        }
-
-        /* ===== Navigation ===== */
-        .h-nav {
-            background: var(--bg-nav);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border-bottom: 1px solid var(--border-color);
-            transition: background 0.4s ease, border-color 0.4s ease;
-        }
-
-        .h-nav-link {
-            color: var(--text-secondary);
-            font-size: 0.75rem;
-            font-weight: 500;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            transition: color 0.3s ease;
-            text-decoration: none;
-            padding: 4px 8px;
-        }
-
-        .h-nav-link:hover {
-            color: var(--text-primary);
-        }
-
-        .h-nav-link.active {
-            color: var(--accent-text);
-            font-weight: 600;
-        }
-
-        /* ===== Theme Toggle ===== */
-        .theme-toggle {
-            width: 36px;
-            height: 36px;
-            border-radius: 10px;
-            background: var(--toggle-bg);
-            border: 1px solid var(--border-color);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            color: var(--toggle-icon);
-        }
-
-        .theme-toggle:hover {
-            border-color: var(--border-hover);
-            color: var(--text-primary);
-        }
-
-        .theme-toggle svg {
-            width: 16px;
-            height: 16px;
-            transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-        }
-
-        .theme-toggle:hover svg {
-            transform: rotate(30deg);
-        }
-
-        /* ===== Particle Canvas ===== */
-        #hero-particles {
-            position: absolute;
-            inset: 0;
-            z-index: 1;
-            pointer-events: none;
-        }
-
-        /* ===== Ambient Gradient Orbs ===== */
-        .ambient-orbs {
-            position: absolute;
-            inset: 0;
-            overflow: hidden;
-            pointer-events: none;
-            z-index: 0;
-        }
-
-        .ambient-orb {
-            position: absolute;
-            border-radius: 50%;
-            filter: blur(100px);
-            opacity: 0.15;
-            will-change: transform;
-        }
-
-        [data-theme="light"] .ambient-orb {
-            opacity: 0.08;
-        }
-
-        .orb-1 {
-            width: 600px;
-            height: 600px;
-            background: var(--accent);
-            top: -10%;
-            right: -5%;
-            animation: orb-drift-1 25s ease-in-out infinite;
-        }
-
-        .orb-2 {
-            width: 500px;
-            height: 500px;
-            background: #7c3aed;
-            bottom: -15%;
-            left: -10%;
-            animation: orb-drift-2 30s ease-in-out infinite;
-        }
-
-        .orb-3 {
-            width: 400px;
-            height: 400px;
-            background: #06b6d4;
-            top: 40%;
-            left: 50%;
-            animation: orb-drift-3 20s ease-in-out infinite;
-        }
-
-        @keyframes orb-drift-1 {
-
-            0%,
-            100% {
-                transform: translate(0, 0) scale(1);
-            }
-
-            33% {
-                transform: translate(-40px, 30px) scale(1.1);
-            }
-
-            66% {
-                transform: translate(20px, -20px) scale(0.95);
-            }
-        }
-
-        @keyframes orb-drift-2 {
-
-            0%,
-            100% {
-                transform: translate(0, 0) scale(1);
-            }
-
-            33% {
-                transform: translate(30px, -40px) scale(1.05);
-            }
-
-            66% {
-                transform: translate(-20px, 20px) scale(0.9);
-            }
-        }
-
-        @keyframes orb-drift-3 {
-
-            0%,
-            100% {
-                transform: translate(0, 0) scale(1);
-            }
-
-            50% {
-                transform: translate(-30px, -30px) scale(1.15);
-            }
-        }
-
-        /* ===== Grid Pattern Background ===== */
-        .grid-bg {
+        .noise {
             position: fixed;
             inset: 0;
+            z-index: 9999;
             pointer-events: none;
-            z-index: 0;
-            background-image:
-                linear-gradient(var(--border-color) 1px, transparent 1px),
-                linear-gradient(90deg, var(--border-color) 1px, transparent 1px);
-            background-size: 60px 60px;
-            mask-image: radial-gradient(ellipse 70% 50% at 50% 50%, black, transparent);
-            -webkit-mask-image: radial-gradient(ellipse 70% 50% at 50% 50%, black, transparent);
+            opacity: 0.03;
+            background: url('data:image/svg+xml;utf8,%3Csvg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"%3E%3Cfilter id="noiseFilter"%3E%3CfeTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="3" stitchTiles="stitch"/%3E%3C/filter%3E%3Crect width="100%25" height="100%25" filter="url(%23noiseFilter)"/%3E%3C/svg%3E');
         }
 
-        /* ===== Animated Gradient Title ===== */
-        @keyframes gradient-shift {
+        html.lenis { height: auto; }
+        .lenis.lenis-smooth { scroll-behavior: auto; }
+        .lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
+        .lenis.lenis-stopped { overflow: hidden; }
 
-            0%,
-            100% {
-                background-position: 0% 50%;
-            }
-
-            50% {
-                background-position: 100% 50%;
-            }
-        }
-
-        .gradient-title {
-            background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent) 40%, var(--text-primary) 60%, var(--text-tertiary) 100%);
-            background-size: 300% 300%;
-            background-clip: text;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: gradient-shift 8s ease-in-out infinite;
-        }
-
-        /* ===== Typography ===== */
-        .h-headline {
-            font-family: "Inter", "M PLUS 1", sans-serif;
-            font-weight: 800;
-            letter-spacing: -0.04em;
-            line-height: 1;
-            color: var(--text-primary);
-        }
-
-        .h-subhead {
-            font-family: "Inter", "M PLUS 1", sans-serif;
-            font-weight: 400;
-            color: var(--text-secondary);
-            line-height: 1.7;
-        }
-
-        .h-mono {
-            font-family: "SF Mono", "Fira Code", "Consolas", monospace;
-            font-size: 0.65rem;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            color: var(--text-tertiary);
-        }
-
-        .h-label {
-            font-size: 0.7rem;
-            font-weight: 600;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            color: var(--text-tertiary);
-        }
-
-        /* ===== Cards with 3D Tilt ===== */
-        .h-card {
-            background: var(--bg-card);
-            backdrop-filter: blur(24px);
-            -webkit-backdrop-filter: blur(24px);
-            border: 1px solid var(--border-color);
-            border-radius: 20px;
-            box-shadow: var(--shadow-card);
-            transition: box-shadow 0.5s ease, border-color 0.5s ease;
-            overflow: hidden;
-            display: block;
-            text-decoration: none;
-            color: inherit;
-            position: relative;
-            transform-style: preserve-3d;
-            will-change: transform;
-        }
-
-        .h-card::before {
-            content: '';
-            position: absolute;
+        /* Loader */
+        #loader {
+            position: fixed;
             inset: 0;
-            border-radius: 20px;
-            background: radial-gradient(600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), var(--accent-soft), transparent 40%);
-            opacity: 0;
-            transition: opacity 0.5s ease;
-            pointer-events: none;
-            z-index: 0;
-        }
-
-        .h-card::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            border-radius: 20px;
-            background: linear-gradient(105deg, transparent 40%, rgba(255, 255, 255, 0.03) 45%, rgba(255, 255, 255, 0.12) 50%, rgba(255, 255, 255, 0.03) 55%, transparent 60%);
-            background-size: 200% 200%;
-            background-position: var(--shine-x, 200%) 50%;
-            pointer-events: none;
-            z-index: 2;
-            transition: background-position 0.3s ease;
-        }
-
-        .h-card:hover::before {
-            opacity: 1;
-        }
-
-        .h-card>* {
-            position: relative;
-            z-index: 1;
-        }
-
-        .h-card:hover {
-            border-color: var(--border-hover);
-            box-shadow: var(--shadow-card-hover);
-        }
-
-        .h-card .card-arrow {
-            opacity: 0;
-            transform: translateX(-8px);
-            transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-            color: var(--accent);
-        }
-
-        .h-card:hover .card-arrow {
-            opacity: 1;
-            transform: translateX(0);
-        }
-
-        /* Card icon containers */
-        .card-icon {
-            width: 48px;
-            height: 48px;
-            border-radius: 14px;
+            background-color: var(--c-black);
+            color: var(--c-gray);
+            z-index: 100000;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 20px;
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+        }
+        .loader-text {
+            font-size: clamp(2rem, 5vw, 4rem);
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+        }
+        .loader-text span {
+            display: inline-block;
+            transform: translateY(100%);
+        }
+
+        /* Nav */
+        .nav-link {
             position: relative;
-        }
-
-        .card-icon svg {
-            width: 24px;
-            height: 24px;
-        }
-
-        /* Status dot */
-        .status-dot {
-            width: 6px;
-            height: 6px;
-            border-radius: 50%;
+            overflow: hidden;
             display: inline-block;
-            margin-right: 6px;
-            animation: status-pulse 2s ease-in-out infinite;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -2px; left: 0; width: 100%; height: 1px;
+            background-color: currentColor;
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .nav-link:hover::after {
+            transform: scaleX(1);
+            transform-origin: left;
         }
 
-        @keyframes status-pulse {
-
-            0%,
-            100% {
-                opacity: 1;
-            }
-
-            50% {
-                opacity: 0.4;
-            }
-        }
-
-        .h-card .card-tag {
+        /* Hero Typography */
+        .hero-title-char {
             display: inline-block;
-            padding: 3px 12px;
-            border-radius: 100px;
-            font-size: 0.6rem;
-            font-weight: 600;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
+            opacity: 0;
+            transform: translateY(100px) rotate(10deg);
         }
 
-        /* ===== Section Divider ===== */
-        .section-divider {
-            height: 1px;
-            background: var(--border-color);
-            margin: 0 auto;
-        }
-
-        /* ===== News ===== */
-        .news-row {
-            display: flex;
-            flex-direction: column;
-            padding: 20px 16px;
-            border-radius: 12px;
-            transition: background 0.3s ease;
-            text-decoration: none;
-            color: inherit;
-        }
-
-        .news-row:hover {
-            background: var(--accent-soft);
-        }
-
-        .news-row:hover .news-title {
-            color: var(--accent-text);
-        }
-
-        .news-title {
-            transition: color 0.3s ease;
-        }
-
-        @media (min-width: 768px) {
-            .news-row {
-                flex-direction: row;
-                align-items: center;
-                gap: 32px;
-            }
-        }
-
-        /* ===== CTA Button ===== */
-        .h-btn {
+        /* Magnetic Button */
+        .btn-magnetic {
+            position: relative;
             display: inline-flex;
             align-items: center;
-            gap: 10px;
-            padding: 14px 36px;
-            border: 1.5px solid var(--accent);
-            color: var(--accent-text);
-            border-radius: 100px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            text-decoration: none;
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-            position: relative;
+            justify-content: center;
+            padding: 1.2rem 3rem;
+            border-radius: 999px;
+            border: 1px solid var(--c-black);
             overflow: hidden;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: color 0.3s ease, border-color 0.3s ease;
         }
-
-        .h-btn::before {
+        .btn-magnetic::before {
             content: '';
             position: absolute;
-            inset: -2px;
-            border-radius: 100px;
-            background: var(--accent);
-            opacity: 0;
-            filter: blur(16px);
-            transition: opacity 0.4s ease;
-            z-index: -1;
-        }
-
-        .h-btn:hover {
-            background: var(--accent);
-            color: #ffffff;
-            border-color: var(--accent);
-            box-shadow: 0 8px 32px rgba(255, 107, 0, 0.35);
-            transform: translateY(-2px);
-        }
-
-        .h-btn:hover::before {
-            opacity: 0.4;
-        }
-
-        .h-btn .btn-arrow {
-            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        .h-btn:hover .btn-arrow {
-            transform: translateX(4px);
-        }
-
-        /* ===== Floating decorative elements ===== */
-        .float-el {
-            position: absolute;
-            pointer-events: none;
-            border-radius: 16px;
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            box-shadow: var(--shadow-card);
-            transition: background 0.5s ease, border-color 0.5s ease, box-shadow 0.5s ease;
-            will-change: transform;
-        }
-
-        .float-el-1 {
-            width: 200px;
-            height: 130px;
-            top: 12%;
-            right: 8%;
-            animation: float-1 8s ease-in-out infinite;
-        }
-
-        .float-el-2 {
-            width: 160px;
-            height: 100px;
-            top: 58%;
-            left: 5%;
-            animation: float-2 10s ease-in-out infinite;
-        }
-
-        .float-el-3 {
-            width: 180px;
-            height: 110px;
-            bottom: 15%;
-            right: 15%;
-            animation: float-3 12s ease-in-out infinite;
-        }
-
-        @keyframes float-1 {
-
-            0%,
-            100% {
-                transform: rotate(6deg) translateY(0);
-            }
-
-            50% {
-                transform: rotate(6deg) translateY(-16px);
-            }
-        }
-
-        @keyframes float-2 {
-
-            0%,
-            100% {
-                transform: rotate(-4deg) translateY(0);
-            }
-
-            50% {
-                transform: rotate(-4deg) translateY(-12px);
-            }
-        }
-
-        @keyframes float-3 {
-
-            0%,
-            100% {
-                transform: rotate(3deg) translateY(0);
-            }
-
-            50% {
-                transform: rotate(3deg) translateY(-14px);
-            }
-        }
-
-        /* Inner content of floating elements */
-        .float-bar {
-            height: 6px;
-            border-radius: 3px;
-            background: var(--border-color);
-        }
-
-        .float-dot {
-            width: 6px;
-            height: 6px;
+            top: 100%; left: 0; width: 100%; height: 100%;
+            background-color: var(--c-black);
             border-radius: 50%;
+            transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            z-index: 0;
+        }
+        .btn-magnetic:hover::before {
+            transform: translateY(-100%) scale(1.5);
+        }
+        .btn-magnetic span {
+            position: relative;
+            z-index: 1;
+        }
+        .btn-magnetic:hover {
+            color: var(--c-gray);
+        }
+        
+        .btn-magnetic.light {
+            border-color: var(--c-gray);
+            color: var(--c-gray);
+        }
+        .btn-magnetic.light::before {
+            background-color: var(--c-gray);
+        }
+        .btn-magnetic.light:hover {
+            color: var(--c-black);
         }
 
-        /* ===== Kazenoko Teaser ===== */
-        .kazenoko-section {
-            background: var(--kazenoko-section-bg);
-            color: var(--kazenoko-section-text);
-            transition: background 0.5s ease, color 0.4s ease;
-        }
-
-        .kazenoko-section a {
-            text-decoration: none;
-            color: inherit;
-        }
-
-        .kazenoko-arrow {
-            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-            display: inline-block;
-        }
-
-        .kazenoko-section:hover .kazenoko-arrow {
-            transform: translateX(6px);
-        }
-
-        /* ===== Footer ===== */
-        .h-footer {
-            background: var(--footer-bg);
-            color: var(--footer-text);
-            transition: background 0.5s ease;
-        }
-
-        .h-footer a {
-            color: var(--footer-text);
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .h-footer a:hover {
-            color: var(--footer-heading);
-        }
-
-        /* ===== Scroll Indicator ===== */
-        .scroll-indicator {
-            animation: scroll-bob 2s ease-in-out infinite;
-        }
-
-        @keyframes scroll-bob {
-
-            0%,
-            100% {
-                transform: translateY(0);
-                opacity: 0.5;
-            }
-
-            50% {
-                transform: translateY(6px);
-                opacity: 1;
-            }
-        }
-
-        /* ===== Overlay ===== */
-        .noise-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            pointer-events: none;
-            z-index: 9999;
-            opacity: 0.035;
-            background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><filter id="noiseFilter"><feTurbulence type="fractalNoise" baseFrequency="0.75" numOctaves="3" stitchTiles="stitch"/></filter><rect width="100%" height="100%" filter="url(%23noiseFilter)"/></svg>');
-        }
-
-        [data-theme="dark"] .noise-overlay {
-            opacity: 0.055;
-        }
-
-        /* ===== Animations ===== */
-        .h-reveal {
-            opacity: 0;
-            transform: translateY(40px);
-            filter: blur(10px);
-            transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1),
-                transform 1.2s cubic-bezier(0.16, 1, 0.3, 1),
-                filter 1.2s cubic-bezier(0.16, 1, 0.3, 1);
-            will-change: transform, opacity, filter;
-        }
-
-        .h-reveal.visible {
-            opacity: 1;
-            transform: translateY(0);
-            filter: blur(0px);
-        }
-
-        .h-scale {
-            opacity: 0;
-            transform: scale(0.9) translateY(20px);
-            filter: blur(10px);
-            transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1),
-                transform 1.2s cubic-bezier(0.16, 1, 0.3, 1),
-                filter 1.2s cubic-bezier(0.16, 1, 0.3, 1);
-            will-change: transform, opacity, filter;
-        }
-
-        .h-scale.visible {
-            opacity: 1;
-            transform: scale(1) translateY(0);
-            filter: blur(0px);
-        }
-
-        /* ===== Splash Loader ===== */
-        #splash-loader {
-            position: fixed;
-            inset: 0;
-            z-index: 99999;
-            background: var(--bg-primary);
+        /* Marquee */
+        .marquee-container {
+            width: 100%;
+            overflow: hidden;
+            white-space: nowrap;
             display: flex;
             align-items: center;
-            justify-content: center;
-            flex-direction: column;
-            overflow: hidden;
+        }
+        .marquee-content {
+            display: flex;
+            animation: marquee 20s linear infinite;
+        }
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
         }
 
-        .splash-text-container {
-            overflow: hidden;
-            display: inline-block;
-            padding: 20px;
+        /* Philosophy Cards */
+        .phil-card {
+            position: sticky;
+            top: 15vh;
+            background: var(--c-white);
+            border-top: 1px solid rgba(52, 50, 45, 0.1);
+            padding: 4rem 2rem;
+            box-shadow: 0 -10px 30px rgba(0,0,0,0.02);
+            transform-origin: top center;
         }
-
-        .splash-text {
-            font-family: "Dela Gothic One", "Inter", sans-serif;
-            font-weight: 800;
-            font-size: 6rem; /* 大きく */
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            color: var(--text-primary);
-            opacity: 0;
-            transform: translateY(150%) scale(0.9) rotate(5deg);
-            transform-origin: center;
-        }
-
+        
         @media (min-width: 768px) {
-            .splash-text {
-                font-size: 10rem;
-            }
-        }
-
-        /* ===== Responsive ===== */
-        @media (max-width: 768px) {
-            .float-el {
-                display: none;
+            .phil-card {
+                padding: 6rem 4rem;
             }
         }
     </style>
 </head>
+<body class="bg-h-gray text-h-black font-sans">
 
-<body class="antialiased w-full relative">
-    <!-- ===== Splash Loader ===== -->
-    <div id="splash-loader">
-        <div class="splash-text-container">
-            <div class="splash-text gradient-title">Hinoko</div>
+    <div class="noise"></div>
+
+    <!-- Loader -->
+    <div id="loader">
+        <div class="loader-text font-serif tracking-tighter">
+            <span>H</span><span>I</span><span>N</span><span>O</span><span>K</span><span>O</span>
         </div>
     </div>
 
-    <div class="noise-overlay"></div>
-    <div class="grid-bg"></div>
-
-    <!-- Transition Layer (for page transitions) -->
-    <div id="transition-overlay"></div>
-
-    <!-- ===== Navigation ===== -->
-    <nav class="h-nav fixed top-0 left-0 w-full z-50 px-5 md:px-8 py-3">
-        <div class="max-w-6xl mx-auto flex items-center justify-between">
-            <!-- Logo -->
-            <a href="hinoko.html" class="font-gothic text-sm tracking-tight"
-                style="color: var(--text-primary); text-decoration: none;">
-                Hinoko
-            </a>
-
-            <!-- Nav Links + Theme Toggle -->
-            <div class="flex items-center gap-5 md:gap-6">
-                <a href="index.html" data-transition-color="#ffffff"
-                    class="h-nav-link magnetic-btn cursor-snap hidden sm:inline cursor-pointer">Kazenoko</a>
-                <a href="hinoko.html"
-                    class="h-nav-link active magnetic-btn cursor-snap hidden sm:inline cursor-pointer">About</a>
-                <a href="#products"
-                    class="h-nav-link magnetic-btn cursor-snap hidden sm:inline cursor-pointer">Works</a>
-                <a href="join.html" class="h-nav-link magnetic-btn cursor-snap hidden sm:inline cursor-pointer">Join</a>
-                <a href="news/index.html"
-                    class="h-nav-link magnetic-btn cursor-snap hidden sm:inline cursor-pointer">News</a>
-
-                <!-- Language indicator -->
-                <span class="h-mono" style="font-size: 0.7rem; color: var(--text-hint);">JA</span>
-
-                <!-- Theme Toggle Button -->
-                <button id="theme-toggle" class="theme-toggle magnetic-btn cursor-snap" aria-label="Toggle theme">
-                    <!-- Sun icon (shown in dark mode) -->
-                    <svg id="icon-sun" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                        stroke="currentColor" stroke-width="2" style="display: none;">
-                        <circle cx="12" cy="12" r="5" />
-                        <path
-                            d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" />
-                    </svg>
-                    <!-- Moon icon (shown in light mode) -->
-                    <svg id="icon-moon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                        stroke="currentColor" stroke-width="2">
-                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
-                    </svg>
-                </button>
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 w-full z-50 px-6 py-6 mix-blend-difference text-h-white pointer-events-none">
+        <div class="flex justify-between items-center w-full pointer-events-auto">
+            <a href="hinoko.html" class="font-serif text-2xl tracking-tighter hover:opacity-70 transition-opacity">Hinoko</a>
+            <div class="hidden md:flex gap-8 font-sans text-xs uppercase tracking-widest font-medium">
+                <a href="index.html" class="nav-link">Kazenoko</a>
+                <a href="hinoko.html" class="nav-link">About</a>
+                <a href="#homu" class="nav-link">Works</a>
+                <a href="join.html" class="nav-link">Join</a>
             </div>
         </div>
     </nav>
 
-    <!-- ===== Main Content ===== -->
     <main>
-
-        <!-- ===== Hero Section ===== -->
-        <section id="hero-section"
-            class="relative min-h-screen flex flex-col items-center justify-center px-6 pt-20 pb-16 overflow-hidden">
-
-            <!-- Ambient Gradient Orbs -->
-            <div class="ambient-orbs">
-                <div class="ambient-orb orb-1"></div>
-                <div class="ambient-orb orb-2"></div>
-                <div class="ambient-orb orb-3"></div>
-            </div>
-
-            <!-- Particle Canvas -->
-            <canvas id="hero-particles"></canvas>
-
-            <!-- Floating decorative elements (Mac OS Window style) -->
-            <div class="float-el float-el-1 parallax-layer" data-speed="1.5"
-                style="backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);">
-                <div class="p-3">
-                    <div class="flex gap-1.5 mb-3">
-                        <div class="float-dot" style="background: #ff5f57;"></div>
-                        <div class="float-dot" style="background: #febc2e;"></div>
-                        <div class="float-dot" style="background: #28c840;"></div>
-                    </div>
-                    <div class="float-bar w-3/4 mb-2"></div>
-                    <div class="float-bar w-1/2 mb-2"></div>
-                    <div class="float-bar w-2/3"></div>
+        <!-- Hero -->
+        <section class="h-screen w-full flex flex-col justify-end pb-12 px-6 md:px-12 relative">
+            <div class="flex flex-col md:flex-row justify-between items-end gap-8 mb-8">
+                <div class="max-w-md font-sans text-sm md:text-base leading-relaxed text-h-black/70 hero-fade">
+                    カゼノコ幹事会のエンジニアリングチーム。<br>
+                    ノイズを削ぎ落とし、本当に必要な機能と<br>
+                    美しい体験だけを追求する。
+                </div>
+                <div class="text-left md:text-right font-serif italic text-xl text-h-black/50 hero-fade">
+                    Est. 2026
                 </div>
             </div>
-
-            <div class="float-el float-el-2 parallax-layer" data-speed="2"
-                style="backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);">
-                <div class="p-3">
-                    <div class="flex gap-1.5 mb-3">
-                        <div class="float-dot" style="background: #ff5f57;"></div>
-                        <div class="float-dot" style="background: #febc2e;"></div>
-                        <div class="float-dot" style="background: #28c840;"></div>
-                    </div>
-                    <div class="flex gap-2 mb-2">
-                        <div class="float-bar w-8"></div>
-                        <div class="float-bar w-12" style="background: var(--accent-soft);"></div>
-                    </div>
-                    <div class="float-bar w-full"></div>
-                </div>
-            </div>
-
-            <!-- 3rd floating element: Code snippet style -->
-            <div class="float-el float-el-3 parallax-layer" data-speed="1.2"
-                style="backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);">
-                <div class="p-3">
-                    <div class="flex gap-1.5 mb-3">
-                        <div class="float-dot" style="background: #ff5f57;"></div>
-                        <div class="float-dot" style="background: #febc2e;"></div>
-                        <div class="float-dot" style="background: #28c840;"></div>
-                    </div>
-                    <div
-                        style="font-family: 'SF Mono', monospace; font-size: 7px; line-height: 1.8; color: var(--text-tertiary);">
-                        <div><span style="color: var(--accent);">const</span> hinoko = {</div>
-                        <div>&nbsp;&nbsp;mission: <span style="color: #22c55e;">"最高"</span>,</div>
-                        <div>};</div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Hero Content -->
-            <div class="relative z-10 text-center max-w-3xl mx-auto">
-                <!-- Eyebrow -->
-                <p class="h-label mb-6 h-reveal" style="color: var(--text-tertiary);">
-                    Engineering Team
-                </p>
-
-                <!-- Main Title -->
-                <div class="relative inline-block mb-6 h-reveal" style="animation-delay: 0.1s;">
-                    <!-- Glow effect -->
-                    <div class="absolute inset-0 blur-[80px] opacity-30 rounded-full scale-150 pointer-events-none"
-                        style="background: radial-gradient(circle, var(--accent) 0%, transparent 70%); z-index: -1;">
-                    </div>
-                    <h1
-                        class="h-headline gradient-title text-7xl sm:text-8xl md:text-9xl lg:text-[10rem] tracking-tighter">
-                        Hinoko
-                    </h1>
-                </div>
-
-                <!-- Subtitle -->
-                <p class="h-subhead text-base md:text-lg mb-12 max-w-lg mx-auto h-reveal"
-                    style="animation-delay: 0.15s;">
-                    バイブコーディングと次世代IxDで<br class="hidden md:block">
-                    最高のサービスとユーザー体験を追求する。
-                </p>
-
-                <!-- Quick Links -->
-                <div class="flex items-center justify-center gap-4 h-reveal" style="animation-delay: 0.2s;">
-                    <a href="#products" class="h-btn magnetic-btn cursor-snap cursor-pointer">
-                        VIEW WORKS
-                        <span class="btn-arrow">→</span>
-                    </a>
-                </div>
-            </div>
-
-            <!-- Scroll Indicator -->
-            <div class="absolute bottom-8 left-1/2 -translate-x-1/2 scroll-indicator">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--text-hint)"
-                    stroke-width="1.5">
-                    <path d="M12 5v14M19 12l-7 7-7-7" />
-                </svg>
-            </div>
+            <h1 class="font-serif text-[18vw] leading-[0.8] tracking-tighter uppercase w-full flex justify-between" id="hero-title">
+                <span class="hero-title-char">H</span>
+                <span class="hero-title-char">I</span>
+                <span class="hero-title-char">N</span>
+                <span class="hero-title-char">O</span>
+                <span class="hero-title-char">K</span>
+                <span class="hero-title-char">O</span>
+            </h1>
         </section>
 
-        <!-- ===== About Section ===== -->
-        <section class="py-16 md:py-24 px-6">
-            <div class="max-w-3xl mx-auto text-center">
-                <p class="h-label mb-6 h-reveal">About</p>
-                <p class="h-subhead text-lg md:text-xl leading-relaxed h-reveal" style="animation-delay: 0.08s;">
-                    バイブコーディングと次世代IxDで、<br class="hidden md:block">
-                    最高のサービスとユーザー体験を追求する。<br class="hidden md:block">
-                    みんなの役にたつものを。
-                </p>
-
-                <!-- Stats -->
-                <div class="flex flex-wrap justify-center gap-x-20 gap-y-8 mt-14 h-reveal"
-                    style="animation-delay: 0.16s;">
-                    <div>
-                        <span class="block h-headline text-4xl md:text-5xl mb-2 count-up" data-target="4"
-                            style="background: linear-gradient(135deg, var(--text-primary), var(--accent)); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent;">0</span>
-                        <span class="h-mono">Products</span>
-                    </div>
-                    <div>
-                        <span class="block h-headline text-4xl md:text-5xl mb-2"
-                            style="background: linear-gradient(135deg, var(--text-primary), #7c3aed); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent;">AI</span>
-                        <span class="h-mono">&amp; IxD</span>
-                    </div>
-                    <div>
-                        <span class="block text-4xl md:text-5xl mb-2">
-                            <span class="font-gothic text-3xl md:text-4xl tracking-tight"
-                                style="background: linear-gradient(135deg, var(--text-primary), #06b6d4); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent;">K</span>
-                        </span>
-                        <span class="h-mono">Kazenoko</span>
-                    </div>
+        <!-- Vision -->
+        <section class="py-32 md:py-48 px-6 md:px-12 bg-h-white border-t border-h-black/10">
+            <div class="max-w-[1400px] mx-auto flex flex-col md:flex-row gap-16 md:gap-32">
+                <div class="md:w-1/4">
+                    <span class="text-xs font-sans uppercase tracking-widest text-h-black/40 gs-reveal block">01 / Vision</span>
                 </div>
-            </div>
-        </section>
-
-        <!-- ===== Products Section ===== -->
-        <section id="products" class="py-16 md:py-24 px-6 relative">
-            <div class="max-w-6xl mx-auto">
-                <!-- Section Header -->
-                <div class="text-center mb-14 h-reveal">
-                    <p class="h-label mb-4">Works</p>
-                    <h2 class="h-headline text-3xl md:text-5xl">Products</h2>
-                </div>
-
-                <!-- Product Cards Grid -->
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-5" style="perspective: 1000px;">
-                    <!-- Hino -->
-                    <a href="products/Hinoko Brand/Hino/index.html" class="h-card p-7 md:p-8 h-scale">
-                        <div class="card-icon" style="background: var(--accent-soft);">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="var(--accent-text)" stroke-width="2"
-                                stroke-linecap="round">
-                                <circle cx="12" cy="12" r="3" />
-                                <path
-                                    d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83" />
-                            </svg>
-                        </div>
-                        <div class="flex items-start justify-between mb-6">
-                            <span class="card-tag"
-                                style="background: var(--accent-soft); color: var(--accent-text);"><span
-                                    class="status-dot" style="background: var(--accent);"></span>AI Assistant</span>
-                            <span class="card-arrow text-lg">→</span>
-                        </div>
-                        <h3 class="h-headline text-2xl md:text-3xl mb-3">Hino</h3>
-                        <p class="text-sm leading-relaxed" style="color: var(--text-secondary);">
-                            Gemini 3 Flashを搭載した、創作活動を支えるAIパートナー。
-                        </p>
-                    </a>
-
-                    <!-- Homu -->
-                    <a href="products/Hinoko Brand/Homu/index.html" class="h-card p-7 md:p-8 h-scale"
-                        style="transition-delay: 0.06s;">
-                        <div class="card-icon" style="background: rgba(34,197,94,0.08);">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2"
-                                stroke-linecap="round">
-                                <rect x="2" y="3" width="20" height="14" rx="2" />
-                                <path d="M8 21h8M12 17v4" />
-                            </svg>
-                        </div>
-                        <div class="flex items-start justify-between mb-6">
-                            <span class="card-tag" style="background: rgba(34,197,94,0.08); color: #16a34a;"><span
-                                    class="status-dot" style="background: #16a34a;"></span>Autonomous Agent</span>
-                            <span class="card-arrow text-lg">→</span>
-                        </div>
-                        <h3 class="h-headline text-2xl md:text-3xl mb-3">Homu</h3>
-                        <p class="text-sm leading-relaxed" style="color: var(--text-secondary);">
-                            最新鋭の国産モデルを搭載した、自律型AIエージェント。
-                        </p>
-                    </a>
-
-                    <!-- Hidy for Student -->
-                    <a href="products/Hinoko Brand/Hidy for Student/index.html" class="h-card p-7 md:p-8 h-scale"
-                        style="transition-delay: 0.12s;">
-                        <div class="card-icon" style="background: rgba(168,85,247,0.08);">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="#9333ea" stroke-width="2"
-                                stroke-linecap="round">
-                                <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
-                                <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
-                            </svg>
-                        </div>
-                        <div class="flex items-start justify-between mb-6">
-                            <span class="card-tag" style="background: rgba(168,85,247,0.08); color: #9333ea;"><span
-                                    class="status-dot" style="background: #9333ea;"></span>Learning Support</span>
-                            <span class="card-arrow text-lg">→</span>
-                        </div>
-                        <h3 class="h-headline text-2xl md:text-3xl mb-3">Hidy <span
-                                style="font-weight: 400; font-size: 0.7em; color: #9333ea;">for Student</span></h3>
-                        <p class="text-sm leading-relaxed" style="color: var(--text-secondary);">
-                            学生の学習のために作られた、最高の学習支援サービス。
-                        </p>
-                    </a>
-
-                    <!-- Hidy for Teacher -->
-                    <a href="products/Hinoko Brand/Hidy for Teacher/index.html" class="h-card p-7 md:p-8 h-scale"
-                        style="transition-delay: 0.18s;">
-                        <div class="card-icon" style="background: rgba(59,130,246,0.08);">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2"
-                                stroke-linecap="round">
-                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
-                                <circle cx="9" cy="7" r="4" />
-                                <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
-                                <path d="M16 3.13a4 4 0 0 1 0 7.75" />
-                            </svg>
-                        </div>
-                        <div class="flex items-start justify-between mb-6">
-                            <span class="card-tag" style="background: rgba(59,130,246,0.08); color: #2563eb;"><span
-                                    class="status-dot" style="background: #2563eb;"></span>Education Support</span>
-                            <span class="card-arrow text-lg">→</span>
-                        </div>
-                        <h3 class="h-headline text-2xl md:text-3xl mb-3">Hidy <span
-                                style="font-weight: 400; font-size: 0.7em; color: #2563eb;">for Teacher</span></h3>
-                        <p class="text-sm leading-relaxed" style="color: var(--text-secondary);">
-                            問題作成、テスト作成の効率化を強力にサポート。
-                        </p>
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <!-- ===== News Section ===== -->
-        <section class="py-16 md:py-24 px-6">
-            <div class="max-w-4xl mx-auto">
-                <div class="flex items-end justify-between mb-10 h-reveal">
-                    <div>
-                        <p class="h-label mb-3">Latest</p>
-                        <h2 class="h-headline text-2xl md:text-3xl">News</h2>
-                    </div>
-                    <a href="news/index.html" class="h-mono cursor-pointer"
-                        style="color: var(--text-tertiary); text-decoration: none; transition: color 0.3s;">
-                        VIEW ALL →
-                    </a>
-                </div>
-
-                <div class="h-reveal" style="animation-delay: 0.08s;">
-                    <div style="border-top: 1px solid var(--border-color);"></div>
-                    <a href="news/2026/0124_anthropic_model.html" class="news-row">
-                        <div class="flex items-center gap-4 shrink-0 mb-2 md:mb-0">
-                            <span class="h-mono">2026.01.24</span>
-                            <span class="card-tag"
-                                style="background: var(--accent-soft); color: var(--accent-text); font-size: 0.55rem; padding: 2px 8px; border-radius: 4px;">Info</span>
-                        </div>
-                        <h3 class="news-title text-sm md:text-base font-medium" style="color: var(--text-primary);">
-                            Hino におけるAIモデル実装計画のアップデート
-                        </h3>
-                    </a>
-                    <div style="border-bottom: 1px solid var(--border-color);"></div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ===== Recruitment CTA ===== -->
-        <section class="py-24 md:py-32 px-6 relative overflow-hidden">
-            <!-- CTA Glow Background -->
-            <div class="absolute inset-0 pointer-events-none"
-                style="background: radial-gradient(ellipse 60% 50% at 50% 50%, var(--accent-soft), transparent);"></div>
-            <div class="max-w-3xl mx-auto text-center h-reveal relative z-10">
-                <p class="h-label mb-6">Recruitment</p>
-                <h2 class="h-headline text-4xl md:text-6xl mb-6">エンジニア、求む。</h2>
-                <p class="h-subhead text-base md:text-lg mb-12 max-w-md mx-auto">
-                    私たちと一緒に最高のプロダクトを生み出しませんか。
-                </p>
-                <a href="https://forms.gle/zGx6sCpbMmNQQCQe6" target="_blank" class="h-btn cursor-pointer">
-                    APPLY NOW
-                    <span class="btn-arrow">→</span>
-                </a>
-            </div>
-        </section>
-
-        <!-- ===== Kazenoko Teaser ===== -->
-        <section class="kazenoko-section group cursor-pointer">
-            <a href="index.html" data-transition-color="#ffffff" class="block py-20 md:py-24">
-                <div class="text-center">
-                    <p class="h-mono mb-3" style="color: var(--text-tertiary);">Entertainment Parent</p>
-                    <h2 class="font-gothic text-2xl md:text-3xl mb-3">
-                        KAZENOKO <span class="kazenoko-arrow">→</span>
+                <div class="md:w-3/4">
+                    <h2 class="font-serif text-4xl md:text-6xl lg:text-7xl leading-[1.3] tracking-tight mb-16 gs-reveal">
+                        洗練された技術と、<br>
+                        ミニマルなデザインで、<br>
+                        本質的な価値を提供する。
                     </h2>
-                    <p class="text-xs" style="color: var(--text-tertiary);">エンタメの世界へ戻る</p>
+                    <div class="flex flex-col md:flex-row gap-12 md:gap-16">
+                        <p class="font-sans text-base md:text-lg leading-[2] text-h-black/70 md:w-1/2 gs-reveal">
+                            私たちは技術のための技術を作りません。ユーザーの日常に溶け込み、見えないところで力強く支える。それが私たちの目指す「みんなの役に立つもの」です。
+                        </p>
+                        <p class="font-sans text-base md:text-lg leading-[2] text-h-black/70 md:w-1/2 gs-reveal">
+                            直感的なUIと、堅牢なバックエンド。その二つが完璧に調和したとき、初めて「最高のCX（顧客体験）」が生まれると信じています。
+                        </p>
+                    </div>
                 </div>
-            </a>
+            </div>
         </section>
 
+        <!-- Philosophy (Sticky Stack) -->
+        <section class="py-32 bg-h-gray px-4 md:px-12 relative" id="philosophy">
+            <div class="max-w-[1400px] mx-auto mb-24 px-2 md:px-0">
+                <span class="text-xs font-sans uppercase tracking-widest text-h-black/40 gs-reveal block">02 / Philosophy</span>
+            </div>
+            
+            <div class="max-w-[1200px] mx-auto relative pb-32">
+                <!-- Card 1 -->
+                <div class="phil-card rounded-2xl md:rounded-[2.5rem]" style="top: 15vh; z-index: 1;">
+                    <div class="flex flex-col md:flex-row justify-between gap-8 md:gap-16">
+                        <div class="font-serif text-6xl md:text-8xl text-h-black/10 leading-none">01</div>
+                        <div class="md:w-3/4">
+                            <h3 class="font-serif text-3xl md:text-5xl mb-8 tracking-tight">Vibe Coding</h3>
+                            <p class="font-sans text-lg md:text-xl leading-[1.8] text-h-black/70">
+                                AIとの共創による圧倒的な開発速度。直感と論理を融合させ、最短距離で最高のアウトプットを導き出します。私たちはコードを書く時間よりも、体験を磨き上げる時間に価値を置きます。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Card 2 -->
+                <div class="phil-card rounded-2xl md:rounded-[2.5rem]" style="top: 18vh; z-index: 2;">
+                    <div class="flex flex-col md:flex-row justify-between gap-8 md:gap-16">
+                        <div class="font-serif text-6xl md:text-8xl text-h-black/10 leading-none">02</div>
+                        <div class="md:w-3/4">
+                            <h3 class="font-serif text-3xl md:text-5xl mb-8 tracking-tight">Next-gen IxD</h3>
+                            <p class="font-sans text-lg md:text-xl leading-[1.8] text-h-black/70">
+                                過剰な装飾を排し、触れた瞬間に品質を感じる、次世代のインタラクションデザインを追求します。動きの一つ一つに意味を持たせ、ユーザーの思考を妨げないシームレスな体験を提供します。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="phil-card rounded-2xl md:rounded-[2.5rem]" style="top: 21vh; z-index: 3;">
+                    <div class="flex flex-col md:flex-row justify-between gap-8 md:gap-16">
+                        <div class="font-serif text-6xl md:text-8xl text-h-black/10 leading-none">03</div>
+                        <div class="md:w-3/4">
+                            <h3 class="font-serif text-3xl md:text-5xl mb-8 tracking-tight">User Centric</h3>
+                            <p class="font-sans text-lg md:text-xl leading-[1.8] text-h-black/70">
+                                常にユーザーの視点に立ち、本質的な課題を解決する。デザインやUIが優れているだけでは足りません。顧客体験（CX）全体を通して、期待を超える価値を提供し続けることが私たちの使命です。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Product: Homu -->
+        <section id="homu" class="py-32 md:py-48 bg-h-black text-h-gray px-6 md:px-12 rounded-t-[3rem] md:rounded-t-[5rem] -mt-12 relative z-10">
+            <div class="max-w-[1400px] mx-auto text-center">
+                <span class="text-xs font-sans uppercase tracking-widest text-h-gray/40 block mb-12 gs-reveal">03 / Flagship Product</span>
+                
+                <h2 class="font-serif text-6xl md:text-[12rem] leading-none tracking-tighter mb-12 gs-reveal">H O M U</h2>
+                
+                <p class="font-sans text-lg md:text-2xl leading-[2] text-h-gray/80 max-w-3xl mx-auto mb-16 gs-reveal">
+                    最新鋭の国産モデルを搭載した、次世代の自律型AIエージェント。<br>
+                    複雑なワークフローをシームレスにこなし、あなたの生産性を最大化します。
+                </p>
+                
+                <div class="gs-reveal">
+                    <a href="products/Hinoko Brand/Homu/index.html" class="btn-magnetic light">
+                        <span>Explore Homu</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Join -->
+        <section class="bg-h-black text-h-gray py-24 md:py-32 overflow-hidden border-t border-h-gray/10">
+            <div class="marquee-container font-serif text-[10vw] md:text-[8vw] tracking-tighter italic opacity-50 hover:opacity-100 transition-opacity duration-500 cursor-pointer" onclick="window.open('https://forms.gle/zGx6sCpbMmNQQCQe6', '_blank')">
+                <div class="marquee-content">
+                    <span class="px-8 md:px-12">JOIN THE TEAM</span>
+                    <span class="px-8 md:px-12">—</span>
+                    <span class="px-8 md:px-12">APPLY NOW</span>
+                    <span class="px-8 md:px-12">—</span>
+                    <span class="px-8 md:px-12">SHAPE THE FUTURE</span>
+                    <span class="px-8 md:px-12">—</span>
+                    <span class="px-8 md:px-12">JOIN THE TEAM</span>
+                    <span class="px-8 md:px-12">—</span>
+                    <span class="px-8 md:px-12">APPLY NOW</span>
+                    <span class="px-8 md:px-12">—</span>
+                    <span class="px-8 md:px-12">SHAPE THE FUTURE</span>
+                    <span class="px-8 md:px-12">—</span>
+                </div>
+            </div>
+        </section>
     </main>
 
-    <!-- ===== Footer ===== -->
-    <footer class="h-footer pt-16 pb-8 px-6">
-        <div class="max-w-5xl mx-auto">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 md:gap-16 mb-16">
-                <!-- Brand -->
-                <div class="md:col-span-2">
-                    <div class="font-gothic text-lg tracking-tight mb-5" style="color: var(--footer-heading);">Hinoko
-                    </div>
-                    <p class="text-sm leading-relaxed max-w-sm" style="color: var(--footer-text-dim);">
-                        みんなの役にたつものを。<br>
-                        エンジニアリングチームHinokoは、カゼノコ幹事会の技術的基盤として、革新的なインタラクションと最高のユーザー体験を創造します。
+    <!-- Footer -->
+    <footer class="bg-h-black text-h-gray pt-12 pb-12 px-6 md:px-12">
+        <div class="max-w-[1400px] mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-16 mb-24 border-t border-h-gray/10 pt-24">
+                <div class="md:col-span-6">
+                    <div class="font-serif text-4xl md:text-5xl mb-8 tracking-tight">Hinoko</div>
+                    <p class="font-sans text-base text-h-gray/60 max-w-sm leading-[2]">
+                        みんなの役に立つものを。<br>
+                        カゼノコ幹事会の技術的基盤として、革新的なインタラクションと最高のユーザー体験を創造します。
                     </p>
                 </div>
-
-                <!-- Projects -->
-                <div>
-                    <h4 class="h-mono mb-5" style="color: var(--footer-text-dim);">Projects</h4>
-                    <ul class="space-y-3 text-sm">
-                        <li><a href="products/Hinoko Brand/Hino/index.html">Hino</a></li>
-                        <li><a href="products/Hinoko Brand/Homu/index.html">Homu</a></li>
-                        <li><a href="products/Hinoko Brand/Hidy for Student/index.html">Hidy for Student</a></li>
-                        <li><a href="products/Hinoko Brand/Hidy for Teacher/index.html">Hidy for Teacher</a></li>
+                
+                <div class="md:col-span-3">
+                    <h4 class="font-sans text-xs uppercase tracking-widest text-h-gray/40 mb-8">Projects</h4>
+                    <ul class="space-y-4 font-sans text-sm">
+                        <li><a href="products/Hinoko Brand/Homu/index.html" class="hover:text-h-white transition-colors">Homu</a></li>
                     </ul>
                 </div>
-
-                <!-- Global -->
-                <div>
-                    <h4 class="h-mono mb-5" style="color: var(--footer-text-dim);">Global</h4>
-                    <ul class="space-y-3 text-sm">
-                        <li><a href="index.html">Kazenoko Top</a></li>
-                        <li><a href="news/index.html">Latest News</a></li>
-                        <li><a href="join.html">Recruitment</a></li>
-                        <li><a href="#">Github</a></li>
+                
+                <div class="md:col-span-3">
+                    <h4 class="font-sans text-xs uppercase tracking-widest text-h-gray/40 mb-8">Global</h4>
+                    <ul class="space-y-4 font-sans text-sm">
+                        <li><a href="index.html" class="hover:text-h-white transition-colors">Kazenoko Top</a></li>
+                        <li><a href="news/index.html" class="hover:text-h-white transition-colors">News</a></li>
+                        <li><a href="join.html" class="hover:text-h-white transition-colors">Recruitment</a></li>
                     </ul>
                 </div>
             </div>
-
-            <div style="border-top: 1px solid var(--footer-border);"
-                class="pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] uppercase tracking-widest">
-                <div style="color: var(--footer-text-dim);">© Hinoko Engineering Team. Part of Kazenoko Group.</div>
-                <div class="flex gap-6" style="color: var(--footer-text-dim);">
-                    <a href="privacy.html">Privacy Policy</a>
-                    <a href="terms.html">Terms of Service</a>
+            
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6 font-sans text-[11px] uppercase tracking-widest text-h-gray/40">
+                <div>© 2026 Hinoko Engineering Team.</div>
+                <div class="flex gap-8">
+                    <a href="privacy.html" class="hover:text-h-gray transition-colors">Privacy Policy</a>
+                    <a href="terms.html" class="hover:text-h-gray transition-colors">Terms of Service</a>
                 </div>
             </div>
         </div>
     </footer>
 
-    <!-- Global Scripts -->
-    <script src="js/main.js"></script>
-
-    <!-- Hinoko Page Scripts -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-
-            // ===== Theme Toggle =====
-            const toggle = document.getElementById('theme-toggle');
-            const html = document.documentElement;
-            const iconSun = document.getElementById('icon-sun');
-            const iconMoon = document.getElementById('icon-moon');
-
-            // Load saved preference
-            const saved = localStorage.getItem('hinoko-theme');
-            if (saved) {
-                html.setAttribute('data-theme', saved);
-            } else {
-                // Check system preference
-                if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-                    html.setAttribute('data-theme', 'dark');
-                }
-            }
-
-            const updateIcons = () => {
-                const theme = html.getAttribute('data-theme');
-                if (theme === 'dark') {
-                    iconSun.style.display = 'block';
-                    iconMoon.style.display = 'none';
-                } else {
-                    iconSun.style.display = 'none';
-                    iconMoon.style.display = 'block';
-                }
-            };
-            updateIcons();
-
-            toggle.addEventListener('click', () => {
-                const current = html.getAttribute('data-theme');
-                const next = current === 'dark' ? 'light' : 'dark';
-                html.setAttribute('data-theme', next);
-                localStorage.setItem('hinoko-theme', next);
-                updateIcons();
+            // Lenis Smooth Scroll
+            const lenis = new Lenis({
+                duration: 1.2,
+                easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+                smooth: true,
             });
 
-            // ===== Intersection Observer for Animations =====
-            const revealElements = document.querySelectorAll('.h-reveal, .h-scale');
-            const revealObserver = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                    }
-                });
-            }, {
-                threshold: 0.1,
-                rootMargin: '0px 0px -40px 0px'
-            });
+            lenis.on('scroll', ScrollTrigger.update);
+            gsap.ticker.add((time) => { lenis.raf(time * 1000); });
+            gsap.ticker.lagSmoothing(0);
 
-            revealElements.forEach(el => revealObserver.observe(el));
-
-            // ===== Smooth Scroll for Anchor Links =====
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', (e) => {
-                    const target = document.querySelector(anchor.getAttribute('href'));
-                    if (target) {
-                        e.preventDefault();
-                        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    }
-                });
-            });
-
-            // ===== Cards Hover Glow Effect =====
-            const cards = document.querySelectorAll('.h-card');
-            cards.forEach(card => {
-                card.addEventListener('mousemove', e => {
-                    const rect = card.getBoundingClientRect();
-                    const x = e.clientX - rect.left;
-                    const y = e.clientY - rect.top;
-                    card.style.setProperty('--mouse-x', `${x}px`);
-                    card.style.setProperty('--mouse-y', `${y}px`);
-                });
-            });
-
-            // ===== Splash Animation (GSAP) =====
-            // パーティクルアニメーションをスプラッシュと同時に初期化する
-            initThreeJS();
-
+            // Intro Animation
             const tl = gsap.timeline();
-
-            tl.to('.splash-text', {
-                y: '0%',
-                scale: 1,
-                rotate: 0,
-                opacity: 1,
-                duration: 1.5,
-                ease: 'expo.out',
-                delay: 0.2
+            
+            tl.to("#loader .loader-text span", {
+                y: 0,
+                duration: 1,
+                stagger: 0.1,
+                ease: "expo.out"
             })
-            .to('.splash-text', {
-                y: '-150%',
-                scale: 1.1,
-                rotate: -5,
+            .to("#loader", {
+                clipPath: "polygon(0 0, 100% 0, 100% 0%, 0 0%)",
+                duration: 1.2,
+                ease: "expo.inOut",
+                delay: 0.5
+            })
+            .to(".hero-title-char", {
+                opacity: 1,
+                y: 0,
+                rotation: 0,
+                duration: 1.5,
+                stagger: 0.08,
+                ease: "expo.out"
+            }, "-=0.6")
+            .fromTo(".hero-fade", {
                 opacity: 0,
-                duration: 1.0,
-                ease: 'expo.in'
-            }, "+=0.8")
-            .to('#splash-loader', {
-                opacity: 0,
-                duration: 0.8,
-                ease: 'power2.inOut',
-                onComplete: () => {
-                    document.getElementById('splash-loader').style.display = 'none';
-                }
-            }, "-=0.2");
+                y: 20
+            }, {
+                opacity: 1,
+                y: 0,
+                duration: 1.2,
+                stagger: 0.2,
+                ease: "expo.out"
+            }, "-=1.2");
 
-            // ===== Three.js Particles for Hero Section =====
-            function initThreeJS() {
-                const canvas = document.getElementById('hero-particles');
-                if (!canvas) return;
-
-                const scene = new THREE.Scene();
-                const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-                const renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true, antialias: true });
-                
-                renderer.setSize(window.innerWidth, window.innerHeight);
-                renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-                
-                camera.position.z = 30;
-
-                // Create particles
-                const particlesGeometry = new THREE.BufferGeometry();
-                const particlesCount = 800;
-                
-                const posArray = new Float32Array(particlesCount * 3);
-                const colorsArray = new Float32Array(particlesCount * 3);
-                
-                // Colors based on theme
-                const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-                const color1 = new THREE.Color(isDark ? '#ff8c38' : '#ff6b00');
-                const color2 = new THREE.Color(isDark ? '#00e5ff' : '#7c3aed');
-                
-                for(let i = 0; i < particlesCount * 3; i+=3) {
-                    // Position
-                    posArray[i] = (Math.random() - 0.5) * 100; // x
-                    posArray[i+1] = (Math.random() - 0.5) * 100; // y
-                    posArray[i+2] = (Math.random() - 0.5) * 50; // z
-                    
-                    // Color mix
-                    const mixRatio = Math.random();
-                    const mixedColor = color1.clone().lerp(color2, mixRatio);
-                    colorsArray[i] = mixedColor.r;
-                    colorsArray[i+1] = mixedColor.g;
-                    colorsArray[i+2] = mixedColor.b;
-                }
-                
-                particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
-                particlesGeometry.setAttribute('color', new THREE.BufferAttribute(colorsArray, 3));
-                
-                // Create material
-                const particlesMaterial = new THREE.PointsMaterial({
-                    size: 0.2,
-                    vertexColors: true,
-                    transparent: true,
-                    opacity: 0.8,
-                    blending: THREE.AdditiveBlending
-                });
-                
-                const particlesMesh = new THREE.Points(particlesGeometry, particlesMaterial);
-                scene.add(particlesMesh);
-                
-                // Mouse interaction
-                let mouseX = 0;
-                let mouseY = 0;
-                let targetX = 0;
-                let targetY = 0;
-                
-                const windowHalfX = window.innerWidth / 2;
-                const windowHalfY = window.innerHeight / 2;
-                
-                document.addEventListener('mousemove', (event) => {
-                    mouseX = (event.clientX - windowHalfX);
-                    mouseY = (event.clientY - windowHalfY);
-                });
-                
-                // Animation loop
-                const clock = new THREE.Clock();
-                
-                function animate() {
-                    requestAnimationFrame(animate);
-                    const elapsedTime = clock.getElapsedTime();
-                    
-                    targetX = mouseX * 0.001;
-                    targetY = mouseY * 0.001;
-                    
-                    particlesMesh.rotation.y += 0.002;
-                    particlesMesh.rotation.x += 0.001;
-                    
-                    // Wave effect
-                    const positions = particlesGeometry.attributes.position.array;
-                    for(let i = 0; i < particlesCount; i++) {
-                        const i3 = i * 3;
-                        const x = positions[i3];
-                        const z = positions[i3 + 2];
-                        positions[i3 + 1] += Math.sin(elapsedTime + x) * 0.02;
-                    }
-                    particlesGeometry.attributes.position.needsUpdate = true;
-                    
-                    // Parallax
-                    particlesMesh.rotation.y += 0.05 * (targetX - particlesMesh.rotation.y);
-                    particlesMesh.rotation.x += 0.05 * (targetY - particlesMesh.rotation.x);
-                    
-                    renderer.render(scene, camera);
-                }
-                
-                animate();
-                
-                // Resize handler
-                window.addEventListener('resize', () => {
-                    camera.aspect = window.innerWidth / window.innerHeight;
-                    camera.updateProjectionMatrix();
-                    renderer.setSize(window.innerWidth, window.innerHeight);
-                });
-
-                // Update colors on theme toggle
-                const toggle = document.getElementById('theme-toggle');
-                toggle.addEventListener('click', () => {
-                    setTimeout(() => {
-                        const newIsDark = document.documentElement.getAttribute('data-theme') === 'dark';
-                        const newColor1 = new THREE.Color(newIsDark ? '#ff8c38' : '#ff6b00');
-                        const newColor2 = new THREE.Color(newIsDark ? '#00e5ff' : '#7c3aed');
-                        
-                        const colors = particlesGeometry.attributes.color.array;
-                        for(let i = 0; i < particlesCount * 3; i+=3) {
-                            const mixRatio = Math.random();
-                            const mixedColor = newColor1.clone().lerp(newColor2, mixRatio);
-                            colors[i] = mixedColor.r;
-                            colors[i+1] = mixedColor.g;
-                            colors[i+2] = mixedColor.b;
+            // Scroll Reveals
+            gsap.utils.toArray('.gs-reveal').forEach(el => {
+                gsap.fromTo(el, 
+                    { opacity: 0, y: 40 },
+                    {
+                        opacity: 1, y: 0,
+                        duration: 1.2,
+                        ease: "expo.out",
+                        scrollTrigger: {
+                            trigger: el,
+                            start: "top 85%",
                         }
-                        particlesGeometry.attributes.color.needsUpdate = true;
-                    }, 100);
+                    }
+                );
+            });
+
+            // Philosophy Cards Parallax Stacking
+            const cards = gsap.utils.toArray('.phil-card');
+            cards.forEach((card, i) => {
+                // We only animate the scale down when scrolling past it
+                gsap.to(card, {
+                    scale: 0.95,
+                    opacity: 0.4,
+                    scrollTrigger: {
+                        trigger: card,
+                        start: "top 15%",
+                        endTrigger: "#philosophy",
+                        end: "bottom bottom",
+                        scrub: true,
+                        pin: false
+                    }
                 });
-            }
+            });
         });
     </script>
 </body>
-
 </html>
